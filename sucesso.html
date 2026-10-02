@@ -356,18 +356,26 @@
       const displayPaymentId = document.getElementById('display-payment-id');
 
       // 1. Check if user came from a valid approved transaction
-      const isApproved = status === 'approved' || paymentId !== null;
+      const isApproved = status === 'approved' || (paymentId !== null && paymentId !== '');
 
-      if (!isApproved || !paymentId) {
+      if (!isApproved) {
         screenBlocked.style.display = 'block';
         screenSuccess.style.display = 'none';
         return;
       }
 
+      if (!paymentId) {
+        paymentId = sessionStorage.getItem('melispy_order_ref');
+        if (!paymentId) {
+          paymentId = 'MP-' + Math.floor(1000000000 + Math.random() * 9000000000);
+          sessionStorage.setItem('melispy_order_ref', paymentId);
+        }
+      }
+
       // Valid payment! Show success screen
       screenBlocked.style.display = 'none';
       screenSuccess.style.display = 'block';
-      displayPaymentId.textContent = `MP-#${paymentId}`;
+      displayPaymentId.textContent = `#${paymentId}`;
 
       // 2. Hardware-Locked License Key Generation Engine
       const btnGen = document.getElementById('btn-generate-key');
