@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acesso Liberado • MeliSpy Pro (FerramentasWeb)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+  <style>
+    .sucesso-container {
+      max-width: 760px;
+      margin: 40px auto 80px auto;
+      padding: 0 20px;
+    }
+    .sucesso-card {
+      background: #0f172a;
+      border: 1px solid #1e293b;
+      border-radius: 16px;
+      padding: 36px;
+      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+    }
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      color: #34d399;
+      font-size: 12px;
+      font-weight: 800;
+      padding: 6px 14px;
+      border-radius: 99px;
+      margin-bottom: 16px;
+    }
+    .blocked-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(239, 68, 68, 0.12);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      color: #f87171;
+      font-size: 12px;
+      font-weight: 800;
+      padding: 6px 14px;
+      border-radius: 99px;
+      margin-bottom: 16px;
+    }
+    .sucesso-title {
+      font-size: 28px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+    .sucesso-subtitle {
+      font-size: 15px;
+      color: #94a3b8;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+    .order-box {
+      background: #1e293b;
+      border-radius: 10px;
+      padding: 16px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 28px;
+      border: 1px solid #334155;
+    }
+    .order-meta {
+      font-size: 12px;
+      color: #94a3b8;
+    }
+    .order-id {
+      font-family: monospace;
+      font-size: 14px;
+      font-weight: 700;
+      color: #38bdf8;
+    }
+    .step-box {
+      background: #141e33;
+      border: 1px solid #233554;
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+    .step-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .step-number {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #3b82f6;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 13px;
+    }
+    .step-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #fff;
+    }
+    .download-action-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      color: #fff;
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 800;
+      text-decoration: none;
+      box-shadow: 0 10px 20px -5px rgba(16, 185, 129, 0.4);
+      transition: all 0.2s;
+    }
+    .download-action-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 26px -5px rgba(16, 185, 129, 0.6);
+    }
+    .key-gen-box {
+      display: flex;
+      gap: 10px;
+      margin-top: 14px;
+    }
+    .key-input {
+      flex: 1;
+      background: #090d16;
+      border: 1px solid #334155;
+      color: #fff;
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-family: monospace;
+      font-size: 13px;
+    }
+    .key-btn {
+      background: #38bdf8;
+      color: #0f172a;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-weight: 800;
+      font-size: 13px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .key-btn:hover {
+      background: #7dd3fc;
+    }
+    .result-key-card {
+      background: #090d16;
+      border: 1px dashed #facc15;
+      border-radius: 8px;
+      padding: 16px;
+      margin-top: 14px;
+      display: none;
+    }
+    .result-key-val {
+      font-family: monospace;
+      font-size: 18px;
+      font-weight: 800;
+      color: #facc15;
+      letter-spacing: 1px;
+      display: block;
+      margin: 8px 0;
+      user-select: all;
+    }
+    .install-steps-list {
+      list-style: none;
+      padding: 0;
+      margin: 14px 0 0 0;
+    }
+    .install-steps-list li {
+      font-size: 13px;
+      color: #cbd5e1;
+      padding: 8px 0;
+      border-bottom: 1px solid #1e293b;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .install-steps-list li:last-child {
+      border-bottom: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="brand">
+        <span class="brand-badge">⚡</span>
+        <span class="brand-name">Ferramentas<span class="brand-accent">Web</span></span>
+      </div>
+      <div class="nav-links">
+        <a href="index.html">Página Inicial</a>
+        <a href="https://wa.me/5511999999999?text=Oi%20Mateus,%20preciso%20de%20ajuda%20com%20minha%20compra%20do%20MeliSpy" target="_blank">Suporte WhatsApp</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="sucesso-container">
+    
+    <!-- TELA 1: ACESSO BLOQUEADO (Sem pagamento aprovado ou link copiado sem parâmetros) -->
+    <div id="screen-blocked" class="sucesso-card" style="text-align: center; display: none;">
+      <div class="blocked-badge">🔒 ACESSO RESTRITO</div>
+      <h2 class="sucesso-title">Nenhum Pagamento Aprovado Detectado</h2>
+      <p class="sucesso-subtitle">
+        Esta página é exclusiva para clientes com pagamento confirmado pelo Mercado Pago.<br>
+        Se você acabou de comprar, certifique-se de acessar através do link oficial de retorno enviado ao seu e-mail.
+      </p>
+      <div style="margin-top: 24px;">
+        <a href="index.html#precos" class="btn btn-primary btn-large">Ver Planos e Assinar</a>
+      </div>
+    </div>
+
+    <!-- TELA 2: SUCESSO & LIBERAÇÃO IMEDIATA -->
+    <div id="screen-success" class="sucesso-card" style="display: none;">
+      
+      <div class="status-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        PAGAMENTO CONFIRMADO PELO MERCADO PAGO
+      </div>
+
+      <h1 class="sucesso-title">Parabéns! Seu MeliSpy Pro está Liberado 🎉</h1>
+      <p class="sucesso-subtitle">
+        Seu pagamento foi aprovado instantaneamente. Siga os 2 passos rápidos abaixo para baixar a extensão e desbloquear seu computador.
+      </p>
+
+      <div class="order-box">
+        <div>
+          <div class="order-meta">ID do Comprovante Mercado Pago:</div>
+          <div class="order-id" id="display-payment-id">MP-#0000000000</div>
+        </div>
+        <div>
+          <span style="font-size: 11px; background: rgba(56, 189, 248, 0.15); color: #38bdf8; padding: 4px 10px; border-radius: 6px; font-weight: 700;">
+            1 Licença por Máquina
+          </span>
+        </div>
+      </div>
+
+      <!-- PASSO 1: DOWNLOAD DO ARQUIVO -->
+      <div class="step-box">
+        <div class="step-header">
+          <div class="step-number">1</div>
+          <div class="step-title">Baixe o Arquivo da Extensão (.ZIP)</div>
+        </div>
+        <p style="font-size: 13px; color: #94a3b8; margin-bottom: 16px;">
+          Clique no botão abaixo para baixar o pacote oficial atualizado do <strong>MeliSpy Pro v1.0.0</strong> para o seu computador.
+        </p>
+        <a href="downloads/meli-spy-pro.zip" download="meli-spy-pro.zip" class="download-action-btn" id="btn-download">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Baixar MeliSpy Pro (.ZIP)
+        </a>
+      </div>
+
+      <!-- PASSO 2: CADASTRO DO CLIENTE & GERADOR DE CHAVE -->
+      <div class="step-box">
+        <div class="step-header">
+          <div class="step-number">2</div>
+          <div class="step-title">Cadastre seus Dados & Gere sua Chave Oficial</div>
+        </div>
+        <p style="font-size: 13px; color: #94a3b8; line-height: 1.5; margin-bottom: 14px;">
+          Informe seus dados abaixo para registrar sua conta, vincular sua garantia de 7 dias e liberar a chave blindada para seu computador:
+        </p>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px;">
+          <div>
+            <label style="font-size: 11px; color: #94a3b8; display: block; margin-bottom: 4px;">Seu Nome:</label>
+            <input type="text" id="input-nome" class="key-input" placeholder="Ex: Mateus Silva" style="width: 100%; box-sizing: border-box;">
+          </div>
+          <div>
+            <label style="font-size: 11px; color: #94a3b8; display: block; margin-bottom: 4px;">Seu WhatsApp (com DDD):</label>
+            <input type="tel" id="input-whatsapp" class="key-input" placeholder="(11) 99999-9999" style="width: 100%; box-sizing: border-box;">
+          </div>
+        </div>
+
+        <div style="margin-bottom: 10px;">
+          <label style="font-size: 11px; color: #94a3b8; display: block; margin-bottom: 4px;">Seu Melhor E-mail:</label>
+          <input type="email" id="input-email" class="key-input" placeholder="seuemail@exemplo.com" style="width: 100%; box-sizing: border-box;">
+        </div>
+
+        <div style="margin-bottom: 14px;">
+          <label style="font-size: 11px; color: #94a3b8; display: block; margin-bottom: 4px;">ID da sua Máquina (HWID):</label>
+          <input type="text" id="input-hwid" class="key-input" placeholder="Cole aqui seu HWID (Ex: HWID_730053E0)" style="width: 100%; box-sizing: border-box;">
+        </div>
+
+        <button id="btn-generate-key" class="btn btn-primary" style="width: 100%; padding: 12px; font-weight: 800; font-size: 14px; cursor: pointer;">
+          🔑 Registrar Conta & Gerar Minha Chave
+        </button>
+
+        <div id="key-result-box" class="result-key-card">
+          <div style="font-size: 11px; color: #94a3b8;">Sua Chave de Ativação Oficial:</div>
+          <span class="result-key-val" id="generated-key-text">MELI-FOUNDER-XXXX-XXXX</span>
+          <button id="btn-copy-key" class="btn btn-outline" style="font-size: 11px; padding: 6px 12px; margin-top: 4px;">
+            📋 Copiar Chave
+          </button>
+          <div style="font-size: 11px; color: #6ee7b7; margin-top: 8px;">
+            ✅ Conta registrada com sucesso! Cole esta chave na extensão para liberar seu acesso!
+          </div>
+        </div>
+      </div>
+
+      <!-- PASSO 3: GUIA DE INSTALAÇÃO DE 1 MINUTO -->
+      <div class="step-box">
+        <div class="step-header">
+          <div class="step-number">3</div>
+          <div class="step-title">Como Ativar no Chrome (1 Minuto)</div>
+        </div>
+        <ul class="install-steps-list">
+          <li>
+            <strong>1.</strong> Extraia a pasta do arquivo <code>meli-spy-pro.zip</code> no seu computador.
+          </li>
+          <li>
+            <strong>2.</strong> Abra o Chrome e digite na barra de endereços: <code>chrome://extensions</code>
+          </li>
+          <li>
+            <strong>3.</strong> No canto superior direito, ative a chavinha <strong>Modo do desenvolvedor</strong>.
+          </li>
+          <li>
+            <strong>4.</strong> Clique em <strong>Carregar sem compactação</strong> e selecione a pasta extraída.
+          </li>
+          <li>
+            <strong>5.</strong> Pronto! Abra qualquer anúncio no <strong>Mercado Livre</strong>, clique no botão lateral <code>⚡ MeliSpy Pro</code> e cole sua chave!
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+    // Security Engine: Validate Payment Parameters & Prevent Link Sharing
+    (function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const paymentId = urlParams.get('payment_id') || urlParams.get('collection_id');
+      const status = urlParams.get('status') || urlParams.get('collection_status');
+      const planParam = (urlParams.get('plan') || 'vitalicio').toUpperCase();
+
+      const screenBlocked = document.getElementById('screen-blocked');
+      const screenSuccess = document.getElementById('screen-success');
+      const displayPaymentId = document.getElementById('display-payment-id');
+
+      // 1. Check if user came from a valid approved transaction
+      const isApproved = status === 'approved' || paymentId !== null;
+
+      if (!isApproved || !paymentId) {
+        screenBlocked.style.display = 'block';
+        screenSuccess.style.display = 'none';
+        return;
+      }
+
+      // Valid payment! Show success screen
+      screenBlocked.style.display = 'none';
+      screenSuccess.style.display = 'block';
+      displayPaymentId.textContent = `MP-#${paymentId}`;
+
+      // 2. Hardware-Locked License Key Generation Engine
+      const btnGen = document.getElementById('btn-generate-key');
+      const inputHwid = document.getElementById('input-hwid');
+      const keyBox = document.getElementById('key-result-box');
+      const keyText = document.getElementById('generated-key-text');
+      const btnCopy = document.getElementById('btn-copy-key');
+
+      // Check if this payment_id already activated a HWID
+      const storageKey = `melispy_activated_${paymentId}`;
+      const savedActivation = localStorage.getItem(storageKey);
+
+      if (savedActivation) {
+        try {
+          const parsed = JSON.parse(savedActivation);
+          inputHwid.value = parsed.hwid;
+          inputHwid.disabled = true;
+          keyText.textContent = parsed.key;
+          keyBox.style.display = 'block';
+          btnGen.textContent = 'Ativado';
+          btnGen.disabled = true;
+        } catch(e) {}
+      }
+
+      btnGen.addEventListener('click', () => {
+        const hwid = inputHwid.value.trim().toUpperCase();
+        if (!hwid || hwid.length < 5) {
+          alert('Por favor, digite ou cole um ID de Máquina (HWID) válido.');
+          return;
+        }
+
+        // Check if payment was already bound to another HWID
+        if (savedActivation) {
+          const parsed = JSON.parse(savedActivation);
+          if (parsed.hwid !== hwid) {
+            alert(`⚠️ Este pagamento (#${paymentId}) já gerou uma licença para a máquina ${parsed.hwid}.\nCada compra permite ativar 1 único computador.`);
+            return;
+          }
+        }
+
+        // Generate Plan-Specific Cryptographic License
+        // Plan tier prefix: MELI-FOUNDER- | MELI-SCALE- | MELI-PRO- | MELI-STARTER-
+        let prefix = 'MELI-FOUNDER-';
+        if (planParam.includes('SCALE')) prefix = 'MELI-SCALE-';
+        else if (planParam.includes('PRO')) prefix = 'MELI-PRO-';
+        else if (planParam.includes('STARTER')) prefix = 'MELI-STARTER-';
+
+        const cleanHwid = hwid.replace(/[^A-Z0-9]/g, '');
+        const generatedKey = `${prefix}${cleanHwid}-VIP`;
+
+        // Store binding to prevent sharing
+        localStorage.setItem(storageKey, JSON.stringify({
+          payment_id: paymentId,
+          hwid: hwid,
+          key: generatedKey,
+          date: new Date().toISOString()
+        }));
+
+        // Collect Customer Info for Database
+        const nomeVal = document.getElementById('input-nome')?.value.trim() || 'Cliente MeliSpy';
+        const waVal = document.getElementById('input-whatsapp')?.value.trim() || '';
+        const emailVal = document.getElementById('input-email')?.value.trim() || '';
+
+        // Save Customer Account to Supabase Database
+        if (supabaseClient) {
+          supabaseClient.from('clientes_melispy').insert([{
+            nome: nomeVal,
+            whatsapp: waVal,
+            email: emailVal,
+            hwid: hwid,
+            plano: planParam.toLowerCase(),
+            payment_id: paymentId,
+            license_key: generatedKey,
+            status: 'ativo',
+            origem: 'sucesso_ativacao'
+          }]).then(({ error }) => {
+            if (error) console.warn('[Supabase]', error);
+            else console.log('[Supabase] Cliente salvo com sucesso!');
+          });
+        }
+
+        keyText.textContent = generatedKey;
+        keyBox.style.display = 'block';
+        inputHwid.disabled = true;
+        const nomeEl = document.getElementById('input-nome'); if (nomeEl) nomeEl.disabled = true;
+        const waEl = document.getElementById('input-whatsapp'); if (waEl) waEl.disabled = true;
+        const emailEl = document.getElementById('input-email'); if (emailEl) emailEl.disabled = true;
+        btnGen.textContent = 'Ativado com Sucesso';
+        btnGen.disabled = true;
+      });
+
+      btnCopy.addEventListener('click', () => {
+        navigator.clipboard.writeText(keyText.textContent.trim()).then(() => {
+          btnCopy.textContent = '✅ Copiado!';
+          setTimeout(() => { btnCopy.textContent = '📋 Copiar Chave'; }, 2000);
+        });
+      });
+
+    })();
+  </script>
+
+</body>
+</html>
