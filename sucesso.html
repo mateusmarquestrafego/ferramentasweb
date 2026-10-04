@@ -298,6 +298,7 @@
           <button id="btn-copy-key" class="btn btn-outline" style="font-size: 11px; padding: 6px 12px; margin-top: 4px;">
             📋 Copiar Chave
           </button>
+          <div id="key-validity-info" style="display: none; font-size: 11px; margin-top: 8px; padding: 8px 12px; border-radius: 6px; background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.25); color: #38bdf8; text-align: left; line-height: 1.4;"></div>
           <div style="font-size: 11px; color: #6ee7b7; margin-top: 8px;">
             ✅ Conta registrada com sucesso! Copie a chave e baixe o arquivo no Passo 2 abaixo.
           </div>
@@ -504,12 +505,26 @@
 
         // Generate Plan-Specific Cryptographic License
         let prefix = 'MELI-FOUNDER-';
-        if (planParam.includes('SCALE')) prefix = 'MELI-SCALE-';
-        else if (planParam.includes('PRO')) prefix = 'MELI-PRO-';
-        else if (planParam.includes('STARTER')) prefix = 'MELI-STARTER-';
+        let isMonthly = false;
+        if (planParam.includes('SCALE')) { prefix = 'MELI-SCALE-'; isMonthly = true; }
+        else if (planParam.includes('PRO')) { prefix = 'MELI-PRO-'; isMonthly = true; }
+        else if (planParam.includes('STARTER')) { prefix = 'MELI-STARTER-'; isMonthly = true; }
 
         const cleanHwid = hwid.replace(/[^A-Z0-9]/g, '');
-        const generatedKey = `${prefix}${cleanHwid}-VIP`;
+        let generatedKey = '';
+        let expiresAtIso = null;
+        let validityText = '';
+
+        if (isMonthly) {
+          const expTimestamp = Math.floor((Date.now() + 30 * 24 * 60 * 60 * 1000) / 1000);
+          const expDate = new Date(expTimestamp * 1000);
+          expiresAtIso = expDate.toISOString();
+          generatedKey = `${prefix}${cleanHwid}-EXP${expTimestamp}-VIP`;
+          validityText = `🟢 <strong>Assinatura Mensal Ativa até ${expDate.toLocaleDateString('pt-BR')}</strong><br><span style="color:#94a3b8; font-size:10px;">(Mesmo se você cancelar sua assinatura no Mercado Pago antes, seu acesso permanecerá liberado até este dia!)</span>`;
+        } else {
+          generatedKey = `${prefix}${cleanHwid}-VIP`;
+          validityText = `👑 <strong>Licença Vitalícia Founder</strong> (Acesso perpétuo sem data de expiração)`;
+        }
 
         // Store binding to prevent sharing
         localStorage.setItem(storageKey, JSON.stringify({
@@ -519,6 +534,7 @@
           nome: nomeVal,
           whatsapp: cleanWa,
           email: emailVal,
+          expires_at: expiresAtIso,
           date: new Date().toISOString()
         }));
 
@@ -538,6 +554,12 @@
             if (error) console.warn('[Supabase Error]', error);
             else console.log('[Supabase] Cliente salvo com sucesso!');
           });
+        }
+
+        const validityEl = document.getElementById('key-validity-info');
+        if (validityEl) {
+          validityEl.innerHTML = validityText;
+          validityEl.style.display = 'block';
         }
 
         keyText.textContent = generatedKey;
