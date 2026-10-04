@@ -1189,3 +1189,379 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+/* =======================================================
+   HIGH CONVERSION SALES ELEMENTS & GATILHOS DE OFERTA
+   ======================================================= */
+
+/* 1. Anchored Prices ("De R$ X por R$ Y") */
+.price-anchoring {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.price-original {
+  font-size: 14px;
+  color: #94a3b8;
+  text-decoration: line-through;
+  font-weight: 600;
+}
+
+.price-original.hero-orig {
+  color: #ef4444;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.price-discount-tag {
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  color: #34d399;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 99px;
+  letter-spacing: 0.5px;
+}
+
+.price-discount-tag.hero-tag {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.2), rgba(245, 158, 11, 0.2));
+  border-color: rgba(245, 158, 11, 0.5);
+  color: #facc15;
+  font-size: 11px;
+  animation: pulse-border 2s infinite;
+}
+
+/* 2. Urgency Countdown Banner */
+.pricing-timer-card {
+  background: linear-gradient(135deg, #111a2e 0%, #0d1527 100%);
+  border: 1px solid #1e293b;
+  border-left: 4px solid #f59e0b;
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-bottom: 28px;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+}
+
+.timer-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.timer-tag {
+  display: inline-block;
+  background: rgba(245, 158, 11, 0.15);
+  color: #facc15;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 99px;
+  letter-spacing: 0.8px;
+  margin-bottom: 6px;
+}
+
+.timer-heading {
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+}
+
+.timer-clock {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.timer-unit {
+  background: #090d16;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  padding: 6px 12px;
+  text-align: center;
+  min-width: 54px;
+}
+
+.timer-unit span {
+  display: block;
+  font-family: monospace;
+  font-size: 20px;
+  font-weight: 800;
+  color: #38bdf8;
+  letter-spacing: 1px;
+}
+
+.timer-unit label {
+  display: block;
+  font-size: 9px;
+  text-transform: uppercase;
+  color: #64748b;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.timer-colon {
+  font-size: 20px;
+  font-weight: 800;
+  color: #38bdf8;
+}
+
+/* Stock Progress Bar */
+.stock-progress-wrap {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid #1e293b;
+}
+
+.stock-progress-bar {
+  height: 8px;
+  background: #1e293b;
+  border-radius: 99px;
+  overflow: hidden;
+  margin-bottom: 6px;
+}
+
+.stock-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #10b981 0%, #f59e0b 70%, #ef4444 100%);
+  border-radius: 99px;
+  transition: width 1s ease-in-out;
+}
+
+.stock-label {
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+/* 3. Button Pulse and Glow Animations */
+@keyframes pulse-cta {
+  0% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+    transform: scale(1);
+  }
+  70% {
+    box-shadow: 0 0 0 12px rgba(16, 185, 129, 0);
+    transform: scale(1.02);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse-border {
+  0%, 100% { border-color: rgba(245, 158, 11, 0.4); }
+  50% { border-color: rgba(245, 158, 11, 0.9); }
+}
+
+.pulse-btn {
+  animation: pulse-cta 2.2s infinite ease-in-out;
+}
+
+.countdown-badge {
+  background: #0f172a;
+  border: 1px solid #f59e0b;
+  color: #facc15;
+  font-family: monospace;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 4px;
+  letter-spacing: 1px;
+}
+
+/* 4. Exit Intent Retention Pop-up */
+.exit-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  padding: 20px;
+}
+
+.exit-modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.exit-modal-box {
+  background: #0f172a;
+  border: 2px solid #f59e0b;
+  border-radius: 16px;
+  max-width: 520px;
+  width: 100%;
+  padding: 32px;
+  position: relative;
+  text-align: center;
+  box-shadow: 0 25px 60px -15px rgba(245, 158, 11, 0.3);
+  transform: translateY(20px) scale(0.95);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.exit-modal-overlay.active .exit-modal-box {
+  transform: translateY(0) scale(1);
+}
+
+.exit-modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: none;
+  border: none;
+  color: #64748b;
+  font-size: 24px;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.exit-modal-close:hover {
+  color: #fff;
+}
+
+.exit-badge {
+  display: inline-block;
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  color: #f87171;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 4px 12px;
+  border-radius: 99px;
+  margin-bottom: 12px;
+  letter-spacing: 0.5px;
+}
+
+.exit-title {
+  font-size: 24px;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.exit-desc {
+  font-size: 14px;
+  color: #94a3b8;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.exit-coupon-box {
+  background: #141e33;
+  border: 1px dashed #f59e0b;
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 22px;
+}
+
+.exit-discount-val {
+  font-size: 28px;
+  font-weight: 900;
+  color: #facc15;
+  letter-spacing: -0.5px;
+}
+
+.exit-discount-sub {
+  font-size: 12px;
+  color: #38bdf8;
+  margin-top: 4px;
+}
+
+.exit-btn-claim {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  color: #0f172a;
+  width: 100%;
+  padding: 14px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 900;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 10px 20px -5px rgba(245, 158, 11, 0.4);
+  transition: all 0.2s;
+}
+
+.exit-btn-claim:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 25px -5px rgba(245, 158, 11, 0.6);
+}
+
+.exit-btn-skip {
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 11px;
+  color: #64748b;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.exit-btn-skip:hover {
+  color: #94a3b8;
+}
+
+/* 5. Live Social Proof Toast Ticker */
+.sales-ticker-toast {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background: #0f172a;
+  border: 1px solid #1e293b;
+  border-left: 3px solid #10b981;
+  border-radius: 10px;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.6);
+  z-index: 999;
+  max-width: 340px;
+  transform: translateY(120px);
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  pointer-events: none;
+}
+
+.sales-ticker-toast.show {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.ticker-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(16, 185, 129, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.ticker-content {
+  font-size: 12px;
+  color: #cbd5e1;
+  line-height: 1.35;
+}
+
+.ticker-content strong {
+  color: #fff;
+}
+
+.ticker-time {
+  font-size: 10px;
+  color: #64748b;
+  margin-top: 2px;
+}
+

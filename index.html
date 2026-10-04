@@ -15,7 +15,7 @@
 
   <!-- Top Announcement Bar -->
   <div class="announcement-bar">
-    <span>🔥 <strong>Lote de Fundadores MeliSpy:</strong> Apenas 25 licenças vitalícias por R$ 97 disponíveis este mês!</span>
+    <span>🔥 <strong>LOTE DE FUNDADORES COM ATÉ 51% OFF:</strong> Esta oferta relâmpago encerra em <span id="top-countdown" class="countdown-badge">14:59</span> • Restam apenas 4 licenças!</span>
   </div>
 
   <!-- Navigation -->
@@ -244,6 +244,29 @@
         </div>
       </div>
 
+      <!-- Urgency Countdown Banner -->
+      <div class="pricing-timer-card">
+        <div class="timer-flex">
+          <div class="timer-info">
+            <span class="timer-tag">⚡ OFERTA PROMOCIONAL DO LOTE 1</span>
+            <h3 class="timer-heading">Condição especial com até 51% de desconto encerra em:</h3>
+          </div>
+          <div class="timer-clock">
+            <div class="timer-unit"><span id="cd-hours">00</span><label>Horas</label></div>
+            <div class="timer-colon">:</div>
+            <div class="timer-unit"><span id="cd-minutes">14</span><label>Min</label></div>
+            <div class="timer-colon">:</div>
+            <div class="timer-unit"><span id="cd-seconds">59</span><label>Seg</label></div>
+          </div>
+        </div>
+        <div class="stock-progress-wrap">
+          <div class="stock-progress-bar">
+            <div class="stock-progress-fill" style="width: 84%;"></div>
+          </div>
+          <span class="stock-label">🚨 <strong>21 de 25 licenças</strong> deste lote já foram resgatadas hoje (Apenas 4 restantes neste valor)</span>
+        </div>
+      </div>
+
       <div class="pricing-grid paid-only-grid">
         
         <!-- Plano Starter -->
@@ -251,6 +274,10 @@
           <div class="price-header">
             <h3>Starter</h3>
             <p>Para vendedores iniciantes</p>
+          </div>
+          <div class="price-anchoring">
+            <span class="price-original">De R$ 67,00</span>
+            <span class="price-discount-tag">-48% OFF</span>
           </div>
           <div class="price-amount">
             <span class="curr">R$</span>
@@ -275,6 +302,10 @@
             <h3>Pro</h3>
             <p>Para vendedores em crescimento</p>
           </div>
+          <div class="price-anchoring">
+            <span class="price-original">De R$ 97,00</span>
+            <span class="price-discount-tag">-43% OFF</span>
+          </div>
           <div class="price-amount">
             <span class="curr">R$</span>
             <span class="val">55</span>
@@ -297,6 +328,10 @@
           <div class="price-header">
             <h3>Scale</h3>
             <p>Para lojas de alto volume</p>
+          </div>
+          <div class="price-anchoring">
+            <span class="price-original">De R$ 147,00</span>
+            <span class="price-discount-tag">-40% OFF</span>
           </div>
           <div class="price-amount">
             <span class="curr">R$</span>
@@ -321,6 +356,10 @@
             <h3>Vitalício Founder</h3>
             <p>Pagamento único, sem mensalidade</p>
           </div>
+          <div class="price-anchoring">
+            <span class="price-original hero-orig">De R$ 197,00</span>
+            <span class="price-discount-tag hero-tag">🔥 ECONOMIZE R$ 100 • 51% OFF</span>
+          </div>
           <div class="price-amount">
             <span class="curr">R$</span>
             <span class="val">97</span>
@@ -335,10 +374,10 @@
             <li>✓ <strong>Garantia Total de 7 Dias</strong> no Pix</li>
             <li>✓ Suporte VIP direto com o desenvolvedor</li>
           </ul>
-          <button class="btn btn-hero-full" onclick="openPlanModal('Vitalício Founder', '97')">
+          <button class="btn btn-hero-full pulse-btn" onclick="openPlanModal('Vitalício Founder', '97')">
             Garantir Vitalício por R$ 97
           </button>
-          <div class="card-urgency">⚡ Restam apenas 14 licenças com preço de fundador!</div>
+          <div class="card-urgency">⚡ Restam apenas 4 licenças com preço de fundador!</div>
         </div>
 
       </div>
@@ -504,6 +543,41 @@
       <div style="margin-top: 14px; text-align: center; font-size: 11px; color: #64748b;">
         Precisa de ajuda com seu pedido? <a id="modal-wa-link" href="#" target="_blank" style="color: #38bdf8; text-decoration: none; font-weight: 600;">Falar com Suporte</a>
       </div>
+    </div>
+  </div>
+
+  <!-- Exit Intent Retention Modal (5% Desconto Extra) -->
+  <div id="exit-modal" class="exit-modal-overlay">
+    <div class="exit-modal-box">
+      <button class="exit-modal-close" onclick="closeExitModal()">&times;</button>
+      <div class="exit-badge">⚠️ ESPERE! NÃO PERCA ESSA CHANCE</div>
+      <h3 class="exit-title">Você ganhou +5% de Desconto Extra no Pix!</h3>
+      <p class="exit-desc">
+        Antes de sair, liberamos uma condição secreta para você começar a espionar concorrentes hoje mesmo pelo menor valor da história:
+      </p>
+
+      <div class="exit-coupon-box">
+        <div style="font-size: 11px; color: #94a3b8; margin-bottom: 4px;">PLANO VITALÍCIO COM DESCONTO EXTRA:</div>
+        <div class="exit-discount-val">De R$ 97 por apenas R$ 92,15</div>
+        <div class="exit-discount-sub">⚡ Desconto de 5% aplicado no Pix imediato ou cartão</div>
+      </div>
+
+      <button class="exit-btn-claim pulse-btn" onclick="claimExitDiscount()">
+        🎁 QUERO MEU DESCONTO DE 5% AGORA
+      </button>
+
+      <div>
+        <span class="exit-btn-skip" onclick="closeExitModal()">Não, prefiro pagar o preço cheio mais tarde</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Social Proof Dynamic Ticker Toast -->
+  <div id="sales-ticker" class="sales-ticker-toast">
+    <div class="ticker-icon">⚡</div>
+    <div>
+      <div class="ticker-content" id="ticker-text"><strong>Rodrigo M. (São Paulo/SP)</strong> acabou de ativar a licença <strong>Vitalício Founder</strong>!</div>
+      <div class="ticker-time" id="ticker-time">há 3 minutos • Compra verificada</div>
     </div>
   </div>
 

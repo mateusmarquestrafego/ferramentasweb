@@ -414,4 +414,122 @@ document.addEventListener('DOMContentLoaded', () => {
       item.classList.toggle('active');
     });
   });
+
+  // ==========================================
+  // 1. COUNTDOWN TIMER (Gatilho de Urgência)
+  // ==========================================
+  let targetTime = localStorage.getItem('melispy_promo_end');
+  const durationMs = 15 * 60 * 1000; // 15 minutos
+
+  if (!targetTime || Date.now() > parseInt(targetTime, 10)) {
+    targetTime = Date.now() + durationMs;
+    localStorage.setItem('melispy_promo_end', targetTime.toString());
+  } else {
+    targetTime = parseInt(targetTime, 10);
+  }
+
+  function updateTimers() {
+    let diff = targetTime - Date.now();
+    if (diff <= 0) {
+      targetTime = Date.now() + durationMs;
+      localStorage.setItem('melispy_promo_end', targetTime.toString());
+      diff = durationMs;
+    }
+
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+    const seconds = Math.floor((diff / 1000) % 60);
+
+    const mStr = minutes.toString().padStart(2, '0');
+    const sStr = seconds.toString().padStart(2, '0');
+
+    // Update Top Announcement Bar Timer
+    const topEl = document.getElementById('top-countdown');
+    if (topEl) topEl.textContent = `${mStr}:${sStr}`;
+
+    // Update Pricing Card Timer
+    const cdMin = document.getElementById('cd-minutes');
+    const cdSec = document.getElementById('cd-seconds');
+    if (cdMin) cdMin.textContent = mStr;
+    if (cdSec) cdSec.textContent = sStr;
+  }
+
+  setInterval(updateTimers, 1000);
+  updateTimers();
+
+  // ==========================================
+  // 2. EXIT INTENT POPUP (Pop-up de Retenção)
+  // ==========================================
+  const exitModal = document.getElementById('exit-modal');
+  let exitTriggered = sessionStorage.getItem('melispy_exit_shown') === 'true';
+
+  document.addEventListener('mouseleave', (e) => {
+    if (e.clientY <= 15 && !exitTriggered && exitModal) {
+      exitTriggered = true;
+      sessionStorage.setItem('melispy_exit_shown', 'true');
+      exitModal.classList.add('active');
+    }
+  });
+
+  // ==========================================
+  // 3. LIVE SOCIAL PROOF TICKER
+  // ==========================================
+  const salesTicker = document.getElementById('sales-ticker');
+  const tickerText = document.getElementById('ticker-text');
+  const tickerTime = document.getElementById('ticker-time');
+
+  const buyers = [
+    { name: 'Rodrigo M.', city: 'São Paulo/SP', plan: 'Vitalício Founder', time: 'há 2 minutos' },
+    { name: 'Camila B.', city: 'Belo Horizonte/MG', plan: 'Plano Scale', time: 'há 5 minutos' },
+    { name: 'Rafael C.', city: 'Campinas/SP', plan: 'Vitalício Founder', time: 'há 9 minutos' },
+    { name: 'Juliana S.', city: 'Curitiba/PR', plan: 'Plano Pro', time: 'há 12 minutos' },
+    { name: 'Lucas F.', city: 'Rio de Janeiro/RJ', plan: 'Vitalício Founder', time: 'há 3 minutos' },
+    { name: 'Felipe A.', city: 'Porto Alegre/RS', plan: 'Vitalício Founder', time: 'há 14 minutos' },
+    { name: 'Mariana T.', city: 'Goiânia/GO', plan: 'Plano Scale', time: 'há 8 minutos' }
+  ];
+
+  let buyerIndex = 0;
+
+  function cycleSalesTicker() {
+    if (!salesTicker || !tickerText) return;
+
+    const b = buyers[buyerIndex];
+    buyerIndex = (buyerIndex + 1) % buyers.length;
+
+    tickerText.innerHTML = `<strong>${b.name} (${b.city})</strong> acabou de ativar a licença <strong>${b.plan}</strong>!`;
+    if (tickerTime) tickerTime.textContent = `${b.time} • Compra verificada`;
+
+    salesTicker.classList.add('show');
+
+    setTimeout(() => {
+      salesTicker.classList.remove('show');
+    }, 6000); // Exibe por 6 segundos
+  }
+
+  // Primeiro alerta aos 6 segundos de navegação
+  setTimeout(() => {
+    cycleSalesTicker();
+    // Em seguida roda a cada 18 segundos
+    setInterval(cycleSalesTicker, 18000);
+  }, 6000);
 });
+
+// Exit Modal Functions
+function closeExitModal() {
+  const exitModal = document.getElementById('exit-modal');
+  if (exitModal) exitModal.classList.remove('active');
+}
+
+function claimExitDiscount() {
+  closeExitModal();
+  // Abre o checkout com o desconto de 5% aplicado no Vitalício (R$ 97 - 5% = R$ 92)
+  openPlanModal('Vitalício Founder (5% OFF Especial)', '92');
+}
+
+// Fechar exit modal ao clicar fora
+window.addEventListener('click', (e) => {
+  const exitModal = document.getElementById('exit-modal');
+  if (e.target === exitModal) {
+    closeExitModal();
+  }
+});
+
