@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estúdio de Instagram • MeliSpy Pro (Planejamento do Mês)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@700;800&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #090d16;
+      color: #f1f5f9;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      padding: 30px 16px;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .header-bar {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .badge {
+      display: inline-block;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: #38bdf8;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 6px 14px;
+      border-radius: 999px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      letter-spacing: 0.5px;
+    }
+    h1 {
+      font-size: 28px;
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    p.sub {
+      font-size: 14px;
+      color: #94a3b8;
+    }
+
+    /* Tabs Filter */
+    .filter-bar {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
+    .filter-btn {
+      background: #0f172a;
+      border: 1px solid #1e293b;
+      color: #94a3b8;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background: #38bdf8;
+      color: #000;
+      border-color: #38bdf8;
+    }
+
+    /* Grid of Posts */
+    .posts-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+    .post-card {
+      background: #0f172a;
+      border: 1px solid #1e293b;
+      border-radius: 14px;
+      padding: 24px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    @media (max-width: 900px) {
+      .post-card { grid-template-columns: 1fr; }
+    }
+
+    .post-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+      border-bottom: 1px solid #1e293b;
+      padding-bottom: 10px;
+    }
+    .post-num {
+      font-size: 14px;
+      font-weight: 800;
+      color: #38bdf8;
+    }
+    .post-cta-type {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 8px;
+      border-radius: 6px;
+    }
+    .cta-bio { background: rgba(56, 189, 248, 0.15); color: #38bdf8; }
+    .cta-direct { background: rgba(250, 204, 21, 0.15); color: #facc15; }
+    .cta-none { background: rgba(148, 163, 184, 0.15); color: #94a3b8; }
+
+    .post-title {
+      font-size: 17px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 12px;
+      line-height: 1.35;
+    }
+
+    /* Carousel Slides List */
+    .slides-container {
+      background: #090d16;
+      border: 1px solid #1e293b;
+      border-radius: 10px;
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      max-height: 380px;
+      overflow-y: auto;
+    }
+    .slide-item {
+      background: #0f172a;
+      border-left: 3px solid #38bdf8;
+      padding: 10px 12px;
+      border-radius: 4px;
+      font-size: 12px;
+      line-height: 1.4;
+    }
+    .slide-item strong {
+      color: #facc15;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    /* Copy Area */
+    .copy-box {
+      background: #090d16;
+      border: 1px solid #1e293b;
+      border-radius: 10px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .copy-text {
+      font-size: 13px;
+      color: #cbd5e1;
+      line-height: 1.55;
+      white-space: pre-wrap;
+      max-height: 320px;
+      overflow-y: auto;
+      padding-right: 6px;
+      font-family: inherit;
+    }
+    .copy-btn {
+      margin-top: 14px;
+      background: #10b981;
+      color: #fff;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-weight: 800;
+      font-size: 13px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+    .copy-btn:hover { background: #059669; }
+
+    /* Visual Banner Box inside Studio for download */
+    .visual-art-box {
+      margin-top: 14px;
+      background: #0b101d;
+      border: 1px solid #1e293b;
+      border-radius: 10px;
+      padding: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .art-download-btn {
+      background: #38bdf8;
+      color: #000;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="header-bar">
+      <div class="badge">Estúdio de Conteúdo Oficial • MeliSpy Pro</div>
+      <h1>Planejamento Mensal de Instagram (16 Posts)</h1>
+      <p class="sub">Todas as copies, roteiros de carrossel slide a slide e artes prontas para publicação.</p>
+    </div>
+
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterPosts('all')">Todos os 16 Posts</button>
+      <button class="filter-btn" onclick="filterPosts('sem1')">Semana 1 (A Dor)</button>
+      <button class="filter-btn" onclick="filterPosts('sem2')">Semana 2 (Mineração)</button>
+      <button class="filter-btn" onclick="filterPosts('sem3')">Semana 3 (SEO & Margem)</button>
+      <button class="filter-btn" onclick="filterPosts('sem4')">Semana 4 (Conversão)</button>
+      <button class="filter-btn" onclick="filterPosts('direct')">💬 Foco no Direct</button>
+      <button class="filter-btn" onclick="filterPosts('bio')">🔗 Link na Bio</button>
+    </div>
+
+    <div class="posts-grid" id="posts-list">
+      <!-- Posts serão renderizados aqui dinamicamente -->
+    </div>
+  </div>
+
+  <script>
+    const postsData = [
+      {
+        id: 1,
+        sem: 'sem1',
+        type: 'bio',
+        dia: 'Semana 1 • Segunda-feira',
+        formato: 'Carrossel (6 Slides)',
+        ctaLabel: '🔗 Link na Bio',
+        titulo: 'Faturou R$ 30.000 no Mercado Livre e sobrou R$ 800? 📉',
+        slides: [
+          { num: 'Slide 1 (Capa)', text: 'Faturou R$ 30.000 no Mercado Livre e sobrou R$ 800 na conta? 📉 (Arrasta pro lado para ver onde seu dinheiro está sumindo)' },
+          { num: 'Slide 2', text: 'A falsa ilusão da notificação de venda: O app apita o dia inteiro, você embala pacotes sem parar, mas o saldo no fechamento mal cobre as contas. O que houve?' },
+          { num: 'Slide 3', text: 'Para onde foi o dinheiro em um produto de R$ 59,90?\n- Comissão Premium (17%): R$ 10,18\n- Taxa Fixa ML (<R$79): R$ 6,00\n- Custo do Produto: R$ 26,00\n- Imposto Simples (4%): R$ 2,40\n- Frete médio: R$ 4,50\nSobram míseros R$ 10,82 (18%). Qualquer cupom zera seu lucro!' },
+          { num: 'Slide 4', text: 'O erro nº 1: Copiar o concorrente e baixar R$ 1 para vencer a busca sem saber que ele pode estar falindo ou queimando estoque encalhado!' },
+          { num: 'Slide 5', text: 'A solução: MeliSpy Pro! Extensão que calcula a margem líquida limpa no bolso direto na tela do anúncio, já descontando todas as taxas antes de você precificar.' },
+          { num: 'Slide 6 (CTA)', text: 'Pare de trabalhar de graça para o marketplace! Garanta sua licença vitalícia sem mensalidade pelo link da bio! 🚀' }
+        ],
+        copy: `Você já teve a sensação de trabalhar sem parar, ver notificação de venda tocando o dia todo... mas no final do mês não sobrar quase nada? 💸\n\nO Mercado Livre cobra comissão de 12% a 17%, taxa fixa de R$ 6 abaixo de R$ 79, frete e imposto. Se você não calcular com precisão, você está apenas girando dinheiro pro marketplace.\n\nO MeliSpy Pro calcula automaticamente cada centavo de taxas e te dá a margem real no bolso direto na tela do anúncio.\n\n👉 Link oficial com valor de fundador (pagamento único vitalício) na nossa bio!\n\n#mercadolivre #mercadolivrebrasil #ecommercebrasil #vendasmercadolivre #precificacao #dropshippingnacional #mercadopago #lucroreal`
+      },
+      {
+        id: 2,
+        sem: 'sem1',
+        type: 'none',
+        dia: 'Semana 1 • Quarta-feira',
+        formato: 'Estático (Infográfico)',
+        ctaLabel: '💾 Foco em Salvar (Sem CTA)',
+        titulo: 'A Anatomia de uma Venda de R$ 59,90 no Mercado Livre',
+        slides: [
+          { num: 'Infográfico Visual', text: 'Divisão exata de uma venda de R$ 59,90:\n- Custo Fornecedor: R$ 26,00 (43%)\n- Comissão Premium: R$ 10,18 (17%)\n- Taxa Fixa ML: R$ 6,00 (10%)\n- Frete / Devoluções: R$ 4,50 (7,5%)\n- Imposto Simples: R$ 2,40 (4%)\n- LUCRO REAL NO BOLSO: R$ 10,82 (18,5%)' }
+        ],
+        copy: `Para onde realmente vai o dinheiro quando você faz uma venda de R$ 59,90 no Mercado Livre? 🧐\n\nMuitos vendedores olham apenas para o valor bruto e acham que estão lucrando alto. A realidade é que sobram apenas 18,5% no bolso.\n\nSe você der um cupom de 10% achando que 'ainda dá pra vender', você cortou mais da metade de todo o seu lucro!\n\n⚠️ Salve este post para consultar sempre antes de precificar seus produtos!\n\n#precificacao #mercadolivre #ecommerce #financasparaecommerce #vendedormercadolivre #margemdelucro`
+      },
+      {
+        id: 3,
+        sem: 'sem1',
+        type: 'direct',
+        dia: 'Semana 1 • Sexta-feira',
+        formato: 'Carrossel (5 Slides)',
+        ctaLabel: '💬 Comente "TAXAS" (Direct)',
+        titulo: '3 Mitos que quebram vendedores iniciantes no Mercado Livre',
+        slides: [
+          { num: 'Slide 1 (Capa)', text: '3 Mitos sobre vender no Mercado Livre que estão te fazendo perder dinheiro ❌ (O 2º quase todo mundo comete!)' },
+          { num: 'Slide 2', text: 'Mito 1: "Preciso ter o menor preço para vender muito". Realidade: Menor preço garante apenas muito trabalho e margem zero. O algoritmo prioriza Full, reputação e conversão.' },
+          { num: 'Slide 3', text: 'Mito 2: "Se o concorrente vende muito, o produto dá lucro". Realidade: Grandes lojas queimam produtos com lucro zero só para manter relevância. Copiar às cegas é suicídio financeiro.' },
+          { num: 'Slide 4', text: 'Mito 3: "Preciso pagar R$ 150/mês em softwares complexos". Realidade: Extensões leves como o MeliSpy Pro entregam faturamento, estoque e lucro por taxa única de R$ 119 vitalício.' },
+          { num: 'Slide 5 (CTA)', text: 'Quer ver como o MeliSpy Pro funciona no seu Chrome? Comente "TAXAS" aqui embaixo que eu te mando o link de acesso direto no seu Direct! 📩' }
+        ],
+        copy: `Se você ainda acredita em algum desses 3 mitos, você provavelmente está deixando muito dinheiro na mesa no Mercado Livre. 🛑\n\nVender online em 2026 não é sobre intuição, é sobre inteligência de dados e margem protegida.\n\nComente **TAXAS** nos comentários e eu te envio o link de acesso com condição especial de fundador no seu Direct! 👇\n\n#mercadolivre #dicasmercadolivre #dropshipping #ecommerce #vendedordeelite #lojaonline`
+      },
+      {
+        id: 4,
+        sem: 'sem1',
+        type: 'bio',
+        dia: 'Semana 1 • Domingo',
+        formato: 'Estático (Print com Destaque)',
+        ctaLabel: '🔗 Link na Bio',
+        titulo: 'Como saber se um produto vende 2 ou 80 unidades por dia antes de comprar',
+        slides: [
+          { num: 'Arte Visual', text: 'Print da barra do MeliSpy Pro com destaque em neon verde:\n- Vendas Confirmadas: 18.420 un.\n- Faturamento Estimado: R$ 892.570\n- Velocidade de Giro: ~82 un/dia\nHeadline: "Como medir o giro real antes de comprar estoque"' }
+        ],
+        copy: `Antes de gastar seu dinheiro comprando estoque de qualquer produto, você precisa saber a velocidade de giro real do mercado. ⚡\n\nUm anúncio com 3.000 vendas acumuladas ao longo de 4 anos vende menos de 2 unidades por dia (estagnado). Já um anúncio que vende 80 unidades/dia tem tração imediata.\n\nO MeliSpy Pro calcula a velocidade de giro estimada em segundos direto na página do produto.\n\n🚀 Quer ter essa inteligência instalada no seu Chrome? O link de acesso vitalício está na nossa bio!\n\n#mercadolivre #inteligenciadedeconcorrencia #analisedemercado #produtosvencedores #fornecedores`
+      },
+      {
+        id: 5,
+        sem: 'sem2',
+        type: 'direct',
+        dia: 'Semana 2 • Terça-feira',
+        formato: 'Carrossel (7 Slides)',
+        ctaLabel: '💬 Comente "ESPIAO" (Direct)',
+        titulo: 'Tutorial: Como espionar o estoque do concorrente em 30 segundos 🕵️‍♂️',
+        slides: [
+          { num: 'Slide 1 (Capa)', text: 'Como espionar o estoque e o faturamento do seu concorrente no Mercado Livre em 30 segundos 🕵️‍♂️ (Passo a passo)' },
+          { num: 'Slide 2', text: 'Passo 1: Encontre o anúncio com selo "Mais Vendido" e entrega "Full" na categoria que você deseja minerar.' },
+          { num: 'Slide 3', text: 'Passo 2: Clique no botão flutuante do MeliSpy Pro no canto da tela.' },
+          { num: 'Slide 4', text: 'Passo 3: Espione o estoque real que resta nos galpões do Mercado Envios Full. Se o estoque dele estiver no fim, essa é a brecha para posicionar seu anúncio!' },
+          { num: 'Slide 5', text: 'Passo 4: Veja a classificação Curva ABC (A = Campeão de vendas, B = Alto giro, C = Validação).' },
+          { num: 'Slide 6', text: 'Passo 5: Baixe as fotos master em Ultra HD (-O HD) para criar criativos e anúncios superiores.' },
+          { num: 'Slide 7 (CTA)', text: 'Quer minerar produtos vencedores hoje mesmo? Comente "ESPIAO" aqui embaixo e receba o link de instalação no Direct! 📥' }
+        ],
+        copy: `Mineração de produtos no Mercado Livre não é adivinhação. É método. 🎯\n\nNesse carrossel eu te mostrei exatamente como espionar os líderes da categoria usando o MeliSpy Pro no seu navegador.\n\nComente **ESPIAO** nos comentários que eu te mando o link de ativação da ferramenta no seu Direct agora mesmo! 👇\n\n#mineracaodeprodutos #mercadolivre #mercadolivrebr #produtosvencedores #vendasonline #ecommerce`
+      },
+      {
+        id: 6,
+        sem: 'sem2',
+        type: 'bio',
+        dia: 'Semana 2 • Quinta-feira',
+        formato: 'Estático (Comparativo)',
+        ctaLabel: '🔗 Link na Bio',
+        titulo: 'Vendedor Amador vs Vendedor com MeliSpy Pro',
+        slides: [
+          { num: 'Card Comparativo', text: '❌ VENDEDOR AMADOR:\n- Precifica no achismo\n- Toma prejuízo com taxa de R$ 6\n- Compra estoque que encalha\n- Paga R$ 150/mês em softwares caros\n\n✅ COM MELISPY PRO:\n- Raio-X de faturamento em 1 clique\n- Margem limpa calculada na hora\n- Sabe quantas unidades vendem/dia\n- Pagamento Único: R$ 119 (Vitalício)' }
+        ],
+        copy: `A diferença entre quem quebra e quem escala no Mercado Livre é a ferramenta que usa no dia a dia. ⚖️\n\nO MeliSpy Pro é a inteligência comercial mais rápida do Brasil para sellers:\n👑 Sem mensalidade recorrente\n👑 Licença vitalícia de fundador por R$ 119\n👑 Instala em 1 minuto no seu Chrome\n\n👉 Toque no link da bio e garanta sua vaga antes do lote de fundadores encerrar!\n\n#mercadolivre #vendedormercadolivre #ecommercebrasil #negociosonline #mercadopago`
+      },
+      {
+        id: 7,
+        sem: 'sem2',
+        type: 'none',
+        dia: 'Semana 2 • Sábado',
+        formato: 'Carrossel (5 Slides)',
+        ctaLabel: '🔄 Foco em Compartilhamento',
+        titulo: 'Curva ABC no Mercado Livre: O que é e por que ela define seu lucro',
+        slides: [
+          { num: 'Slide 1 (Capa)', text: 'Você sabe o que é a Curva ABC de anúncios no Mercado Livre? 📊 (O conceito que define 80% do seu faturamento)' },
+          { num: 'Slide 2', text: 'Princípio de Pareto: Em contas de sucesso, 20% dos anúncios geram 80% de todo o lucro. Esses são os seus produtos Curva A.' },
+          { num: 'Slide 3', text: 'Curva A: Altíssimo faturamento (>R$80k). Nunca pode faltar estoque!\nCurva B: Alto giro regular (R$20k a R$80k).\nCurva C: Baixo volume ou validação recente.' },
+          { num: 'Slide 4', text: 'O erro fatal: Deixar o produto Curva A pausar por falta de estoque. Se pausar, o algoritmo derruba a relevância da conta inteira!' },
+          { num: 'Slide 5', text: 'O MeliSpy Pro classifica a Curva ABC de qualquer concorrente na hora. Salve este post e envie para seu sócio! ↗️' }
+        ],
+        copy: `Se você não sabe quais são os produtos Curva A, B e C da sua categoria, você está gerenciando seu estoque no escuro. 📈\n\nIdentificar os Curva A te permite saber exatamente quais anúncios modelar e qual estoque nunca pode faltar no Full.\n\n💾 Salve este post para consultar na sua próxima gestão de estoque!\n\n#curvaabc #gestaodeestoque #mercadolivre #mercadolivrebrasil #logistica #mercadofull`
+      },
+      {
+        id: 8,
+        sem: 'sem2',
+        type: 'none',
+        dia: 'Semana 2 • Segunda-feira',
+        formato: 'Estático (Checklist)',
+        ctaLabel: '💾 Foco em Salvar',
+        titulo: 'Checklist de Ouro antes de comprar estoque com fornecedor',
+        slides: [
+          { num: 'Checklist Card', text: '📋 CHECKLIST ANTES DE FECHAR COM FORNECEDOR:\n[ ] O anúncio líder vende pelo menos 15 un/dia?\n[ ] A margem limpa após comissão e taxa é > 22%?\n[ ] O produto tem menos de 5% de devolução?\n[ ] As fotos do concorrente podem ser superadas?\n[ ] O estoque do líder no Full está acabando?\nSe marcou 4: PRODUTO VALIDADO! ✅' }
+        ],
+        copy: `Nunca faça um pedido de estoque sem passar por esse checklist de 5 etapas. 🛑\n\nComprar produto que 'parece bonito' mas que não tem giro no Mercado Livre é a forma mais rápida de ficar com caixa parado.\n\nTodas essas métricas você checa em menos de 1 minuto usando o MeliSpy Pro.\n\n💾 Salve esse checklist para não esquecer na sua próxima compra com fornecedor!\n\n#fornecedores #comprasdeestoque #mercadolivre #atacado #bras #dropshipping`
+      },
+      {
+        id: 9,
+        sem: 'sem3',
+        type: 'direct',
+        dia: 'Semana 3 • Quarta-feira',
+        formato: 'Carrossel (6 Slides)',
+        ctaLabel: '💬 Comente "TITULO" (Direct)',
+        titulo: 'As palavras proibidas pelo ML que derrubam anúncios da 1ª página',
+        slides: [
+          { num: 'Slide 1 (Capa)', text: 'As palavras proibidas que estão matando as visualizações dos seus anúncios no Mercado Livre 🚫' },
+          { num: 'Slide 2', text: 'O algoritmo mudou: Colocar "Promoção", "Melhor Preço" ou "Frete Grátis" no título hoje é penalizado e joga seu anúncio para a 5ª página!' },
+          { num: 'Slide 3', text: 'Lista Negra de Palavras: Promoção, Promoção Relâmpago, Frete Grátis, Envio Imediato, Desconto, Barato, Original, Garantido.' },
+          { num: 'Slide 4', text: 'A fórmula correta: [Produto] + [Marca/Modelo] + [Característica Principal] + [Tamanho/Cor]. Exemplo: "Tênis Corrida Masculino Esportivo Amortecedor Preto Tam 41".' },
+          { num: 'Slide 5', text: 'O MeliSpy Pro faz um scanner de SEO no título do concorrente, remove termos proibidos e gera o título ideal pronto para copiar!' },
+          { num: 'Slide 6 (CTA)', text: 'Quer auditar o SEO dos seus anúncios? Comente "TITULO" e receba o link direto no seu Direct! 🚀' }
+        ],
+        copy: `Você sabia que colocar palavras como 'Original' ou 'Frete Grátis' no título do anúncio pode derrubar o seu alcance no Mercado Livre? 🚨\n\nO algoritmo é rigoroso: títulos com termos promocionais perdem pontuação de qualidade orgânica.\n\nO MeliSpy Pro identifica palavras proibidas e gera títulos otimizados seguindo as regras oficiais do marketplace.\n\n💬 Comente **TITULO** nos comentários para receber o link no seu Direct!\n\n#seomercadolivre #titulodeanuncio #mercadolivre #algoritmomercadolivre #vendasorganicas`
+      },
+      {
+        id: 10,
+        sem: 'sem3',
+        type: 'bio',
+        dia: 'Semana 3 • Sexta-feira',
+        formato: 'Estático (Foto HD)',
+        ctaLabel: '🔗 Link na Bio',
+        titulo: 'O segredo das fotos em Ultra HD (-O HD) do Mercado Livre',
+        slides: [
+          { num: 'Arte Visual', text: 'Comparativo visual de resolução:\n- Foto normal do ML salva pelo navegador: 500x500 borrada.\n- Foto master extraída pelo MeliSpy Pro: 2000x2000 Ultra HD original do servidor (-O.webp).\nHeadline: "Como baixar fotos em Ultra HD de qualquer anúncio em 1 clique"' }
+        ],
+        copy: `Foto com baixa resolução é o motivo número 1 de desconfiança e baixa conversão no Mercado Livre. 📸\n\nQuando você salva foto direto pelo navegador, o marketplace te entrega um arquivo comprimido. O MeliSpy Pro localiza o arquivo master original (-O HD) no servidor e te permite baixar a capa e a galeria completa em altíssima definição.\n\n👉 Garanta sua licença vitalícia no link da nossa bio!\n\n#fotografiastil #fotodeproduto #mercadolivre #designecommerce #anuncios`
+      },
+      {
+        id: 11,
+        sem: 'sem3',
+        type: 'bio',
+        dia: 'Semana 3 • Domingo',
+        formato: 'Carrossel (5 Slides)',
+        ctaLabel: '🔗 Link na Bio',
+        titulo: 'Calculadora Reversa: Como garantir 25% limpo no bolso',
+        slides: [
+          { num: 'Slide 1 (Capa)', text: 'A Calculadora Reversa: Como saber exatamente quanto cobrar para sobrar 25% limpo no seu bolso 💰' },
+          { num: 'Slide 2', text: 'O erro do markup 2.0: Multiplicar o custo por 2 parece que dá 100% de margem, mas depois de comissão de 17%, taxa fixa de R$ 6 e frete, sobram só 8%!' },
+          { num: 'Slide 3', text: 'Cálculo Reverso: Você parte da margem limpa que você DESEJA (ex: 25%) e o software calcula o preço exato para cobrir CMV, comissão, taxa e imposto.' },
+          { num: 'Slide 4', text: 'No MeliSpy Pro, você digita o custo do fornecedor e a margem desejada. Ele calcula na hora os preços para o anúncio Clássico e Premium Sem Juros!' },
+          { num: 'Slide 5 (CTA)', text: 'Pare de queimar margem! Instale o MeliSpy Pro por valor único de R$ 119. Link oficial na bio! 👑' }
+        ],
+        copy: `Nunca mais cometa o erro de precificar multiplicando por 2 e descobrindo a margem só no fim do mês. 📊\n\nCom a Calculadora Reversa do MeliSpy Pro, você define quanto quer lucrar limpo e a ferramenta calcula o preço exato para anunciar com margem protegida.\n\n👉 Acesse o link da nossa bio e ative sua licença vitalícia!\n\n#calculadoradepreco #precificacaomercadolivre #margemdelucro #ecommercebrasil #mercadolivre`
+      },
+      {
+        id: 12,
+        sem: 'sem3',
+        type: 'none',
+        dia: 'Semana 3 • Terça-feira',
+        formato: 'Estático (Frase de Impacto)',
+        ctaLabel: '💬 Debate nos Comentários',
+        titulo: 'Faturamento bruto é vaidade. Lucro limpo é sanidade.',
+        slides: [
+          { num: 'Frase Minimalista', text: '"Faturamento bruto é vaidade.\nLucro limpo na conta bancária é sanidade."\n\n— MeliSpy Pro (Inteligência Comercial)' }
+        ],
+        copy: `Conheço vendedor que fatura R$ 100 mil por mês no Mercado Livre e vive endividado sem conseguir pagar o cartão de crédito.\n\nE conheço vendedor que fatura R$ 35 mil e coloca R$ 12 mil limpos no bolso todo mês.\n\nA diferença? O primeiro compete por faturamento e ego. O segundo compete por margem líquida e eficiência.\n\nEm qual dos dois lados você está jogando? Deixe sua opinião aqui embaixo! 👇\n\n#empreendedorismo #mentalidade #vendasmercadolivre #lucroreal #ecommercederesultado`
+      },
+      {
+        id: 13,
+        sem: 'sem4',
+        type: 'bio',
+        dia: 'Semana 4 • Quinta-feira',
+        formato: 'Carrossel (5 Slides)',
+        ctaLabel: '🔗 Link na Bio',
+        titulo: 'R$ 150/mês em softwares complexos vs R$ 119 único no MeliSpy Pro ⚔️',
+        slides: [
+          { num: 'Slide 1 (Capa)', text: 'R$ 150 todo mês em softwares complexos vs R$ 119 único no Vitalício do MeliSpy Pro ⚔️' },
+          { num: 'Slide 2', text: 'A armadilha das assinaturas: R$ 150/mês vira R$ 1.800,00 por ano. Isso é o lucro de dezenas de vendas indo embora em mensalidades de softwares pesados!' },
+          { num: 'Slide 3', text: 'O que você realmente precisa: Saber quanto o concorrente fatura, quantas unidades vende por dia, calcular o lucro sem erro e baixar fotos HD.' },
+          { num: 'Slide 4', text: 'A proposta do MeliSpy Pro: Uma extensão leve para o Chrome por apenas R$ 119,00 (pagamento único no lote de fundadores). Sem mensalidades para sempre!' },
+          { num: 'Slide 5 (CTA)', text: 'Economize mais de R$ 1.600 por ano em softwares! Garanta seu acesso vitalício pelo link na bio antes do lote fechar. 🚀' }
+        ],
+        copy: `Quanto você gasta por ano só em ferramentas e assinaturas para gerenciar sua loja no Mercado Livre? 💸\n\nSe pagar R$ 150 todo mês, no fim de 12 meses você desembolsou R$ 1.800,00.\n\nO MeliSpy Pro entrega o que é essencial para tomar decisões lucrativas por um valor único de apenas R$ 119,00. Pague uma vez e use para sempre.\n\n👉 O link oficial com valor de fundador está na nossa bio!\n\n#softwares #ferramentasecommerce #mercadolivre #economiacomercial #vendasnoazul`
+      },
+      {
+        id: 14,
+        sem: 'sem4',
+        type: 'direct',
+        dia: 'Semana 4 • Sábado',
+        formato: 'Estático (Mockup da Interface)',
+        ctaLabel: '💬 Comente "PRO" (Direct)',
+        titulo: 'Como fica o Mercado Livre depois que você instala o MeliSpy Pro',
+        slides: [
+          { num: 'Mockup 3D', text: 'Visual do Mercado Livre com a barra lateral inteligente ativa exibindo faturamento, estoque no Full e velocidade de giro em tempo real.\nHeadline: "Como fica sua tela do Mercado Livre depois do MeliSpy Pro ⚡"' }
+        ],
+        copy: `É isso o que acontece quando você instala o MeliSpy Pro no seu navegador:\n\nVocê nunca mais navega no Mercado Livre como um usuário comum. Você navega com um painel de raio-x financeiro que revela estoque, faturamento, margem e velocidade de vendas em tempo real.\n\n💬 Comente **PRO** aqui nos comentários que eu te envio o link de teste e ativação direta no seu Direct!\n\n#extensaomercadolivre #melispypro #chromeextensions #inteligenciadados #mercadolivrebrasil`
+      },
+      {
+        id: 15,
+        sem: 'sem4',
+        type: 'bio',
+        dia: 'Semana 4 • Segunda-feira',
+        formato: 'Carrossel (5 Slides)',
+        ctaLabel: '🔗 Link na Bio',
+        titulo: 'Dúvidas Frequentes sobre o MeliSpy Pro: Respondemos tudo!',
+        slides: [
+          { num: 'Slide 1 (Capa)', text: 'Dúvidas frequentes sobre o MeliSpy Pro: Respondemos tudo aqui! ❓' },
+          { num: 'Slide 2', text: 'Dúvida 1: A ferramenta acessa minha conta do ML? NÃO! Ela não pede login nem senhas. Analisa apenas dados públicos da página com total segurança.' },
+          { num: 'Slide 3', text: 'Dúvida 2: O vitalício tem mensalidade oculta? NÃO! O plano Founder é um pagamento único de R$ 119. Acesso permanente para sempre.' },
+          { num: 'Slide 4', text: 'Dúvida 3: Como instala? Você baixa o arquivo zip no site oficial e carrega no Google Chrome em menos de 1 minuto.' },
+          { num: 'Slide 5 (CTA)', text: 'Dúvida 4: E se eu não gostar? Você tem 7 dias de garantia total. Se não gostar, devolvemos seu dinheiro no Pix! Link oficial na bio 🚀' }
+        ],
+        copy: `Ainda com alguma dúvida sobre o MeliSpy Pro? Separamos as 4 perguntas mais comuns que chegam no nosso WhatsApp para responder com total transparência.\n\nSegurança total, sem mensalidade, instalação em 1 minuto e garantia de 7 dias.\n\n👉 Toque no link da bio para garantir sua vaga no lote de fundadores!\n\n#duvidas #faq #mercadolivre #garantia #suporteaocliente #vendedormercadolivre`
+      },
+      {
+        id: 16,
+        sem: 'sem4',
+        type: 'bio',
+        dia: 'Semana 4 • Quarta-feira',
+        formato: 'Estático (Urgência Fechamento)',
+        ctaLabel: '🔗 Link na Bio',
+        titulo: 'Últimas licenças do Lote Founder por R$ 119 Vitalício',
+        slides: [
+          { num: 'Card de Urgência', text: '👑 LOTE FOUNDER DE LANÇAMENTO\nÚLTIMAS LICENÇAS DISPONÍVEIS POR R$ 119,00 (PAGAMENTO ÚNICO)\nDe R$ 238 por R$ 119 (50% OFF Vitalício)\nBotão: "Garantir Antes que Feche →"' }
+        ],
+        copy: `Atenção: O lote de fundadores do MeliSpy Pro está chegando ao fim! ⏳\n\nLiberamos uma quantidade limitada de licenças vitalícias por apenas R$ 119,00 para os primeiros vendedores da comunidade FerramentasWeb.\n\nDepois que o lote encerrar, a ferramenta passará para o modelo de assinatura recorrente.\n\nSe você quer garantir acesso permanente para sempre sem nunca pagar mensalidade:\n👉 Toque agora no link da nossa bio antes que o lote seja fechado!\n\n#urgencia #ofertalancamento #mercadolivre #mercadolivrebrasil #ecommercebrasil`
+      }
+    ];
+
+    function renderPosts(filter) {
+      const container = document.getElementById('posts-list');
+      container.innerHTML = '';
+
+      const filtered = postsData.filter(p => {
+        if (filter === 'all') return true;
+        if (filter === 'direct') return p.type === 'direct';
+        if (filter === 'bio') return p.type === 'bio';
+        return p.sem === filter;
+      });
+
+      filtered.forEach(p => {
+        const card = document.createElement('div');
+        card.className = 'post-card';
+
+        let ctaBadgeClass = p.type === 'direct' ? 'cta-direct' : (p.type === 'bio' ? 'cta-bio' : 'cta-none');
+
+        const slidesHtml = p.slides.map(s => `
+          <div class="slide-item">
+            <strong>${s.num}</strong>
+            <span>${s.text.replace(/\n/g, '<br>')}</span>
+          </div>
+        `).join('');
+
+        card.innerHTML = `
+          <div>
+            <div class="post-header">
+              <span class="post-num">Post #${String(p.id).padStart(2, '0')} • ${p.dia}</span>
+              <span class="post-cta-type ${ctaBadgeClass}">${p.ctaLabel}</span>
+            </div>
+            <h3 class="post-title">${p.titulo}</h3>
+            <div style="font-size: 11px; color: #94a3b8; margin-bottom: 8px; font-weight: 700;">
+              🖼️ ESTRUTURA VISUAL DO POST (${p.formato}):
+            </div>
+            <div class="slides-container">
+              ${slidesHtml}
+            </div>
+          </div>
+
+          <div class="copy-box">
+            <div>
+              <div style="font-size: 11px; color: #94a3b8; margin-bottom: 8px; font-weight: 700;">
+                📝 LEGENDA COMPLETA (COPY PRONTA PARA PUBLICAR):
+              </div>
+              <div class="copy-text" id="copy-text-${p.id}">${p.copy}</div>
+            </div>
+            <button class="copy-btn" onclick="copyCaption(${p.id})">
+              📋 Copiar Legenda do Post #${p.id}
+            </button>
+          </div>
+        `;
+
+        container.appendChild(card);
+      });
+    }
+
+    function copyCaption(id) {
+      const text = document.getElementById('copy-text-' + id)?.innerText;
+      if (text) {
+        navigator.clipboard.writeText(text).then(() => {
+          const btn = event.currentTarget;
+          const orig = btn.innerHTML;
+          btn.innerHTML = '✅ Legenda Copiada com Sucesso!';
+          btn.style.background = '#38bdf8';
+          btn.style.color = '#000';
+          setTimeout(() => {
+            btn.innerHTML = orig;
+            btn.style.background = '#10b981';
+            btn.style.color = '#fff';
+          }, 2000);
+        });
+      }
+    }
+
+    function filterPosts(filter) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      event.currentTarget.classList.add('active');
+      renderPosts(filter);
+    }
+
+    // Inicialização
+    renderPosts('all');
+  </script>
+
+</body>
+</html>
