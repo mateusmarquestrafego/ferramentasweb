@@ -3,9 +3,9 @@
 // Pix & Mercado Pago Configuration
 const CONFIG = {
   paymentLinks: {
-    Starter: "https://mpago.li/2RatC31",
-    Pro: "https://mpago.li/2Bcs6g1",
-    Scale: "https://mpago.li/1XirScg",
+    Starter: "https://mpago.la/1h2UTJS",
+    Pro: "https://mpago.la/1juBHnz",
+    Scale: "https://mpago.la/2xt2xPJ",
     "Vitalício Founder": "https://mpago.li/19CvBHE",
     Vitalicio: "https://mpago.li/19CvBHE"
   },
@@ -221,10 +221,26 @@ function openPlanModal(planName, price) {
   if (leadErr) leadErr.style.display = 'none';
   if (proofErr) proofErr.style.display = 'none';
 
-  badge.textContent = `Plano ${planName}`;
-  title.textContent = `Ativação MeliSpy Pro • ${planName}`;
-  desc.textContent = "Pagamento 100% seguro processado pelo Mercado Pago (Pix Imediato ou Cartão).";
-  priceVal.textContent = `R$ ${price},00`;
+  const isRecurring = !planName.toLowerCase().includes('vital');
+  const mpBtn = document.getElementById('modal-mp-btn');
+
+  if (isRecurring) {
+    badge.textContent = `Assinatura Mensal • ${planName}`;
+    title.textContent = `Assinatura Recorrente • ${planName}`;
+    desc.textContent = "Cobrança mensal no cartão processada com segurança pelo Mercado Pago. Cancele quando quiser com 1 clique.";
+    priceVal.textContent = `R$ ${price},00/mês`;
+    if (mpBtn) {
+      mpBtn.querySelector('span').textContent = `💳 Assinar R$ ${price},00/mês no Mercado Pago`;
+    }
+  } else {
+    badge.textContent = `Acesso Vitalício • Pagamento Único`;
+    title.textContent = `Ativação MeliSpy Pro • Vitalício Founder`;
+    desc.textContent = "Pagamento único sem nenhuma mensalidade processado pelo Mercado Pago (Pix Imediato ou Cartão).";
+    priceVal.textContent = `R$ ${price},00 (único)`;
+    if (mpBtn) {
+      mpBtn.querySelector('span').textContent = `👑 Garantir Vitalício por R$ ${price},00 no Mercado Pago`;
+    }
+  }
 
   // Determine MP Url
   let mpUrl = CONFIG.paymentLinks[planName] || CONFIG.paymentLinks['Starter'];
