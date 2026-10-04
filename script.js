@@ -490,17 +490,44 @@ document.addEventListener('DOMContentLoaded', () => {
   updateTimers();
 
   // ==========================================
-  // 2. EXIT INTENT POPUP (Pop-up de Retenção)
+  // 2. EXIT INTENT POPUP (Pop-up de Retenção R$ 105)
   // ==========================================
-  const exitModal = document.getElementById('exit-modal');
-  let exitTriggered = sessionStorage.getItem('melispy_exit_shown') === 'true';
+  try {
+    sessionStorage.removeItem('melispy_exit_shown');
+  } catch(e) {}
 
-  document.addEventListener('mouseleave', (e) => {
-    if (e.clientY <= 15 && !exitTriggered && exitModal) {
-      exitTriggered = true;
-      sessionStorage.setItem('melispy_exit_shown', 'true');
-      exitModal.classList.add('active');
+  window.exitModalOpen = false;
+  window.exitCooldown = false;
+
+  window.openExitModal = function() {
+    if (window.exitModalOpen || window.exitCooldown) return;
+    const checkoutModal = document.getElementById('checkout-modal');
+    if (checkoutModal && checkoutModal.classList.contains('active')) return;
+
+    const modal = document.getElementById('exit-modal');
+    if (modal) {
+      window.exitModalOpen = true;
+      modal.classList.add('active');
     }
+  };
+
+  // Disparo 1: Mouse saindo pelo topo da janela (Padrão Ouro Exit-Intent Desktop)
+  document.addEventListener('mouseout', (e) => {
+    if (!e.relatedTarget && (e.clientY <= 35 || e.pageY <= 35)) {
+      window.openExitModal();
+    }
+  });
+
+  // Disparo 2: Mouseleave no documento
+  document.documentElement.addEventListener('mouseleave', (e) => {
+    if (e.clientY <= 40) {
+      window.openExitModal();
+    }
+  });
+
+  // Disparo 3: Tentativa de alternar de aba / fechar
+  window.addEventListener('blur', () => {
+    window.openExitModal();
   });
 
   // ==========================================
@@ -549,7 +576,12 @@ document.addEventListener('DOMContentLoaded', () => {
 // Exit Modal Functions
 function closeExitModal() {
   const exitModal = document.getElementById('exit-modal');
-  if (exitModal) exitModal.classList.remove('active');
+  if (exitModal) {
+    exitModal.classList.remove('active');
+    window.exitModalOpen = false;
+    window.exitCooldown = true;
+    setTimeout(() => { window.exitCooldown = false; }, 10000);
+  }
 }
 
 function claimExitDiscount() {

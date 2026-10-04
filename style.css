@@ -1378,14 +1378,15 @@ body {
 .exit-modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.85);
+  background: rgba(0, 0, 0, 0.88);
   backdrop-filter: blur(8px);
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 10000;
+  z-index: 999999;
   opacity: 0;
   visibility: hidden;
+  pointer-events: none;
   transition: all 0.3s ease;
   padding: 20px;
 }
@@ -1393,6 +1394,7 @@ body {
 .exit-modal-overlay.active {
   opacity: 1;
   visibility: visible;
+  pointer-events: auto;
 }
 
 .exit-modal-box {
