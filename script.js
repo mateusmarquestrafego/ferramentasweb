@@ -199,57 +199,41 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-// Plan Modal Logic
+// Plan Modal Logic & Secure Lead Capture
+let currentPlanData = { name: '', price: 0, mpUrl: '', slug: '' };
+
 function openPlanModal(planName, price) {
   const modal = document.getElementById('checkout-modal');
   const badge = document.getElementById('modal-badge-plan');
   const title = document.getElementById('modal-title');
   const desc = document.getElementById('modal-desc');
   const priceVal = document.getElementById('modal-price-val');
-  const mpBtn = document.getElementById('modal-mp-btn');
-  const unlockBtn = document.getElementById('modal-unlock-btn');
   const waLink = document.getElementById('modal-wa-link');
+
+  // Reset steps
+  const stepLead = document.getElementById('modal-step-lead');
+  const stepConfirm = document.getElementById('modal-step-confirm');
+  const leadErr = document.getElementById('modal-lead-error');
+  const proofErr = document.getElementById('modal-proof-error');
+  
+  if (stepLead) stepLead.style.display = 'block';
+  if (stepConfirm) stepConfirm.style.display = 'none';
+  if (leadErr) leadErr.style.display = 'none';
+  if (proofErr) proofErr.style.display = 'none';
 
   badge.textContent = `Plano ${planName}`;
   title.textContent = `Ativação MeliSpy Pro • ${planName}`;
   desc.textContent = "Pagamento 100% seguro processado pelo Mercado Pago (Pix Imediato ou Cartão).";
   priceVal.textContent = `R$ ${price},00`;
 
-  // Get link from CONFIG
+  // Determine MP Url
   let mpUrl = CONFIG.paymentLinks[planName] || CONFIG.paymentLinks['Starter'];
   if (planName.toLowerCase().includes('vital')) {
     mpUrl = CONFIG.paymentLinks['Vitalício Founder'] || CONFIG.paymentLinks['Vitalicio'] || mpUrl;
   }
+  const slug = planName.toLowerCase().replace(/[^a-z]/g, '');
 
-  if (mpBtn) {
-    mpBtn.href = mpUrl;
-    mpBtn.innerHTML = `
-      <span>💳 Pagar R$ ${price},00 no Mercado Pago</span>
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-    `;
-
-    mpBtn.onclick = () => {
-      const leadName = document.getElementById('modal-lead-name')?.value.trim() || 'Visitante Checkout';
-      const leadPhone = document.getElementById('modal-lead-phone')?.value.trim() || '';
-      const leadEmail = document.getElementById('modal-lead-email')?.value.trim() || '';
-
-      if (window.supabaseClient) {
-        window.supabaseClient.from('clientes_melispy').insert([{
-          nome: leadName,
-          whatsapp: leadPhone,
-          email: leadEmail,
-          plano: planName.toLowerCase(),
-          status: 'iniciou_checkout',
-          origem: 'modal_checkout'
-        }]).then(() => console.log('[Supabase] Lead de checkout registrado com sucesso!'));
-      }
-    };
-  }
-
-  if (unlockBtn) {
-    const slug = planName.toLowerCase().replace(/[^a-z]/g, '');
-    unlockBtn.href = `sucesso.html?plan=${slug}&status=approved`;
-  }
+  currentPlanData = { name: planName, price: price, mpUrl: mpUrl, slug: slug };
 
   if (waLink) {
     const message = encodeURIComponent(`Olá Mateus! Gostaria de tirar uma dúvida sobre o plano ${planName} do MeliSpy Pro.`);
@@ -261,8 +245,143 @@ function openPlanModal(planName, price) {
 
 function closePlanModal() {
   const modal = document.getElementById('checkout-modal');
-  modal.classList.remove('active');
+  if (modal) modal.classList.remove('active');
 }
+
+// Global Modal Button Event Listeners
+document.addEventListener('DOMContentLoaded', () => {
+  const mpBtn = document.getElementById('modal-mp-btn');
+  const unlockBtn = document.getElementById('modal-unlock-btn');
+  const backBtn = document.getElementById('modal-back-btn');
+  const leadErr = document.getElementById('modal-lead-error');
+  const proofErr = document.getElementById('modal-proof-error');
+
+  // Phone input auto-formatter (DDD)
+  const phoneInput = document.getElementById('modal-lead-phone');
+  if (phoneInput) {
+    phoneInput.addEventListener('input', (e) => {
+      let v = e.target.value.replace(/\D/g, '');
+      if (v.length > 11) v = v.slice(0, 11);
+      if (v.length > 6) {
+        e.target.value = `(${v.slice(0,2)}) ${v.slice(2,7)}-${v.slice(7)}`;
+      } else if (v.length > 2) {
+        e.target.value = `(${v.slice(0,2)}) ${v.slice(2)}`;
+      } else {
+        e.target.value = v;
+      }
+    });
+  }
+
+  // 1. Botão Pagar no Mercado Pago (Obrigatório preencher Nome, WhatsApp e Email)
+  if (mpBtn) {
+    mpBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const nameInput = document.getElementById('modal-lead-name');
+      const emailInput = document.getElementById('modal-lead-email');
+
+      const name = nameInput ? nameInput.value.trim() : '';
+      const rawPhone = phoneInput ? phoneInput.value.trim() : '';
+      const cleanPhone = rawPhone.replace(/\D/g, '');
+      const email = emailInput ? emailInput.value.trim() : '';
+
+      // Validação Estrita
+      if (!name || name.length < 3) {
+        leadErr.textContent = '⚠️ Por favor, digite seu Nome Completo para vincular sua garantia.';
+        leadErr.style.display = 'block';
+        if (nameInput) nameInput.focus();
+        return;
+      }
+
+      if (!cleanPhone || cleanPhone.length < 10 || cleanPhone.length > 11) {
+        leadErr.textContent = '⚠️ Por favor, digite um WhatsApp válido com DDD (Ex: 11 99999-9999).';
+        leadErr.style.display = 'block';
+        if (phoneInput) phoneInput.focus();
+        return;
+      }
+
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!email || !emailRegex.test(email)) {
+        leadErr.textContent = '⚠️ Por favor, informe um endereço de e-mail válido.';
+        leadErr.style.display = 'block';
+        if (emailInput) emailInput.focus();
+        return;
+      }
+
+      leadErr.style.display = 'none';
+
+      // 2. Salvar Lead no Supabase
+      if (window.supabaseClient) {
+        window.supabaseClient.from('clientes_melispy').insert([{
+          nome: name,
+          whatsapp: cleanPhone,
+          email: email,
+          plano: currentPlanData.slug,
+          status: 'iniciou_checkout',
+          origem: 'modal_checkout'
+        }]).then(({ error }) => {
+          if (error) console.warn('[Supabase Lead Error]', error);
+          else console.log('[Supabase] Lead cadastrado com sucesso!');
+        });
+      }
+
+      // 3. Abrir Mercado Pago em nova aba
+      window.open(currentPlanData.mpUrl, '_blank');
+
+      // 4. Mudar visual do Modal para o Passo 2 (Confirmação do Comprovante)
+      document.getElementById('modal-step-lead').style.display = 'none';
+      document.getElementById('modal-step-confirm').style.display = 'block';
+    });
+  }
+
+  // 2. Botão Validar Comprovante & Liberar Download
+  if (unlockBtn) {
+    unlockBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const proofInput = document.getElementById('modal-proof-id');
+      const proofVal = proofInput ? proofInput.value.trim() : '';
+
+      if (!proofVal || proofVal.length < 4) {
+        proofErr.textContent = '⚠️ Digite o número da operação ou comprovante do Mercado Pago para prosseguir.';
+        proofErr.style.display = 'block';
+        if (proofInput) proofInput.focus();
+        return;
+      }
+
+      proofErr.style.display = 'none';
+
+      const nameVal = document.getElementById('modal-lead-name')?.value.trim() || '';
+      const rawPhone = document.getElementById('modal-lead-phone')?.value.trim() || '';
+      const cleanPhone = rawPhone.replace(/\D/g, '');
+      const emailVal = document.getElementById('modal-lead-email')?.value.trim() || '';
+
+      // Atualizar / Registrar no Supabase com comprovante
+      if (window.supabaseClient) {
+        window.supabaseClient.from('clientes_melispy').insert([{
+          nome: nameVal,
+          whatsapp: cleanPhone,
+          email: emailVal,
+          payment_id: proofVal,
+          plano: currentPlanData.slug,
+          status: 'comprovante_informado',
+          origem: 'modal_confirmacao'
+        }]).catch(err => console.warn(err));
+      }
+
+      // Redireciona com segurança para a página de sucesso
+      const url = `sucesso.html?payment_id=${encodeURIComponent(proofVal)}&plan=${encodeURIComponent(currentPlanData.slug)}&status=approved&nome=${encodeURIComponent(nameVal)}&whatsapp=${encodeURIComponent(cleanPhone)}&email=${encodeURIComponent(emailVal)}`;
+      window.location.href = url;
+    });
+  }
+
+  // Botão Voltar para Alterar Dados
+  if (backBtn) {
+    backBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      document.getElementById('modal-step-confirm').style.display = 'none';
+      document.getElementById('modal-step-lead').style.display = 'block';
+    });
+  }
+});
 
 // Copy Pix Key to Clipboard
 function copyPixKey() {

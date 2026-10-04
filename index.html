@@ -443,36 +443,62 @@
         <span class="modal-price-value" id="modal-price-val">R$ 35,00</span>
       </div>
 
-      <!-- Lead Capture for Supabase -->
-      <div class="modal-lead-form" style="margin-bottom: 14px;">
-        <div style="margin-bottom: 8px;">
-          <label style="font-size: 11px; color: #94a3b8; display: block; margin-bottom: 3px;">Seu Nome:</label>
-          <input type="text" id="modal-lead-name" placeholder="Ex: Mateus Silva" style="width: 100%; box-sizing: border-box; background: #0b1120; border: 1px solid #334155; color: #fff; padding: 10px 12px; border-radius: 6px; font-size: 13px;">
+      <!-- ETAPA 1: Identificação Obrigatória Antes de Pagar -->
+      <div id="modal-step-lead">
+        <div style="font-size: 12px; font-weight: 700; color: #38bdf8; margin-bottom: 10px;">
+          📋 Preencha seus dados para vincular sua garantia e licença:
         </div>
-        <div style="margin-bottom: 8px;">
-          <label style="font-size: 11px; color: #94a3b8; display: block; margin-bottom: 3px;">Seu WhatsApp (com DDD):</label>
-          <input type="tel" id="modal-lead-phone" placeholder="(11) 99999-9999" style="width: 100%; box-sizing: border-box; background: #0b1120; border: 1px solid #334155; color: #fff; padding: 10px 12px; border-radius: 6px; font-size: 13px;">
+        <div class="modal-lead-form" style="margin-bottom: 12px;">
+          <div style="margin-bottom: 8px;">
+            <label style="font-size: 11px; color: #94a3b8; display: block; margin-bottom: 3px;">Seu Nome Completo: <span style="color:#ef4444">*</span></label>
+            <input type="text" id="modal-lead-name" placeholder="Ex: Mateus Silva" style="width: 100%; box-sizing: border-box; background: #0b1120; border: 1px solid #334155; color: #fff; padding: 10px 12px; border-radius: 6px; font-size: 13px;">
+          </div>
+          <div style="margin-bottom: 8px;">
+            <label style="font-size: 11px; color: #94a3b8; display: block; margin-bottom: 3px;">Seu WhatsApp com DDD: <span style="color:#ef4444">*</span></label>
+            <input type="tel" id="modal-lead-phone" placeholder="(11) 99999-9999" maxlength="15" style="width: 100%; box-sizing: border-box; background: #0b1120; border: 1px solid #334155; color: #fff; padding: 10px 12px; border-radius: 6px; font-size: 13px;">
+          </div>
+          <div>
+            <label style="font-size: 11px; color: #94a3b8; display: block; margin-bottom: 3px;">Seu Melhor E-mail: <span style="color:#ef4444">*</span></label>
+            <input type="email" id="modal-lead-email" placeholder="seuemail@exemplo.com" style="width: 100%; box-sizing: border-box; background: #0b1120; border: 1px solid #334155; color: #fff; padding: 10px 12px; border-radius: 6px; font-size: 13px;">
+          </div>
         </div>
-        <div>
-          <label style="font-size: 11px; color: #94a3b8; display: block; margin-bottom: 3px;">Seu E-mail:</label>
-          <input type="email" id="modal-lead-email" placeholder="seuemail@exemplo.com" style="width: 100%; box-sizing: border-box; background: #0b1120; border: 1px solid #334155; color: #fff; padding: 10px 12px; border-radius: 6px; font-size: 13px;">
+
+        <div id="modal-lead-error" style="display: none; background: rgba(239, 68, 68, 0.15); border: 1px solid #ef4444; color: #fca5a5; font-size: 12px; padding: 8px 12px; border-radius: 6px; margin-bottom: 12px; text-align: left;"></div>
+
+        <div class="modal-mp-area" style="margin-bottom: 10px;">
+          <button id="modal-mp-btn" type="button" class="btn btn-primary btn-large" style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 15px; padding: 14px; box-sizing: border-box; cursor: pointer;">
+            <span>💳 Pagar no Mercado Pago</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+          </button>
         </div>
       </div>
 
-      <div class="modal-mp-area" style="margin-bottom: 16px;">
-        <a id="modal-mp-btn" href="https://mpago.li/2RatC31" target="_blank" class="btn btn-primary btn-large" style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 15px; padding: 14px; box-sizing: border-box;">
-          <span>💳 Pagar no Mercado Pago (Pix ou Cartão)</span>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-        </a>
-      </div>
-
-      <div class="modal-unlock-area" style="background: #0f172a; border: 1px dashed #10b981; border-radius: 8px; padding: 14px; text-align: center;">
-        <div style="font-size: 11px; color: #94a3b8; margin-bottom: 8px;">
-          ⚡ Já concluiu seu pagamento no Mercado Pago?
+      <!-- ETAPA 2: Validação Pós-Pagamento (só exibida após o cliente avançar para o Mercado Pago) -->
+      <div id="modal-step-confirm" style="display: none;">
+        <div style="background: rgba(16, 185, 129, 0.12); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 8px; padding: 12px; margin-bottom: 14px; text-align: left;">
+          <div style="font-size: 13px; font-weight: 700; color: #34d399; margin-bottom: 4px;">
+            ✅ Guia do Mercado Pago aberta em nova aba!
+          </div>
+          <div style="font-size: 12px; color: #94a3b8; line-height: 1.4;">
+            Conclua o Pix ou Cartão no Mercado Pago. Em seguida, informe abaixo o <strong>Código da Operação / ID do Comprovante</strong> para validar e desbloquear seu download imediato:
+          </div>
         </div>
-        <a id="modal-unlock-btn" href="sucesso.html?plan=starter" class="btn" style="background: #10b981; color: #fff; width: 100%; padding: 10px; font-weight: 700; font-size: 13px; display: inline-block; box-sizing: border-box; text-decoration: none; border-radius: 6px;">
-          🚀 Liberar Meu Download & Chave Agora →
-        </a>
+
+        <div style="margin-bottom: 12px; text-align: left;">
+          <label style="font-size: 11px; color: #94a3b8; display: block; margin-bottom: 3px;">Código da Operação / ID do Comprovante: <span style="color:#ef4444">*</span></label>
+          <input type="text" id="modal-proof-id" placeholder="Ex: 9283748291 ou ID do Pix" style="width: 100%; box-sizing: border-box; background: #0b1120; border: 1px solid #334155; color: #fff; padding: 10px 12px; border-radius: 6px; font-size: 13px;">
+          <span style="font-size: 10px; color: #64748b;">(Encontrado no comprovante do Pix ou no recibo do Mercado Pago)</span>
+        </div>
+
+        <div id="modal-proof-error" style="display: none; background: rgba(239, 68, 68, 0.15); border: 1px solid #ef4444; color: #fca5a5; font-size: 12px; padding: 8px 12px; border-radius: 6px; margin-bottom: 12px; text-align: left;"></div>
+
+        <button id="modal-unlock-btn" type="button" class="btn" style="background: #10b981; color: #fff; width: 100%; padding: 13px; font-weight: 800; font-size: 14px; display: block; box-sizing: border-box; border-radius: 6px; cursor: pointer; border: none;">
+          🚀 Validar Pagamento & Liberar Download →
+        </button>
+
+        <div style="margin-top: 10px; text-align: center;">
+          <a href="#" id="modal-back-btn" style="font-size: 11px; color: #94a3b8; text-decoration: underline;">← Voltar / Alterar meus dados</a>
+        </div>
       </div>
 
       <div style="margin-top: 14px; text-align: center; font-size: 11px; color: #64748b;">

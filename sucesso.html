@@ -252,54 +252,44 @@
         </div>
       </div>
 
-      <!-- PASSO 1: DOWNLOAD DO ARQUIVO -->
+      <!-- PASSO 1: CADASTRO DO CLIENTE & GERADOR DE CHAVE -->
       <div class="step-box">
         <div class="step-header">
           <div class="step-number">1</div>
-          <div class="step-title">Baixe o Arquivo da Extensão (.ZIP)</div>
-        </div>
-        <p style="font-size: 13px; color: #94a3b8; margin-bottom: 16px;">
-          Clique no botão abaixo para baixar o pacote oficial atualizado do <strong>MeliSpy Pro v1.0.0</strong> para o seu computador.
-        </p>
-        <a href="downloads/meli-spy-pro.zip" download="meli-spy-pro.zip" class="download-action-btn" id="btn-download">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          Baixar MeliSpy Pro (.ZIP)
-        </a>
-      </div>
-
-      <!-- PASSO 2: CADASTRO DO CLIENTE & GERADOR DE CHAVE -->
-      <div class="step-box">
-        <div class="step-header">
-          <div class="step-number">2</div>
-          <div class="step-title">Cadastre seus Dados & Gere sua Chave Oficial</div>
+          <div class="step-title">Cadastre seus Dados & Desbloqueie sua Licença</div>
         </div>
         <p style="font-size: 13px; color: #94a3b8; line-height: 1.5; margin-bottom: 14px;">
-          Informe seus dados abaixo para registrar sua conta, vincular sua garantia de 7 dias e liberar a chave blindada para seu computador:
+          Informe seus dados abaixo para vincular sua garantia de 7 dias, registrar sua conta oficial e liberar o download do pacote:
         </p>
 
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px;">
           <div>
-            <label style="font-size: 11px; color: #94a3b8; display: block; margin-bottom: 4px;">Seu Nome:</label>
+            <label style="font-size: 11px; color: #94a3b8; display: block; margin-bottom: 4px;">Seu Nome Completo: <span style="color:#ef4444">*</span></label>
             <input type="text" id="input-nome" class="key-input" placeholder="Ex: Mateus Silva" style="width: 100%; box-sizing: border-box;">
           </div>
           <div>
-            <label style="font-size: 11px; color: #94a3b8; display: block; margin-bottom: 4px;">Seu WhatsApp (com DDD):</label>
-            <input type="tel" id="input-whatsapp" class="key-input" placeholder="(11) 99999-9999" style="width: 100%; box-sizing: border-box;">
+            <label style="font-size: 11px; color: #94a3b8; display: block; margin-bottom: 4px;">Seu WhatsApp (com DDD): <span style="color:#ef4444">*</span></label>
+            <input type="tel" id="input-whatsapp" class="key-input" placeholder="(11) 99999-9999" maxlength="15" style="width: 100%; box-sizing: border-box;">
           </div>
         </div>
 
         <div style="margin-bottom: 10px;">
-          <label style="font-size: 11px; color: #94a3b8; display: block; margin-bottom: 4px;">Seu Melhor E-mail:</label>
+          <label style="font-size: 11px; color: #94a3b8; display: block; margin-bottom: 4px;">Seu Melhor E-mail: <span style="color:#ef4444">*</span></label>
           <input type="email" id="input-email" class="key-input" placeholder="seuemail@exemplo.com" style="width: 100%; box-sizing: border-box;">
         </div>
 
         <div style="margin-bottom: 14px;">
-          <label style="font-size: 11px; color: #94a3b8; display: block; margin-bottom: 4px;">ID da sua Máquina (HWID):</label>
+          <label style="font-size: 11px; color: #94a3b8; display: block; margin-bottom: 4px;">ID da sua Máquina (HWID): <span style="color:#ef4444">*</span></label>
           <input type="text" id="input-hwid" class="key-input" placeholder="Cole aqui seu HWID (Ex: HWID_730053E0)" style="width: 100%; box-sizing: border-box;">
+          <span style="font-size: 10px; color: #64748b; display: block; margin-top: 3px;">
+            (Abra a extensão no Chrome para ver o HWID do seu computador, ou use o ID gerado)
+          </span>
         </div>
 
+        <div id="sucesso-form-error" style="display: none; background: rgba(239, 68, 68, 0.15); border: 1px solid #ef4444; color: #fca5a5; font-size: 12px; padding: 10px 12px; border-radius: 6px; margin-bottom: 12px; text-align: left;"></div>
+
         <button id="btn-generate-key" class="btn btn-primary" style="width: 100%; padding: 12px; font-weight: 800; font-size: 14px; cursor: pointer;">
-          🔑 Registrar Conta & Gerar Minha Chave
+          🔑 Registrar Minha Conta & Liberar Download
         </button>
 
         <div id="key-result-box" class="result-key-card">
@@ -309,8 +299,37 @@
             📋 Copiar Chave
           </button>
           <div style="font-size: 11px; color: #6ee7b7; margin-top: 8px;">
-            ✅ Conta registrada com sucesso! Cole esta chave na extensão para liberar seu acesso!
+            ✅ Conta registrada com sucesso! Copie a chave e baixe o arquivo no Passo 2 abaixo.
           </div>
+        </div>
+      </div>
+
+      <!-- PASSO 2: DOWNLOAD DO ARQUIVO (BLOQUEADO ATÉ CONCLUIR O PASSO 1) -->
+      <div class="step-box" id="step-download-box">
+        <div class="step-header">
+          <div class="step-number" id="step-dl-number">2</div>
+          <div class="step-title">Baixe o Arquivo da Extensão (.ZIP)</div>
+        </div>
+
+        <!-- Alerta de bloqueio prévio -->
+        <div id="dl-locked-msg" style="background: rgba(239, 68, 68, 0.08); border: 1px dashed rgba(239, 68, 68, 0.3); border-radius: 8px; padding: 16px; text-align: center;">
+          <span style="font-size: 13px; color: #fca5a5; font-weight: 600; display: block; margin-bottom: 4px;">
+            🔒 Download Bloqueado
+          </span>
+          <span style="font-size: 12px; color: #94a3b8;">
+            Preencha seus dados obrigatórios no <strong>Passo 1</strong> acima para liberar o download do pacote oficial.
+          </span>
+        </div>
+
+        <!-- Área liberada -->
+        <div id="dl-unlocked-area" style="display: none;">
+          <p style="font-size: 13px; color: #94a3b8; margin-bottom: 16px;">
+            Sua conta foi registrada com sucesso! Clique no botão abaixo para baixar o pacote oficial atualizado do <strong>MeliSpy Pro v1.0.0</strong> para seu computador:
+          </p>
+          <a href="downloads/meli-spy-pro.zip" download="meli-spy-pro.zip" class="download-action-btn" id="btn-download">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Baixar MeliSpy Pro (.ZIP)
+          </a>
         </div>
       </div>
 
@@ -347,16 +366,16 @@
     // Security Engine: Validate Payment Parameters & Prevent Link Sharing
     (function() {
       const urlParams = new URLSearchParams(window.location.search);
-      const paymentId = urlParams.get('payment_id') || urlParams.get('collection_id');
-      const status = urlParams.get('status') || urlParams.get('collection_status');
+      const paymentId = (urlParams.get('payment_id') || urlParams.get('collection_id') || '').trim();
+      const status = (urlParams.get('status') || urlParams.get('collection_status') || '').trim().toLowerCase();
       const planParam = (urlParams.get('plan') || 'vitalicio').toUpperCase();
 
       const screenBlocked = document.getElementById('screen-blocked');
       const screenSuccess = document.getElementById('screen-success');
       const displayPaymentId = document.getElementById('display-payment-id');
 
-      // 1. Check if user came from a valid approved transaction
-      const isApproved = status === 'approved' || (paymentId !== null && paymentId !== '');
+      // 1. Strict Payment Check: Requires valid status AND proof/payment_id (mínimo 4 caracteres)
+      const isApproved = (status === 'approved' || status === 'accredited') && (paymentId.length >= 4);
 
       if (!isApproved) {
         screenBlocked.style.display = 'block';
@@ -364,25 +383,48 @@
         return;
       }
 
-      if (!paymentId) {
-        paymentId = sessionStorage.getItem('melispy_order_ref');
-        if (!paymentId) {
-          paymentId = 'MP-' + Math.floor(1000000000 + Math.random() * 9000000000);
-          sessionStorage.setItem('melispy_order_ref', paymentId);
-        }
-      }
-
       // Valid payment! Show success screen
       screenBlocked.style.display = 'none';
       screenSuccess.style.display = 'block';
       displayPaymentId.textContent = `#${paymentId}`;
 
+      // Prefill user data if forwarded from checkout modal
+      const urlNome = urlParams.get('nome') || '';
+      const urlWa = urlParams.get('whatsapp') || '';
+      const urlEmail = urlParams.get('email') || '';
+
+      const inputNome = document.getElementById('input-nome');
+      const inputWa = document.getElementById('input-whatsapp');
+      const inputEmail = document.getElementById('input-email');
+      const inputHwid = document.getElementById('input-hwid');
+      const formErr = document.getElementById('sucesso-form-error');
+
+      if (urlNome && inputNome) inputNome.value = urlNome;
+      if (urlWa && inputWa) inputWa.value = urlWa;
+      if (urlEmail && inputEmail) inputEmail.value = urlEmail;
+
+      // Format WhatsApp input
+      if (inputWa) {
+        inputWa.addEventListener('input', (e) => {
+          let v = e.target.value.replace(/\D/g, '');
+          if (v.length > 11) v = v.slice(0, 11);
+          if (v.length > 6) {
+            e.target.value = `(${v.slice(0,2)}) ${v.slice(2,7)}-${v.slice(7)}`;
+          } else if (v.length > 2) {
+            e.target.value = `(${v.slice(0,2)}) ${v.slice(2)}`;
+          } else {
+            e.target.value = v;
+          }
+        });
+      }
+
       // 2. Hardware-Locked License Key Generation Engine
       const btnGen = document.getElementById('btn-generate-key');
-      const inputHwid = document.getElementById('input-hwid');
       const keyBox = document.getElementById('key-result-box');
       const keyText = document.getElementById('generated-key-text');
       const btnCopy = document.getElementById('btn-copy-key');
+      const dlLockedMsg = document.getElementById('dl-locked-msg');
+      const dlUnlockedArea = document.getElementById('dl-unlocked-area');
 
       // Check if this payment_id already activated a HWID
       const storageKey = `melispy_activated_${paymentId}`;
@@ -391,33 +433,76 @@
       if (savedActivation) {
         try {
           const parsed = JSON.parse(savedActivation);
-          inputHwid.value = parsed.hwid;
-          inputHwid.disabled = true;
+          if (parsed.nome && inputNome) inputNome.value = parsed.nome;
+          if (parsed.whatsapp && inputWa) inputWa.value = parsed.whatsapp;
+          if (parsed.email && inputEmail) inputEmail.value = parsed.email;
+          if (parsed.hwid && inputHwid) inputHwid.value = parsed.hwid;
+          
+          if (inputNome) inputNome.disabled = true;
+          if (inputWa) inputWa.disabled = true;
+          if (inputEmail) inputEmail.disabled = true;
+          if (inputHwid) inputHwid.disabled = true;
+
           keyText.textContent = parsed.key;
           keyBox.style.display = 'block';
-          btnGen.textContent = 'Ativado';
+          btnGen.textContent = '✅ Ativação Já Concluída';
           btnGen.disabled = true;
+
+          // Liberar download para máquina já ativada
+          if (dlLockedMsg) dlLockedMsg.style.display = 'none';
+          if (dlUnlockedArea) dlUnlockedArea.style.display = 'block';
         } catch(e) {}
       }
 
       btnGen.addEventListener('click', () => {
-        const hwid = inputHwid.value.trim().toUpperCase();
-        if (!hwid || hwid.length < 5) {
-          alert('Por favor, digite ou cole um ID de Máquina (HWID) válido.');
+        const nomeVal = inputNome ? inputNome.value.trim() : '';
+        const rawWa = inputWa ? inputWa.value.trim() : '';
+        const cleanWa = rawWa.replace(/\D/g, '');
+        const emailVal = inputEmail ? inputEmail.value.trim() : '';
+        const hwid = inputHwid ? inputHwid.value.trim().toUpperCase() : '';
+
+        // Validação Estrita de Todos os Campos
+        if (!nomeVal || nomeVal.length < 3) {
+          formErr.textContent = '⚠️ Digite seu Nome Completo para registrar a garantia.';
+          formErr.style.display = 'block';
+          if (inputNome) inputNome.focus();
           return;
         }
+
+        if (!cleanWa || cleanWa.length < 10 || cleanWa.length > 11) {
+          formErr.textContent = '⚠️ Digite um WhatsApp válido com DDD (Ex: 11 99999-9999).';
+          formErr.style.display = 'block';
+          if (inputWa) inputWa.focus();
+          return;
+        }
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailVal || !emailRegex.test(emailVal)) {
+          formErr.textContent = '⚠️ Digite um endereço de e-mail válido para vincular sua conta.';
+          formErr.style.display = 'block';
+          if (inputEmail) inputEmail.focus();
+          return;
+        }
+
+        if (!hwid || hwid.length < 5) {
+          formErr.textContent = '⚠️ Cole ou digite o ID da sua Máquina (HWID) para blindar sua licença.';
+          formErr.style.display = 'block';
+          if (inputHwid) inputHwid.focus();
+          return;
+        }
+
+        formErr.style.display = 'none';
 
         // Check if payment was already bound to another HWID
         if (savedActivation) {
           const parsed = JSON.parse(savedActivation);
           if (parsed.hwid !== hwid) {
-            alert(`⚠️ Este pagamento (#${paymentId}) já gerou uma licença para a máquina ${parsed.hwid}.\nCada compra permite ativar 1 único computador.`);
+            alert(`⚠️ Este comprovante (#${paymentId}) já gerou uma licença para a máquina ${parsed.hwid}.\nCada compra permite ativar 1 único computador.`);
             return;
           }
         }
 
         // Generate Plan-Specific Cryptographic License
-        // Plan tier prefix: MELI-FOUNDER- | MELI-SCALE- | MELI-PRO- | MELI-STARTER-
         let prefix = 'MELI-FOUNDER-';
         if (planParam.includes('SCALE')) prefix = 'MELI-SCALE-';
         else if (planParam.includes('PRO')) prefix = 'MELI-PRO-';
@@ -431,19 +516,17 @@
           payment_id: paymentId,
           hwid: hwid,
           key: generatedKey,
+          nome: nomeVal,
+          whatsapp: cleanWa,
+          email: emailVal,
           date: new Date().toISOString()
         }));
 
-        // Collect Customer Info for Database
-        const nomeVal = document.getElementById('input-nome')?.value.trim() || 'Cliente MeliSpy';
-        const waVal = document.getElementById('input-whatsapp')?.value.trim() || '';
-        const emailVal = document.getElementById('input-email')?.value.trim() || '';
-
         // Save Customer Account to Supabase Database
-        if (supabaseClient) {
-          supabaseClient.from('clientes_melispy').insert([{
+        if (window.supabaseClient) {
+          window.supabaseClient.from('clientes_melispy').insert([{
             nome: nomeVal,
-            whatsapp: waVal,
+            whatsapp: cleanWa,
             email: emailVal,
             hwid: hwid,
             plano: planParam.toLowerCase(),
@@ -452,19 +535,28 @@
             status: 'ativo',
             origem: 'sucesso_ativacao'
           }]).then(({ error }) => {
-            if (error) console.warn('[Supabase]', error);
+            if (error) console.warn('[Supabase Error]', error);
             else console.log('[Supabase] Cliente salvo com sucesso!');
           });
         }
 
         keyText.textContent = generatedKey;
         keyBox.style.display = 'block';
-        inputHwid.disabled = true;
-        const nomeEl = document.getElementById('input-nome'); if (nomeEl) nomeEl.disabled = true;
-        const waEl = document.getElementById('input-whatsapp'); if (waEl) waEl.disabled = true;
-        const emailEl = document.getElementById('input-email'); if (emailEl) emailEl.disabled = true;
-        btnGen.textContent = 'Ativado com Sucesso';
+
+        if (inputNome) inputNome.disabled = true;
+        if (inputWa) inputWa.disabled = true;
+        if (inputEmail) inputEmail.disabled = true;
+        if (inputHwid) inputHwid.disabled = true;
+
+        btnGen.textContent = '✅ Ativado com Sucesso';
         btnGen.disabled = true;
+
+        // LIBERAR DOWNLOAD DO ARQUIVO (.ZIP)
+        if (dlLockedMsg) dlLockedMsg.style.display = 'none';
+        if (dlUnlockedArea) dlUnlockedArea.style.display = 'block';
+        
+        // Scroll suave para a área de download
+        document.getElementById('step-download-box')?.scrollIntoView({ behavior: 'smooth' });
       });
 
       btnCopy.addEventListener('click', () => {
