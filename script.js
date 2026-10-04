@@ -9,6 +9,9 @@ const CONFIG = {
     "Vitalício Founder": "https://mpago.li/19CvBHE",
     Vitalício: "https://mpago.li/19CvBHE",
     Vitalicio: "https://mpago.li/19CvBHE",
+    "Vitalício Desconto": "https://mpago.li/2GCdxVo",
+    "Vitalício 105": "https://mpago.li/2GCdxVo",
+    "105": "https://mpago.li/2GCdxVo",
     "Anual Founder": "https://mpago.li/19CvBHE",
     Anual: "https://mpago.li/19CvBHE"
   },
@@ -256,7 +259,9 @@ function openPlanModal(planName, price) {
 
   // Determine MP Url
   let mpUrl = CONFIG.paymentLinks[planName] || CONFIG.paymentLinks['Starter'];
-  if (planName.toLowerCase().includes('vital') || planName.toLowerCase().includes('anual')) {
+  if (String(price) === '105' || String(planName).includes('105') || String(planName).includes('Desconto')) {
+    mpUrl = "https://mpago.li/2GCdxVo";
+  } else if (planName.toLowerCase().includes('vital') || planName.toLowerCase().includes('anual')) {
     mpUrl = CONFIG.paymentLinks['Vitalício Founder'] || CONFIG.paymentLinks['Vitalício'] || mpUrl;
   }
   const slug = planName.toLowerCase().replace(/[^a-z]/g, '');
@@ -549,8 +554,8 @@ function closeExitModal() {
 
 function claimExitDiscount() {
   closeExitModal();
-  // Abre o checkout com o desconto de 5% aplicado no Vitalício (R$ 119 - 5% = R$ 113)
-  openPlanModal('Vitalício Founder (5% OFF Especial)', '113');
+  // Abre o checkout com o desconto exclusivo no Vitalício por R$ 105
+  openPlanModal('Vitalício Founder (Desconto Exclusivo)', '105');
 }
 
 // Fechar exit modal ao clicar fora
