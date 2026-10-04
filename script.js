@@ -6,10 +6,11 @@ const CONFIG = {
     Starter: "https://mpago.la/1h2UTJS",
     Pro: "https://mpago.la/1juBHnz",
     Scale: "https://mpago.la/2xt2xPJ",
-    "Anual Founder": "https://mpago.la/1fxG7Sf",
-    Anual: "https://mpago.la/1fxG7Sf",
-    "Vitalício Founder": "https://mpago.la/1fxG7Sf",
-    Vitalicio: "https://mpago.la/1fxG7Sf"
+    "Vitalício Founder": "https://mpago.li/19CvBHE",
+    Vitalício: "https://mpago.li/19CvBHE",
+    Vitalicio: "https://mpago.li/19CvBHE",
+    "Anual Founder": "https://mpago.li/19CvBHE",
+    Anual: "https://mpago.li/19CvBHE"
   },
   whatsappNumber: "5511999999999",
   downloadZipUrl: "downloads/meli-spy-pro.zip"
@@ -223,17 +224,17 @@ function openPlanModal(planName, price) {
   if (leadErr) leadErr.style.display = 'none';
   if (proofErr) proofErr.style.display = 'none';
 
-  const isAnual = planName.toLowerCase().includes('anual');
-  const isMonthly = !isAnual && !planName.toLowerCase().includes('vital');
+  const isVitalicio = planName.toLowerCase().includes('vital') || planName.toLowerCase().includes('anual');
+  const isMonthly = !isVitalicio;
   const mpBtn = document.getElementById('modal-mp-btn');
 
-  if (isAnual) {
-    badge.textContent = `Assinatura Anual • ${planName}`;
-    title.textContent = `Assinatura Anual • ${planName}`;
-    desc.textContent = "Cobrança anual no cartão (R$ 119/ano ou ~R$ 9,91/mês) processada com segurança pelo Mercado Pago. Cancele a renovação quando quiser.";
-    priceVal.textContent = `R$ ${price},00/ano`;
+  if (isVitalicio) {
+    badge.textContent = `Acesso Vitalício • ${planName}`;
+    title.textContent = `Acesso Vitalício • ${planName}`;
+    desc.textContent = "Pagamento único via Pix ou Cartão processado com segurança pelo Mercado Pago. Zero mensalidades, acesso permanente para sempre.";
+    priceVal.textContent = `R$ ${price},00 (Pagamento Único)`;
     if (mpBtn) {
-      mpBtn.querySelector('span').textContent = `👑 Assinar R$ ${price},00/ano no Mercado Pago`;
+      mpBtn.querySelector('span').textContent = `👑 Garantir Vitalício por R$ ${price},00 no Mercado Pago`;
     }
   } else if (isMonthly) {
     badge.textContent = `Assinatura Mensal • ${planName}`;
@@ -255,8 +256,8 @@ function openPlanModal(planName, price) {
 
   // Determine MP Url
   let mpUrl = CONFIG.paymentLinks[planName] || CONFIG.paymentLinks['Starter'];
-  if (planName.toLowerCase().includes('anual') || planName.toLowerCase().includes('vital')) {
-    mpUrl = CONFIG.paymentLinks['Anual Founder'] || CONFIG.paymentLinks['Anual'] || mpUrl;
+  if (planName.toLowerCase().includes('vital') || planName.toLowerCase().includes('anual')) {
+    mpUrl = CONFIG.paymentLinks['Vitalício Founder'] || CONFIG.paymentLinks['Vitalício'] || mpUrl;
   }
   const slug = planName.toLowerCase().replace(/[^a-z]/g, '');
 
@@ -505,12 +506,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const tickerTime = document.getElementById('ticker-time');
 
   const buyers = [
-    { name: 'Rodrigo M.', city: 'São Paulo/SP', plan: 'Anual Founder', time: 'há 2 minutos' },
+    { name: 'Rodrigo M.', city: 'São Paulo/SP', plan: 'Vitalício Founder', time: 'há 2 minutos' },
     { name: 'Camila B.', city: 'Belo Horizonte/MG', plan: 'Plano Scale', time: 'há 5 minutos' },
-    { name: 'Rafael C.', city: 'Campinas/SP', plan: 'Anual Founder', time: 'há 9 minutos' },
+    { name: 'Rafael C.', city: 'Campinas/SP', plan: 'Vitalício Founder', time: 'há 9 minutos' },
     { name: 'Juliana S.', city: 'Curitiba/PR', plan: 'Plano Pro', time: 'há 12 minutos' },
-    { name: 'Lucas F.', city: 'Rio de Janeiro/RJ', plan: 'Anual Founder', time: 'há 3 minutos' },
-    { name: 'Felipe A.', city: 'Porto Alegre/RS', plan: 'Anual Founder', time: 'há 14 minutos' },
+    { name: 'Lucas F.', city: 'Rio de Janeiro/RJ', plan: 'Vitalício Founder', time: 'há 3 minutos' },
+    { name: 'Felipe A.', city: 'Porto Alegre/RS', plan: 'Vitalício Founder', time: 'há 14 minutos' },
     { name: 'Mariana T.', city: 'Goiânia/GO', plan: 'Plano Scale', time: 'há 8 minutos' }
   ];
 
@@ -548,8 +549,8 @@ function closeExitModal() {
 
 function claimExitDiscount() {
   closeExitModal();
-  // Abre o checkout com o desconto de 5% aplicado no Anual (R$ 119 - 5% = R$ 113)
-  openPlanModal('Anual Founder (5% OFF Especial)', '113');
+  // Abre o checkout com o desconto de 5% aplicado no Vitalício (R$ 119 - 5% = R$ 113)
+  openPlanModal('Vitalício Founder (5% OFF Especial)', '113');
 }
 
 // Fechar exit modal ao clicar fora

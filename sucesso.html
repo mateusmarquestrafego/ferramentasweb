@@ -505,7 +505,7 @@
 
         // Cryptographic Serial Key Generator (Opaque, Unique & Salted)
         function generateLicenseKey(plan, daysValid) {
-          const planMap = { starter: 1, pro: 2, scale: 3, anual: 4 };
+          const planMap = { starter: 1, pro: 2, scale: 3, vitalicio: 4, anual: 4 };
           const pCode = planMap[plan] || 4;
           const expSec = Math.floor((Date.now() + daysValid * 86400000) / 1000);
           const salt = Math.floor(Math.random() * 0xFFFF); // 16-bit random salt ensures 100% uniqueness
@@ -529,8 +529,8 @@
           return obf.slice(0, 4) + '-' + obf.slice(4, 8) + '-' + obf.slice(8, 12) + '-' + obf.slice(12, 16);
         }
 
-        let planSlug = 'anual';
-        let daysValid = 365;
+        let planSlug = 'vitalicio';
+        let daysValid = 36500; // Permanente
 
         if (planParam.includes('SCALE')) {
           planSlug = 'scale';
@@ -542,16 +542,19 @@
           planSlug = 'starter';
           daysValid = 30;
         } else {
-          planSlug = 'anual';
-          daysValid = 365;
+          // Vitalício Founder (Default Permanente)
+          planSlug = 'vitalicio';
+          daysValid = 36500;
         }
 
         const generatedKey = generateLicenseKey(planSlug, daysValid);
         const expDate = new Date(Date.now() + daysValid * 86400000);
         const expiresAtIso = expDate.toISOString();
 
-        const periodLabel = planSlug === 'anual' ? 'Anual' : 'Mensal';
-        const validityText = `🟢 <strong>Assinatura ${periodLabel} Ativa até ${expDate.toLocaleDateString('pt-BR')}</strong><br><span style="color:#94a3b8; font-size:10px;">(Mesmo se você cancelar a renovação no Mercado Pago antes, seu acesso permanecerá liberado até este dia!)</span>`;
+        const isVital = planSlug === 'vitalicio';
+        const validityText = isVital
+          ? `🟢 <strong>Acesso Vitalício Ilimitado Ativo para Sempre!</strong><br><span style="color:#94a3b8; font-size:10px;">(Pagamento único confirmado. Você nunca terá nenhuma cobrança de mensalidade!)</span>`
+          : `🟢 <strong>Assinatura Mensal Ativa até ${expDate.toLocaleDateString('pt-BR')}</strong><br><span style="color:#94a3b8; font-size:10px;">(Mesmo se você cancelar a renovação no Mercado Pago antes, seu acesso permanecerá liberado até este dia!)</span>`;
 
         // Store binding to prevent sharing
         localStorage.setItem(storageKey, JSON.stringify({
