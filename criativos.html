@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Central de Criativos Oficiais • MeliSpy Pro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&family=JetBrains+Mono:wght@700;800&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #090d16;
+      color: #f1f5f9;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      padding: 40px 20px;
+    }
+    .header-panel {
+      max-width: 1140px;
+      margin: 0 auto 40px auto;
+      text-align: center;
+    }
+    .header-panel h1 {
+      font-size: 32px;
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .header-panel p {
+      font-size: 15px;
+      color: #94a3b8;
+    }
+    .badge-pill {
+      display: inline-block;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: #38bdf8;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .creatives-grid {
+      max-width: 1140px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 60px;
+    }
+
+    .creative-card {
+      background: #0f172a;
+      border: 1px solid #1e293b;
+      border-radius: 16px;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    }
+    .creative-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      border-bottom: 1px solid #1e293b;
+      padding-bottom: 16px;
+    }
+    .creative-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: #fff;
+    }
+    .creative-tag {
+      font-size: 12px;
+      background: #334155;
+      color: #e2e8f0;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-weight: 700;
+    }
+    .btn-download-banner {
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      color: #fff;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 800;
+      font-size: 14px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+    .btn-download-banner:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(16, 185, 129, 0.35);
+    }
+
+    .banner-preview-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #070a12;
+      border: 1px dashed #334155;
+      border-radius: 12px;
+      padding: 24px;
+      overflow: auto;
+    }
+
+    /* ==============================================================
+       CANVAS 1: FEED 1:1 (1080x1080) - O RAIO-X DE FATURAMENTO
+       ============================================================== */
+    #banner-1 {
+      width: 1080px;
+      height: 1080px;
+      background: radial-gradient(circle at top right, #1e293b 0%, #090d16 65%, #05070c 100%);
+      position: relative;
+      overflow: hidden;
+      padding: 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      box-sizing: border-box;
+      flex-shrink: 0;
+    }
+    #banner-1::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    #banner-1::after {
+      content: '';
+      position: absolute;
+      bottom: -150px;
+      left: -150px;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(16, 185, 129, 0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .b1-top-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(250, 204, 21, 0.15);
+      border: 2px solid #facc15;
+      color: #facc15;
+      padding: 10px 24px;
+      border-radius: 999px;
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      width: fit-content;
+    }
+    .b1-headline {
+      font-size: 56px;
+      font-weight: 900;
+      line-height: 1.15;
+      color: #fff;
+      margin-top: 20px;
+      text-transform: uppercase;
+      letter-spacing: -1px;
+    }
+    .b1-headline span {
+      background: linear-gradient(135deg, #38bdf8 0%, #34d399 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .b1-mockup-card {
+      background: rgba(15, 23, 42, 0.85);
+      border: 2px solid rgba(56, 189, 248, 0.35);
+      backdrop-filter: blur(20px);
+      border-radius: 24px;
+      padding: 36px 40px;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+      position: relative;
+      z-index: 2;
+    }
+    .b1-mockup-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #1e293b;
+      padding-bottom: 20px;
+      margin-bottom: 24px;
+    }
+    .b1-mockup-brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .b1-brand-badge {
+      background: #facc15;
+      color: #000;
+      font-weight: 900;
+      font-size: 18px;
+      padding: 6px 16px;
+      border-radius: 8px;
+    }
+    .b1-brand-title {
+      font-size: 28px;
+      font-weight: 900;
+      color: #fff;
+    }
+    .b1-prod-title {
+      font-size: 20px;
+      color: #cbd5e1;
+      font-weight: 600;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .b1-metrics-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .b1-metric-box {
+      background: #090d16;
+      border: 1px solid #1e293b;
+      border-radius: 16px;
+      padding: 20px 24px;
+    }
+    .b1-metric-lbl {
+      font-size: 16px;
+      color: #94a3b8;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 6px;
+    }
+    .b1-metric-val {
+      font-size: 38px;
+      font-weight: 900;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .val-green { color: #34d399; }
+    .val-yellow { color: #facc15; }
+    .val-blue { color: #38bdf8; }
+
+    .b1-footer-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+      background: rgba(15, 23, 42, 0.9);
+      border: 2px solid #334155;
+      border-radius: 20px;
+      padding: 20px 32px;
+    }
+    .b1-footer-offer {
+      display: flex;
+      flex-direction: column;
+    }
+    .b1-footer-tag {
+      font-size: 16px;
+      color: #facc15;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .b1-footer-price {
+      font-size: 34px;
+      font-weight: 900;
+      color: #fff;
+    }
+    .b1-footer-price span {
+      color: #94a3b8;
+      font-size: 20px;
+      font-weight: 600;
+      text-decoration: line-through;
+      margin-right: 10px;
+    }
+    .b1-cta-fake-btn {
+      background: linear-gradient(135deg, #38bdf8 0%, #2563eb 100%);
+      color: #fff;
+      padding: 16px 36px;
+      border-radius: 12px;
+      font-size: 22px;
+      font-weight: 900;
+      text-transform: uppercase;
+      box-shadow: 0 10px 25px rgba(37, 99, 235, 0.5);
+    }
+
+    /* ==============================================================
+       CANVAS 2: COMPARATIVO DIRETO (FEED 1080x1080)
+       ============================================================== */
+    #banner-2 {
+      width: 1080px;
+      height: 1080px;
+      background: #090d16;
+      position: relative;
+      overflow: hidden;
+      padding: 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      box-sizing: border-box;
+      flex-shrink: 0;
+    }
+    .b2-headline-box {
+      text-align: center;
+    }
+    .b2-pill {
+      display: inline-block;
+      background: rgba(56, 189, 248, 0.15);
+      border: 1px solid #38bdf8;
+      color: #38bdf8;
+      font-size: 18px;
+      font-weight: 800;
+      padding: 8px 22px;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+    }
+    .b2-main-title {
+      font-size: 52px;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.15;
+      text-transform: uppercase;
+    }
+    .b2-main-title span {
+      color: #facc15;
+    }
+
+    .b2-split-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      margin: 30px 0;
+    }
+    .b2-side-bad {
+      background: rgba(239, 68, 68, 0.05);
+      border: 2px solid rgba(239, 68, 68, 0.35);
+      border-radius: 20px;
+      padding: 36px 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .b2-side-good {
+      background: rgba(16, 185, 129, 0.06);
+      border: 2px solid #10b981;
+      border-radius: 20px;
+      padding: 36px 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      box-shadow: 0 0 30px rgba(16, 185, 129, 0.15);
+    }
+    .b2-side-header {
+      font-size: 26px;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-bottom: 2px solid rgba(255,255,255,0.1);
+      padding-bottom: 14px;
+    }
+    .bad-header { color: #f87171; }
+    .good-header { color: #34d399; }
+
+    .b2-item-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      font-size: 20px;
+      line-height: 1.4;
+      font-weight: 600;
+    }
+    .b2-item-row.bad { color: #fca5a5; }
+    .b2-item-row.good { color: #e2e8f0; }
+    .b2-item-row.good strong { color: #34d399; }
+
+    .b2-bottom-cta {
+      background: #0f172a;
+      border: 2px solid #334155;
+      border-radius: 20px;
+      padding: 24px 36px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .b2-bottom-info {
+      font-size: 24px;
+      font-weight: 800;
+      color: #fff;
+    }
+    .b2-bottom-info span {
+      color: #38bdf8;
+      display: block;
+      font-size: 16px;
+      font-weight: 600;
+    }
+    .b2-action-btn {
+      background: #10b981;
+      color: #fff;
+      font-size: 22px;
+      font-weight: 900;
+      padding: 16px 36px;
+      border-radius: 12px;
+      text-transform: uppercase;
+      box-shadow: 0 10px 25px rgba(16, 185, 129, 0.4);
+    }
+
+    /* ==============================================================
+       CANVAS 3: STORIES / REELS 9:16 (1080x1920)
+       ============================================================== */
+    #banner-3 {
+      width: 1080px;
+      height: 1920px;
+      background: radial-gradient(circle at 50% 20%, #1e293b 0%, #090d16 70%, #03060a 100%);
+      position: relative;
+      overflow: hidden;
+      padding: 120px 60px 100px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      box-sizing: border-box;
+      flex-shrink: 0;
+    }
+    .b3-top-section {
+      text-align: center;
+    }
+    .b3-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(239, 68, 68, 0.15);
+      border: 2px solid #ef4444;
+      color: #fca5a5;
+      font-size: 26px;
+      font-weight: 900;
+      padding: 14px 32px;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 30px;
+    }
+    .b3-headline {
+      font-size: 64px;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.15;
+      text-transform: uppercase;
+      letter-spacing: -1px;
+    }
+    .b3-headline span {
+      background: linear-gradient(135deg, #facc15 0%, #f97316 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .b3-mid-card {
+      background: rgba(15, 23, 42, 0.95);
+      border: 3px solid rgba(56, 189, 248, 0.4);
+      border-radius: 30px;
+      padding: 48px;
+      box-shadow: 0 40px 80px rgba(0,0,0,0.7);
+    }
+    .b3-brand-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 36px;
+      border-bottom: 2px solid #1e293b;
+      padding-bottom: 24px;
+    }
+    .b3-metrics-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .b3-row-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #090d16;
+      border: 1px solid #1e293b;
+      padding: 24px 30px;
+      border-radius: 18px;
+    }
+    .b3-row-lbl {
+      font-size: 24px;
+      color: #94a3b8;
+      font-weight: 700;
+    }
+    .b3-row-val {
+      font-size: 36px;
+      font-weight: 900;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .b3-bottom-section {
+      text-align: center;
+    }
+    .b3-offer-box {
+      background: rgba(250, 204, 21, 0.1);
+      border: 2px dashed #facc15;
+      border-radius: 24px;
+      padding: 30px;
+      margin-bottom: 30px;
+    }
+    .b3-offer-title {
+      font-size: 24px;
+      color: #facc15;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .b3-offer-val {
+      font-size: 52px;
+      font-weight: 900;
+      color: #fff;
+    }
+    .b3-swipe-up {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      color: #fff;
+      font-size: 32px;
+      font-weight: 900;
+      text-transform: uppercase;
+      padding: 28px 60px;
+      border-radius: 20px;
+      width: 100%;
+      box-shadow: 0 15px 35px rgba(16, 185, 129, 0.45);
+    }
+
+    /* Scaling helper for preview in browser without breaking layout */
+    .scale-preview-1 {
+      transform: scale(0.45);
+      transform-origin: top center;
+      margin-bottom: -550px;
+    }
+    .scale-preview-3 {
+      transform: scale(0.35);
+      transform-origin: top center;
+      margin-bottom: -1200px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header-panel">
+    <div class="badge-pill">Central de Mídia • FerramentasWeb</div>
+    <h1>Criativos Prontos para Anúncios (Meta Ads / Instagram)</h1>
+    <p>Banners de alta conversão renderizados em resolução nativa (1080x1080 e 1080x1920). Clique no botão para baixar direto em PNG!</p>
+  </div>
+
+  <div class="creatives-grid">
+
+    <!-- CRIATIVO 1: FEED 1:1 -->
+    <div class="creative-card">
+      <div class="creative-card-header">
+        <div>
+          <h2 class="creative-title">Criativo #1: O Raio-X de Concorrência (Feed 1:1)</h2>
+          <span class="creative-tag">📐 Resolução: 1080 x 1080 px • Formato Quadrado</span>
+        </div>
+        <button class="btn-download-banner" onclick="downloadCanvas('banner-1', 'criativo-1-raiox-melispy.png')">
+          📥 Baixar em Alta Resolução (PNG)
+        </button>
+      </div>
+
+      <div class="banner-preview-wrapper">
+        <div class="scale-preview-1">
+          <div id="banner-1">
+            <div>
+              <div class="b1-top-badge">⚡ Ferramenta de Espionagem para Mercado Livre</div>
+              <h2 class="b1-headline">
+                Descubra quanto seu concorrente <span>fatura por mês</span>
+              </h2>
+            </div>
+
+            <div class="b1-mockup-card">
+              <div class="b1-mockup-header">
+                <div class="b1-mockup-brand">
+                  <span class="b1-brand-badge">👑 VITALÍCIO</span>
+                  <span class="b1-brand-title">MeliSpy Pro</span>
+                </div>
+                <span style="font-size: 20px; color: #34d399; font-weight: 800;">● Conectado ao ML</span>
+              </div>
+
+              <div class="b1-prod-title">
+                📦 Anúncio Espionado: Copo Térmico Inox 473ml C/ Tampa
+              </div>
+
+              <div class="b1-metrics-grid">
+                <div class="b1-metric-box">
+                  <div class="b1-metric-lbl">Vendas Confirmadas</div>
+                  <div class="b1-metric-val val-green">14.850 un.</div>
+                </div>
+                <div class="b1-metric-box">
+                  <div class="b1-metric-lbl">Faturamento Estimado</div>
+                  <div class="b1-metric-val val-yellow">R$ 889.515</div>
+                </div>
+                <div class="b1-metric-box">
+                  <div class="b1-metric-lbl">Velocidade de Giro</div>
+                  <div class="b1-metric-val val-blue">~82 un/dia</div>
+                </div>
+                <div class="b1-metric-box">
+                  <div class="b1-metric-lbl">Margem Líquida Real</div>
+                  <div class="b1-metric-val val-green">31,4% Limpo</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="b1-footer-bar">
+              <div class="b1-footer-offer">
+                <span class="b1-footer-tag">👑 Oferta de Lançamento Founder:</span>
+                <span class="b1-footer-price"><span>R$ 238</span> R$ 119,00 (Pagamento Único)</span>
+              </div>
+              <div class="b1-cta-fake-btn">
+                Garantir Licença Vitalícia →
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CRIATIVO 2: COMPARATIVO DIRETO 1:1 -->
+    <div class="creative-card">
+      <div class="creative-card-header">
+        <div>
+          <h2 class="creative-title">Criativo #2: O Fim do Achismo / Antes vs Depois (Feed 1:1)</h2>
+          <span class="creative-tag">📐 Resolução: 1080 x 1080 px • Foco em Eliminar Prejuízo</span>
+        </div>
+        <button class="btn-download-banner" onclick="downloadCanvas('banner-2', 'criativo-2-comparativo-melispy.png')">
+          📥 Baixar em Alta Resolução (PNG)
+        </button>
+      </div>
+
+      <div class="banner-preview-wrapper">
+        <div class="scale-preview-1">
+          <div id="banner-2">
+            <div class="b2-headline-box">
+              <div class="b2-pill">Inteligência Comercial em 1 Clique</div>
+              <h2 class="b2-main-title">
+                Como os grandes vendedores <span>lucram mais no Mercado Livre</span>
+              </h2>
+            </div>
+
+            <div class="b2-split-container">
+              <!-- LADO AMADOR -->
+              <div class="b2-side-bad">
+                <div class="b2-side-header bad-header">
+                  <span>❌ VENDEDOR AMADOR</span>
+                </div>
+                <div class="b2-item-row bad">
+                  <span>✗</span>
+                  <span>Precifica no achismo e toma prejuízo com taxas ocultas</span>
+                </div>
+                <div class="b2-item-row bad">
+                  <span>✗</span>
+                  <span>Não faz ideia de quantas unidades o concorrente vende por dia</span>
+                </div>
+                <div class="b2-item-row bad">
+                  <span>✗</span>
+                  <span>Compra estoque às cegas e fica com o dinheiro encalhado</span>
+                </div>
+                <div class="b2-item-row bad">
+                  <span>✗</span>
+                  <span>Paga R$ 150 a R$ 200 todo mês em ferramentas complexas</span>
+                </div>
+              </div>
+
+              <!-- LADO PROFISSIONAL -->
+              <div class="b2-side-good">
+                <div class="b2-side-header good-header">
+                  <span>✅ COM O MELISPY PRO</span>
+                </div>
+                <div class="b2-item-row good">
+                  <span>✓</span>
+                  <span><strong>Calcula o lucro limpo no bolso</strong> descontando comissão e frete</span>
+                </div>
+                <div class="b2-item-row good">
+                  <span>✓</span>
+                  <span><strong>Raio-X de faturamento e estoque</strong> real direto na tela</span>
+                </div>
+                <div class="b2-item-row good">
+                  <span>✓</span>
+                  <span><strong>Validação segura de demanda</strong> antes de comprar estoque</span>
+                </div>
+                <div class="b2-item-row good">
+                  <span>✓</span>
+                  <span><strong>Pagamento Único de R$ 119</strong> (Sem mensalidade para sempre)</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="b2-bottom-cta">
+              <div class="b2-bottom-info">
+                Instale em 1 minuto no seu navegador
+                <span>Software restrito com licença blindada para sua máquina</span>
+              </div>
+              <div class="b2-action-btn">
+                Testar MeliSpy Pro →
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CRIATIVO 3: STORIES / REELS 9:16 -->
+    <div class="creative-card">
+      <div class="creative-card-header">
+        <div>
+          <h2 class="creative-title">Criativo #3: Stories & Reels Verticais (9:16)</h2>
+          <span class="creative-tag">📐 Resolução: 1080 x 1920 px • Formato Vertical Mobile</span>
+        </div>
+        <button class="btn-download-banner" onclick="downloadCanvas('banner-3', 'criativo-3-stories-melispy.png')">
+          📥 Baixar em Alta Resolução (PNG)
+        </button>
+      </div>
+
+      <div class="banner-preview-wrapper">
+        <div class="scale-preview-3">
+          <div id="banner-3">
+            <div class="b3-top-section">
+              <div class="b3-badge">⚠️ ALERTA PARA SELLERS DO MERCADO LIVRE</div>
+              <h2 class="b3-headline">
+                Pare de perder margem com <span>taxas e achismo</span>
+              </h2>
+            </div>
+
+            <div class="b3-mid-card">
+              <div class="b3-brand-row">
+                <div style="font-size: 32px; font-weight: 900; color: #fff;">
+                  ⚡ MeliSpy Pro
+                </div>
+                <div style="font-size: 22px; color: #facc15; font-weight: 800; background: rgba(250,204,21,0.15); padding: 8px 18px; border-radius: 10px;">
+                  👑 ACESSO VITALÍCIO
+                </div>
+              </div>
+
+              <div class="b3-metrics-list">
+                <div class="b3-row-item">
+                  <span class="b3-row-lbl">Faturamento Estimado</span>
+                  <span class="b3-row-val" style="color: #facc15;">R$ 142.800/mês</span>
+                </div>
+                <div class="b3-row-item">
+                  <span class="b3-row-lbl">Velocidade de Giro</span>
+                  <span class="b3-row-val" style="color: #38bdf8;">~38 un/dia</span>
+                </div>
+                <div class="b3-row-item">
+                  <span class="b3-row-lbl">Margem Líquida Limpa</span>
+                  <span class="b3-row-val" style="color: #34d399;">+32,5% de Lucro</span>
+                </div>
+                <div class="b3-row-item">
+                  <span class="b3-row-lbl">Estoque no Full</span>
+                  <span class="b3-row-val" style="color: #fff;">184 un. restantes</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="b3-bottom-section">
+              <div class="b3-offer-box">
+                <div class="b3-offer-title">🔥 Condição Exclusiva de Lançamento</div>
+                <div class="b3-offer-val">De R$ 238 por R$ 119 (Único)</div>
+              </div>
+
+              <div class="b3-swipe-up">
+                <span>Clique em "Saiba Mais" para Ativar</span>
+                <span>👉</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    async function downloadCanvas(elementId, filename) {
+      const el = document.getElementById(elementId);
+      if (!el) return;
+
+      const btn = event.currentTarget;
+      const originalText = btn.textContent;
+      btn.textContent = '⏳ Gerando PNG em Alta Resolução...';
+      btn.disabled = true;
+
+      try {
+        const canvas = await html2canvas(el, {
+          scale: 1,
+          useCORS: true,
+          backgroundColor: '#090d16',
+          logging: false
+        });
+
+        const link = document.createElement('a');
+        link.download = filename;
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+        btn.textContent = '✅ Imagem Baixada com Sucesso!';
+      } catch (err) {
+        console.error(err);
+        alert('Erro ao gerar imagem. Tente novamente.');
+        btn.textContent = originalText;
+      } finally {
+        setTimeout(() => {
+          btn.textContent = originalText;
+          btn.disabled = false;
+        }, 3000);
+      }
+    }
+  </script>
+
+</body>
+</html>
