@@ -15,7 +15,7 @@ const CONFIG = {
     "Anual Founder": "https://mpago.li/19CvBHE",
     Anual: "https://mpago.li/19CvBHE"
   },
-  whatsappNumber: "5511999999999",
+  whatsappNumber: "5548996192775",
   downloadZipUrl: "downloads/meli-spy-pro.zip"
 };
 
@@ -326,7 +326,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       if (!cleanPhone || cleanPhone.length < 10 || cleanPhone.length > 11) {
-        leadErr.textContent = '⚠️ Por favor, digite um WhatsApp válido com DDD (Ex: 11 99999-9999).';
+        leadErr.textContent = '⚠️ Por favor, digite um WhatsApp válido com DDD (Ex: 48 99619-2775).';
         leadErr.style.display = 'block';
         if (phoneInput) phoneInput.focus();
         return;
