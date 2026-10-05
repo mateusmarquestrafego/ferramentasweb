@@ -1,15 +1,13 @@
 /**
- * FerramentasWeb • Sistema Unificado de Analytics & Rastreamento de UTMs
- * Rastreia: Google Analytics 4 (GA4), UTMs de campanhas (Reels, Shorts, TikTok, Facebook),
- * cliques de conversão, checkout Mercado Pago e origem no WhatsApp.
+ * FerramentasWeb • Sistema Oficial de Google Analytics 4 (GA4) & Remarketing
+ * Tag Oficial: G-TEGVK3RZTJ
+ * Funil de Eventos para Google Ads, Meta Ads e YouTube Ads Remarketing.
  */
 
 (function () {
   'use strict';
 
-  // Configuração padrão (substitua pelo seu ID do Google Analytics 4 se já tiver)
-  // Exemplo: 'G-XXXXXXXXXX'
-  const DEFAULT_GA_ID = window.GA_MEASUREMENT_ID || 'G-Z1G9R09G89'; // ID padrão / placeholder editável
+  const GA_ID = 'G-TEGVK3RZTJ';
 
   // 1. CAPTURADOR E PERSISTÊNCIA DE UTMS
   const UTM_PARAMS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'src', 'fbclid', 'gclid', 'ttclid'];
@@ -28,13 +26,10 @@
     });
 
     if (hasUtm) {
-      // Salva no sessionStorage (sessão atual) e localStorage (retenção pós-navegação)
       try {
         sessionStorage.setItem('fw_utms', JSON.stringify(captured));
         localStorage.setItem('fw_utms_last', JSON.stringify(captured));
-      } catch (e) {
-        // Storage inacessível em modo restrito
-      }
+      } catch (e) {}
     }
   }
 
@@ -44,24 +39,17 @@
       if (session) return JSON.parse(session);
       const local = localStorage.getItem('fw_utms_last');
       if (local) return JSON.parse(local);
-    } catch (e) {
-      // ignore
-    }
+    } catch (e) {}
     return {};
   }
 
-  // Executa captura imediata ao carregar o script
   parseUrlParams();
   const currentUtms = getStoredUtms();
 
-  // 2. INICIALIZAÇÃO DO GOOGLE ANALYTICS 4 (gtag.js)
+  // 2. INICIALIZAÇÃO DO GOOGLE TAG (gtag.js)
   function initGA4() {
-    const gaId = window.GA_MEASUREMENT_ID || DEFAULT_GA_ID;
-
-    // Se já foi carregado, não recarrega
     if (window._ga4_initialized) return;
 
-    // Cria dataLayer e função gtag global
     window.dataLayer = window.dataLayer || [];
     function gtag() {
       window.dataLayer.push(arguments);
@@ -70,7 +58,6 @@
 
     gtag('js', new Date());
 
-    // Configuração com UTMs capturados
     const gaConfig = {
       send_page_view: true,
       cookie_flags: 'SameSite=None;Secure'
@@ -82,38 +69,45 @@
     if (currentUtms.utm_content) gaConfig.campaign_content = currentUtms.utm_content;
     if (currentUtms.utm_term) gaConfig.campaign_term = currentUtms.utm_term;
 
-    gtag('config', gaId, gaConfig);
+    gtag('config', GA_ID, gaConfig);
 
-    // Injeta script oficial do Google se for um ID válido
-    if (gaId && gaId.startsWith('G-')) {
+    // Carrega script oficial do Google se ainda não estiver no DOM
+    if (!document.querySelector(`script[src*="googletagmanager.com/gtag/js?id=${GA_ID}"]`)) {
       const script = document.createElement('script');
       script.async = true;
-      script.src = `https://www.googletagmanager.com/gtag/js?id=${gaId}`;
+      script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
       document.head.appendChild(script);
     }
 
     window._ga4_initialized = true;
   }
 
-  // Disparo seguro de eventos para GA4 e console
+  // DISPARO SEGURO DE EVENTOS GA4 PARA REMARKETING
   function trackEvent(eventName, eventParams = {}) {
-    // Mescla com os UTMs ativos
     const fullParams = Object.assign({}, currentUtms, eventParams, {
       page_location: window.location.href,
-      page_path: window.location.pathname
+      page_path: window.location.pathname,
+      page_title: document.title
     });
 
     if (typeof window.gtag === 'function') {
       window.gtag('event', eventName, fullParams);
     }
 
-    // Armazena evento localmente para debug se necessário
+    // Dispara também para Pixel / GTM se disponível
+    if (window.dataLayer && Array.isArray(window.dataLayer)) {
+      window.dataLayer.push({
+        event: eventName,
+        ...fullParams
+      });
+    }
+
     if (window.location.hostname === 'localhost' || window.location.search.includes('debug=true')) {
-      console.log(`📊 [Analytics Event] ${eventName}:`, fullParams);
+      console.log(`📊 [GA4 Remarketing Event] ${eventName}:`, fullParams);
     }
   }
 
-  // 3. ENRIQUECEDOR DE LINKS COM UTMS (OUTBOUND LINKS & CHECKOUT)
+  // 3. ENRIQUECEDOR DE LINKS COM UTMS
   function appendUtmsToUrl(urlStr, extraParams = {}) {
     try {
       const url = new URL(urlStr, window.location.origin);
@@ -131,7 +125,7 @@
     }
   }
 
-  // Enriquece mensagens de WhatsApp com tag de origem
+  // Enriquece WhatsApp com tag de origem
   function enrichWhatsAppUrl(originalUrl, defaultContext = 'Site') {
     try {
       const url = new URL(originalUrl);
@@ -141,7 +135,6 @@
         ? `[Origem: ${currentUtms.utm_source} • ${currentUtms.utm_medium || 'social'} | Campanha: ${currentUtms.utm_campaign || 'geral'}]`
         : `[Origem: ${defaultContext}]`;
 
-      // Evita duplicar a tag se já foi adicionada
       if (!currentText.includes('[Origem:')) {
         const separator = currentText ? '\n\n' : '';
         const newText = `${currentText}${separator}${sourceTag}`;
@@ -154,23 +147,85 @@
     }
   }
 
-  // 4. ATUALIZAR TODOS OS LINKS DA PÁGINA (DOM LISTENER)
-  function decorateActionLinks() {
-    // A. Links do Mercado Pago (Checkout)
+  // 4. SISTEMA DE EVENTOS DE REMARKETING AUTOMÁTICO (ENGAJAMENTO & FUNIL)
+  function initRemarketingListeners() {
+    // A. Tempo de Permanência no Site (15s, 30s, 60s, 120s)
+    [15, 30, 60, 120].forEach(seconds => {
+      setTimeout(() => {
+        trackEvent('time_on_page', {
+          duration_seconds: seconds,
+          audience_tier: seconds >= 60 ? 'high_intent' : 'medium_intent'
+        });
+      }, seconds * 1000);
+    });
+
+    // B. Profundidade de Scroll (25%, 50%, 75%, 90%)
+    const scrollTiers = { 25: false, 50: false, 75: false, 90: false };
+    window.addEventListener('scroll', () => {
+      const h = document.documentElement;
+      const b = document.body;
+      const st = 'scrollTop';
+      const sh = 'scrollHeight';
+      const percent = Math.round(((h[st] || b[st]) / ((h[sh] || b[sh]) - h.clientHeight)) * 100);
+
+      [25, 50, 75, 90].forEach(mark => {
+        if (percent >= mark && !scrollTiers[mark]) {
+          scrollTiers[mark] = true;
+          trackEvent('scroll_depth', {
+            depth_percent: mark,
+            audience_tier: mark >= 75 ? 'deep_reader' : 'engaged_visitor'
+          });
+        }
+      });
+    }, { passive: true });
+
+    // C. Visualização de Seções Críticas (Tabela de Preços e Simulador)
+    if ('IntersectionObserver' in window) {
+      const sections = [
+        { id: 'precos', event: 'view_pricing_section' },
+        { id: 'demo', event: 'view_simulator_section' },
+        { id: 'faq', event: 'view_faq_section' }
+      ];
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const match = sections.find(s => s.id === entry.target.id);
+            if (match) {
+              trackEvent(match.event, {
+                section: match.id,
+                audience_tier: match.id === 'precos' ? 'pricing_viewer' : 'feature_explorer'
+              });
+              observer.unobserve(entry.target); // dispara 1x por seção
+            }
+          }
+        });
+      }, { threshold: 0.3 });
+
+      sections.forEach(s => {
+        const el = document.getElementById(s.id);
+        if (el) observer.observe(el);
+      });
+    }
+
+    // D. Links de Checkout do Mercado Pago
     document.querySelectorAll('a[href*="mpago.li"]').forEach(link => {
       const originalHref = link.getAttribute('href');
       link.href = appendUtmsToUrl(originalHref, { utm_medium: 'checkout_link' });
 
       link.addEventListener('click', () => {
+        const planName = link.dataset.plan || 'MeliSpy Pro Vitalício';
         trackEvent('begin_checkout', {
-          item_name: link.dataset.plan || 'MeliSpy Pro',
+          item_name: planName,
+          value: planName.includes('105') ? 105.00 : 119.00,
           currency: 'BRL',
-          outbound_url: link.href
+          outbound_url: link.href,
+          audience_tier: 'cart_abandoner_ready'
         });
       });
     });
 
-    // B. Links de WhatsApp
+    // E. Links de WhatsApp
     document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
       const originalHref = link.getAttribute('href');
       const pageContext = window.location.pathname.includes('bio') ? 'Bio Instagram' : 'Landing Page';
@@ -180,12 +235,12 @@
         trackEvent('contact', {
           method: 'WhatsApp',
           link_id: link.id || 'whatsapp_cta',
-          whatsapp_text: link.href
+          audience_tier: 'lead_hot_contact'
         });
       });
     });
 
-    // C. Links da Página Bio para o Site Oficial
+    // F. Links da Bio para o Site Oficial
     document.querySelectorAll('a[href*="ferramentasweb"]').forEach(link => {
       if (link.hostname !== window.location.hostname || link.pathname !== window.location.pathname) {
         link.href = appendUtmsToUrl(link.getAttribute('href'), {
@@ -195,7 +250,18 @@
       }
     });
 
-    // D. Rastrear cliques gerais com data-track
+    // G. Cliques nos cards futuros do Studio (ShopeeSpy, RespondeFácil)
+    document.querySelectorAll('.upcoming-card').forEach(card => {
+      card.addEventListener('click', () => {
+        const title = card.querySelector('.link-title')?.textContent.trim() || 'Ferramenta Futura';
+        trackEvent('interest_future_product', {
+          product_name: title,
+          audience_tier: 'early_adopter'
+        });
+      });
+    });
+
+    // H. Rastrear cliques gerais com data-track
     document.querySelectorAll('[data-track]').forEach(el => {
       el.addEventListener('click', () => {
         trackEvent('cta_click', {
@@ -206,19 +272,20 @@
     });
   }
 
-  // Inicialização quando o DOM estiver pronto
+  // Inicialização
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
       initGA4();
-      decorateActionLinks();
+      initRemarketingListeners();
     });
   } else {
     initGA4();
-    decorateActionLinks();
+    initRemarketingListeners();
   }
 
-  // Exporta utilitários para uso global em scripts (ex: script.js)
+  // Exportação global
   window.FW_TRACKING = {
+    gaId: GA_ID,
     getUtms: getStoredUtms,
     appendUtms: appendUtmsToUrl,
     enrichWhatsApp: enrichWhatsAppUrl,

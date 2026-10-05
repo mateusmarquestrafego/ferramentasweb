@@ -12,6 +12,16 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://ferramentasweb.vercel.app/bio">
   
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TEGVK3RZTJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-TEGVK3RZTJ');
+  </script>
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -576,6 +586,12 @@
   <script>
     function copyBioLink() {
       const url = window.location.href;
+      if (window.FW_TRACKING) {
+        window.FW_TRACKING.trackEvent('bio_share_link', {
+          shared_url: url,
+          method: 'copy_clipboard'
+        });
+      }
       navigator.clipboard.writeText(url).then(() => {
         showToast('✅ Link copiado para a área de transferência!');
       }).catch(() => {
