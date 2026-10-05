@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShopeeSpy Pro • O Espião Definitivo de Produtos Virais, Afiliados & Dropshipping na Shopee</title>
+  <meta name="description" content="Descubra vendas dos últimos 30 dias, faturamento real, comissão de afiliados e baixe fotos e vídeos de avaliações em Ultra HD de qualquer anúncio da Shopee.">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TEGVK3RZTJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TEGVK3RZTJ');
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* Estilos Customizados & Cores ShopeeSpy Pro */
+    :root {
+      --shopee-orange: #ee4d2d;
+      --shopee-orange-glow: rgba(238, 77, 45, 0.3);
+      --shopee-orange-light: #ff7043;
+      --shopee-dark: #090d16;
+    }
+
+    .shopee-gradient-text {
+      background: linear-gradient(135deg, #ff7043 0%, #ee4d2d 50%, #facc15 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .shopee-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(238, 77, 45, 0.15);
+      border: 1px solid rgba(238, 77, 45, 0.35);
+      color: #ff7a59;
+      font-size: 12px;
+      font-weight: 800;
+      padding: 6px 14px;
+      border-radius: 99px;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .btn-shopee {
+      background: linear-gradient(135deg, #ff5722 0%, #ee4d2d 100%);
+      color: #fff;
+      font-weight: 800;
+      box-shadow: 0 4px 20px var(--shopee-orange-glow);
+      border: none;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .btn-shopee:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(238, 77, 45, 0.5);
+      color: #fff;
+    }
+
+    /* Floating Extension Mockup Shopee */
+    .shopee-browser-box {
+      background: #0f172a;
+      border: 1px solid #1e293b;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+      margin: 40px auto 0;
+      max-width: 1000px;
+    }
+
+    .shopee-mockup-body {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 20px;
+      padding: 24px;
+      background: #0b1120;
+    }
+
+    @media (max-width: 900px) {
+      .shopee-mockup-body {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .shopee-product-preview {
+      background: #111827;
+      border: 1px solid #1f293d;
+      border-radius: 12px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .shopee-tag-store {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #ee4d2d;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 4px;
+      width: fit-content;
+    }
+
+    .shopee-price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+    }
+    .shopee-old-price {
+      text-decoration: line-through;
+      color: #64748b;
+      font-size: 14px;
+    }
+    .shopee-current-price {
+      font-size: 32px;
+      font-weight: 900;
+      color: #ee4d2d;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Painel Injetado do ShopeeSpy Pro */
+    .shopeespy-floating-panel {
+      background: #0d1527;
+      border: 1px solid rgba(238, 77, 45, 0.4);
+      border-radius: 14px;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      position: relative;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .shopeespy-panel-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #1e293b;
+      padding-bottom: 10px;
+    }
+
+    .panel-brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 900;
+      color: #fff;
+      font-size: 14px;
+    }
+    .panel-brand span {
+      background: #ee4d2d;
+      color: #fff;
+      font-size: 10px;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    .mode-switcher {
+      display: flex;
+      background: #1e293b;
+      border-radius: 8px;
+      padding: 3px;
+      gap: 4px;
+    }
+    .mode-tab {
+      flex: 1;
+      text-align: center;
+      padding: 6px 10px;
+      font-size: 11px;
+      font-weight: 800;
+      border-radius: 6px;
+      cursor: pointer;
+      color: #94a3b8;
+      transition: all 0.2s;
+    }
+    .mode-tab.active {
+      background: #ee4d2d;
+      color: #fff;
+    }
+
+    .metrics-2col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .metric-card-mini {
+      background: #131d33;
+      border: 1px solid #1e2d4d;
+      border-radius: 8px;
+      padding: 10px;
+    }
+    .metric-lbl {
+      font-size: 10px;
+      color: #94a3b8;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .metric-num {
+      font-size: 16px;
+      font-weight: 900;
+      color: #fff;
+      font-family: 'JetBrains Mono', monospace;
+      margin-top: 2px;
+    }
+
+    .ugc-box {
+      background: rgba(16, 185, 129, 0.08);
+      border: 1px dashed rgba(16, 185, 129, 0.4);
+      border-radius: 10px;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .ugc-title {
+      font-size: 11px;
+      font-weight: 800;
+      color: #34d399;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-ugc-download {
+      background: #059669;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 8px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+    .btn-ugc-download:hover {
+      background: #10b981;
+    }
+
+    .supplier-flag {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      color: #cbd5e1;
+      background: #131d33;
+      padding: 6px 10px;
+      border-radius: 6px;
+    }
+
+    /* Tabela de Vantagens e Recursos */
+    .advantages-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .advantage-card {
+      background: #0f172a;
+      border: 1px solid #1e293b;
+      border-radius: 16px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    .advantage-card:hover {
+      border-color: rgba(238, 77, 45, 0.5);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+    }
+    .adv-icon {
+      font-size: 32px;
+      width: 56px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(238, 77, 45, 0.1);
+      border-radius: 12px;
+      border: 1px solid rgba(238, 77, 45, 0.25);
+    }
+    .adv-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: #fff;
+    }
+    .adv-desc {
+      font-size: 14px;
+      color: #94a3b8;
+      line-height: 1.6;
+    }
+    .adv-highlight {
+      font-size: 12px;
+      font-weight: 800;
+      color: #ff7043;
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Combo Offer Card */
+    .combo-banner {
+      background: radial-gradient(circle at 50% 0%, #1e1b4b 0%, #090d16 100%);
+      border: 2px solid #8b5cf6;
+      border-radius: 20px;
+      padding: 36px;
+      margin-top: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      box-shadow: 0 20px 50px rgba(139, 92, 246, 0.2);
+    }
+    @media (max-width: 850px) {
+      .combo-banner {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Barra de Aviso -->
+  <div class="announcement-bar" style="background: linear-gradient(90deg, #ea580c 0%, #ee4d2d 50%, #f97316 100%); color: #fff;">
+    🔥 NOVO LANÇAMENTO • A ferramenta definitiva para Afiliados e Dropshipping na Shopee Brasil!
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="brand">
+        <span class="brand-badge" style="background: #ee4d2d; color: #fff;">FW</span>
+        Ferramentas<span class="brand-accent" style="color: #ff7043;">Web</span>
+      </a>
+      <div class="nav-links">
+        <a href="#recursos">Recursos</a>
+        <a href="#simulador">Simulador ao Vivo</a>
+        <a href="#vantagens">Vantagens</a>
+        <a href="#precos">Planos</a>
+        <a href="index.html" style="color: #38bdf8;">MeliSpy Pro ➔</a>
+      </div>
+      <div class="nav-cta">
+        <a href="#precos" class="btn btn-shopee" style="padding: 10px 20px; font-size: 13px;">
+          Garantir Acesso Vitalício
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="container hero-container">
+      <div class="shopee-badge">
+        🛍️ SHOPEESPY PRO • EXTENSÃO EXCLUSIVA GOOGLE CHROME
+      </div>
+      <h1 class="hero-title">
+        O Espião Definitivo de <span class="shopee-gradient-text">Produtos Virais, Afiliados & Dropshipping</span> na Shopee.
+      </h1>
+      <p class="hero-subtitle">
+        Descubra o <strong>faturamento real dos últimos 30 dias</strong>, a comissão exata que cai na sua conta de afiliado, estoque de fornecedores nacionais e baixe <strong>todas as fotos 4K e vídeos de avaliações reais</strong> em 1 clique.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#simulador" class="btn btn-shopee btn-large">
+          <span>Testar Simulador da Shopee ao Vivo</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#precos" class="btn btn-outline btn-large">Ver Lote Promocional Founder</a>
+      </div>
+
+      <div class="social-proof-strip">
+        <div class="proof-item">⚡ Vendas Reais dos Últimos 30 Dias</div>
+        <div class="proof-item">📥 Downloader de Vídeos UGC (Compradores)</div>
+        <div class="proof-item">💰 Calculadora Dupla (Afiliado & Dropshipper)</div>
+        <div class="proof-item">🔒 Pagamento Único Vitalício</div>
+      </div>
+
+      <!-- Mockup Visual Interativo -->
+      <div class="shopee-browser-box">
+        <div class="browser-bar">
+          <div class="dots">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+          </div>
+          <div class="url-input">shopee.com.br/Escova-Secadora-Eletrica-Multifuncional-3-em-1-Profissional...</div>
+        </div>
+
+        <div class="shopee-mockup-body">
+          <!-- Lado Esquerdo: Produto Shopee Fake -->
+          <div class="shopee-product-preview">
+            <div class="shopee-tag-store">INDICAÇÃO DA SHOPEE • ENVIADO DE SÃO PAULO</div>
+            <h3 style="font-size: 18px; font-weight: 800; color: #fff; line-height: 1.4;">
+              Escova Secadora e Alisadora Elétrica 3 em 1 Cerâmica Íons 1200W 110V/220V
+            </h3>
+            
+            <div class="shopee-price-row">
+              <span class="shopee-old-price">R$ 89,90</span>
+              <span class="shopee-current-price">R$ 49,90</span>
+              <span style="background: rgba(238, 77, 45, 0.15); color: #ee4d2d; font-size: 11px; font-weight: 800; padding: 2px 8px; border-radius: 4px;">44% OFF</span>
+            </div>
+
+            <div style="font-size: 12px; color: #94a3b8; display: flex; gap: 14px; border-top: 1px solid #1e293b; padding-top: 12px;">
+              <span>⭐ <strong>4.8</strong> (8.410 avaliações)</span>
+              <span>📦 <strong>34.200</strong> unidades vendidas (Histórico Total)</span>
+            </div>
+
+            <div class="supplier-flag">
+              <span>🚚 <strong>Origem:</strong> Fornecedor Nacional (São Paulo - SP) • Postagem em 24h (DTS Rápido)</span>
+            </div>
+
+            <div style="font-size: 11px; color: #64748b; line-height: 1.4;">
+              * A Shopee esconde o faturamento recente e bloqueia o download de vídeos dos clientes. Veja ao lado o que o ShopeeSpy Pro revela instantaneamente:
+            </div>
+          </div>
+
+          <!-- Lado Direito: Barra Flutuante ShopeeSpy Pro -->
+          <div class="shopeespy-floating-panel">
+            <div class="shopeespy-panel-header">
+              <div class="panel-brand">
+                <span>PRO</span>
+                ShopeeSpy Pro
+              </div>
+              <span style="font-size: 11px; color: #34d399; font-weight: 800;">● Conectado ao Vivo</span>
+            </div>
+
+            <!-- Alternador de Modos -->
+            <div class="mode-switcher">
+              <div class="mode-tab active" id="tab-afiliado-mock" onclick="switchMockMode('afiliado')">🎯 Modo Afiliado</div>
+              <div class="mode-tab" id="tab-drop-mock" onclick="switchMockMode('drop')">📦 Modo Dropshipping</div>
+            </div>
+
+            <!-- Métricas 30 Dias Reais -->
+            <div class="metrics-2col">
+              <div class="metric-card-mini">
+                <div class="metric-lbl">Vendas Últimos 30 Dias</div>
+                <div class="metric-num text-green" style="color: #34d399;">2.140 un</div>
+              </div>
+              <div class="metric-card-mini">
+                <div class="metric-lbl">Faturamento Mês</div>
+                <div class="metric-num text-yellow" style="color: #facc15;">R$ 106.786</div>
+              </div>
+            </div>
+
+            <!-- Bloco Dinâmico (Afiliado vs Drop) -->
+            <div id="mock-afiliado-content">
+              <div style="background: rgba(238, 77, 45, 0.08); border: 1px solid rgba(238, 77, 45, 0.3); border-radius: 8px; padding: 10px;">
+                <div style="display: flex; justify-content: space-between; font-size: 11px; margin-bottom: 4px;">
+                  <span style="color: #94a3b8;">Comissão Categoria (10%):</span>
+                  <strong style="color: #fff;">R$ 4,99 / venda</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between; font-size: 12px; font-weight: 800; border-top: 1px dashed rgba(255,255,255,0.1); padding-top: 6px;">
+                  <span style="color: #ff7043;">Potencial Mensal (Top Afiliado):</span>
+                  <span style="color: #34d399;">R$ 10.678 / mês</span>
+                </div>
+              </div>
+            </div>
+
+            <div id="mock-drop-content" style="display: none;">
+              <div style="background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 8px; padding: 10px;">
+                <div style="display: flex; justify-content: space-between; font-size: 11px;">
+                  <span style="color: #94a3b8;">Custo Estimado Fornecedor:</span>
+                  <strong>R$ 21,00</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between; font-size: 11px; margin: 3px 0;">
+                  <span style="color: #94a3b8;">Taxas Shopee (14% + R$ 4):</span>
+                  <strong style="color: #f87171;">- R$ 10,98</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between; font-size: 12px; font-weight: 800; border-top: 1px dashed rgba(255,255,255,0.1); padding-top: 6px;">
+                  <span style="color: #38bdf8;">Lucro Líquido no Bolso:</span>
+                  <span style="color: #34d399;">R$ 17,92 (35.9%)</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Downloader de Mídia UGC -->
+            <div class="ugc-box">
+              <div class="ugc-title">
+                <span>🎬 CENTRAL DE CRIATIVOS VIRAL (UGC)</span>
+              </div>
+              <div style="font-size: 10px; color: #cbd5e1; line-height: 1.3;">
+                Detectados <strong>42 vídeos de clientes testando o produto</strong> nas avaliações + 1 vídeo principal em HD.
+              </div>
+              <button class="btn-ugc-download" onclick="alert('No software instalado, todas as 42 mídias em Ultra HD e vídeos são baixados em arquivo .zip limpo sem marca d’água em 2 segundos!')">
+                📥 Baixar Pacote de Vídeos & Fotos UGC (4K)
+              </button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Simulador Interativo ao Vivo Shopee -->
+  <section id="simulador" class="section spotlight-section">
+    <div class="container">
+      <div class="section-tag" style="background: rgba(238, 77, 45, 0.15); color: #ff7043; border-color: rgba(238, 77, 45, 0.3);">
+        DEMONSTRAÇÃO REAL
+      </div>
+      <h2 class="section-title">
+        Simule o ShopeeSpy Pro com Produtos Virais
+      </h2>
+      <p class="section-subtitle">
+        Veja como a extensão disseca qualquer produto da Shopee em tempo real. Escolha um produto campeão de vendas abaixo:
+      </p>
+
+      <div class="demo-box" style="border-color: rgba(238, 77, 45, 0.3); box-shadow: 0 10px 40px rgba(238, 77, 45, 0.1);">
+        <div class="demo-quick-pills">
+          <span style="font-weight: 800; color: #ff7043;">Produtos Virais para Testar:</span>
+          <button type="button" class="pill-btn" onclick="fillShopeeDemo('Escova Secadora 3 em 1 1200W', 49.90, 21.00, 2140, 10, 'SP', 42)">Escova Secadora (R$ 49,90)</button>
+          <button type="button" class="pill-btn" onclick="fillShopeeDemo('Fone Sem Fio Bluetooth Pro TWS', 32.50, 12.00, 4820, 12, 'PR', 88)">Fone Bluetooth TWS (R$ 32,50)</button>
+          <button type="button" class="pill-btn" onclick="fillShopeeDemo('Mini Câmera Espiã A9 Wi-Fi Full HD', 28.90, 9.80, 1630, 8, 'SP', 19)">Mini Câmera A9 (R$ 28,90)</button>
+          <button type="button" class="pill-btn" onclick="fillShopeeDemo('Garrafa Térmica Motivacional 2L', 24.90, 8.50, 5200, 9, 'SC', 64)">Garrafa Térmica 2L (R$ 24,90)</button>
+        </div>
+
+        <div class="demo-input-bar">
+          <input type="text" id="shopee-demo-input" placeholder="Cole o link de qualquer anúncio da Shopee Brasil (shopee.com.br/...)...">
+          <button class="btn btn-shopee" onclick="runShopeeSimulator()">🔍 Dissecar Anúncio Shopee</button>
+        </div>
+
+        <div id="shopee-loading" style="display: none; padding: 20px; text-align: center; color: #ff7043; font-weight: 800;">
+          ⏳ Consultando API da Shopee, calculando vendas de 30 dias e escaneando vídeos de UGC...
+        </div>
+
+        <div id="shopee-result" style="display: block; margin-top: 24px;">
+          <div class="demo-result-grid">
+            <div class="demo-res-card">
+              <span class="demo-res-label">Produto Analisado</span>
+              <span class="demo-res-val" id="shopee-res-title" style="font-size: 15px;">Escova Secadora 3 em 1 1200W</span>
+            </div>
+            <div class="demo-res-card">
+              <span class="demo-res-label">Preço de Venda</span>
+              <span class="demo-res-val" id="shopee-res-price" style="color: #ff7043;">R$ 49,90</span>
+            </div>
+            <div class="demo-res-card">
+              <span class="demo-res-label">Vendas ÚLTIMOS 30 DIAS</span>
+              <span class="demo-res-val highlight-green" id="shopee-res-sales">2.140 un</span>
+            </div>
+            <div class="demo-res-card">
+              <span class="demo-res-label">Faturamento Mensal Estimado</span>
+              <span class="demo-res-val highlight-yellow" id="shopee-res-revenue">R$ 106.786,00</span>
+            </div>
+          </div>
+
+          <div class="demo-math-breakdown" style="margin-top: 20px;">
+            <div class="math-col">
+              <span class="math-label">Comissão Afiliado:</span>
+              <strong id="shopee-math-comissao" style="color: #34d399; font-size: 16px;">R$ 4,99 / venda (10%)</strong>
+            </div>
+            <div class="math-col">
+              <span class="math-label">Custo Fornecedor Nacional:</span>
+              <strong id="shopee-math-cost">R$ 21,00</strong>
+            </div>
+            <div class="math-col">
+              <span class="math-label">Taxas Shopee (14% + R$ 4):</span>
+              <strong id="shopee-math-fee" style="color: #f87171;">- R$ 10,98</strong>
+            </div>
+            <div class="math-col">
+              <span class="math-label">Mídias UGC Encontradas:</span>
+              <strong id="shopee-math-ugc" style="color: #38bdf8;">42 Vídeos de Clientes</strong>
+            </div>
+            <div class="math-col highlight-box" style="border-color: #ee4d2d;">
+              <span class="math-label">Lucro Limpo Dropshipping:</span>
+              <strong id="shopee-math-profit" style="color: #34d399; font-size: 18px;">R$ 17,92</strong>
+              <span id="shopee-math-margin" style="font-size: 11px; color: #6ee7b7;">(35.9% margem líquida)</span>
+            </div>
+          </div>
+
+          <div style="margin-top: 24px; background: #0f172a; border: 1px solid #1e293b; border-radius: 12px; padding: 16px; display: flex; align-items: center; justify-content: space-between; flex-wrap: gap; gap: 16px;">
+            <div>
+              <span style="color: #fff; font-weight: 800; font-size: 14px;">🚀 Quer esses dados aparecendo automaticamente dentro da Shopee enquanto você navega?</span>
+              <div style="color: #94a3b8; font-size: 12px; margin-top: 4px;">Instale a extensão no seu Chrome em menos de 1 minuto e comece a minerar hoje.</div>
+            </div>
+            <a href="#precos" class="btn btn-shopee" style="white-space: nowrap;">Garantir Licença Vitalícia</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Super Vantagens & Recursos Exclusivos -->
+  <section id="vantagens" class="section">
+    <div class="container">
+      <div class="section-tag" style="background: rgba(238, 77, 45, 0.15); color: #ff7043; border-color: rgba(238, 77, 45, 0.3);">
+        SUPER PODERES
+      </div>
+      <h2 class="section-title">
+        As 6 Vantagens Injustas do ShopeeSpy Pro
+      </h2>
+      <p class="section-subtitle">
+        Tudo o que os maiores mineradores de produtos e afiliados de 7 dígitos usam para dominar as vendas sem perder tempo com planilhas.
+      </p>
+
+      <div class="advantages-grid">
+        
+        <!-- Vantagem 1 -->
+        <div class="advantage-card">
+          <div class="adv-icon">📅</div>
+          <h3 class="adv-title">Vendas Reais dos Últimos 30 Dias</h3>
+          <p class="adv-desc">
+            A Shopee mostra apenas o total histórico (ex: "30.000 vendidos"). Mas isso vendeu há 3 anos ou ontem? O ShopeeSpy Pro extrai o volume exato faturado nos últimos 30 dias para você não apostar em produto morto.
+          </p>
+          <div class="adv-highlight">🔥 Validação à prova de falhas</div>
+        </div>
+
+        <!-- Vantagem 2 -->
+        <div class="advantage-card">
+          <div class="adv-icon">🎬</div>
+          <h3 class="adv-title">Central UGC: Vídeos de Avaliações em 1 Clique</h3>
+          <p class="adv-desc">
+            O recurso mais desejado do mercado: baixe todos os vídeos e fotos reais gravados pelos compradores nas avaliações 5 estrelas. Perfeito para criar anúncios de alta conversão no TikTok Ads, Reels e páginas de vendas.
+          </p>
+          <div class="adv-highlight">💎 Ouro puro para criativos virais</div>
+        </div>
+
+        <!-- Vantagem 3 -->
+        <div class="advantage-card">
+          <div class="adv-icon">💰</div>
+          <h3 class="adv-title">Calculadora de Comissão para Afiliados</h3>
+          <p class="adv-desc">
+            Veja na hora quanto você vai receber de comissão por cada venda gerada daquele link. Descubra na hora quais categorias pagam os maiores bônus antes de gravar conteúdo recomendando o produto.
+          </p>
+          <div class="adv-highlight">🎯 Multiplique seus ganhos de afiliado</div>
+        </div>
+
+        <!-- Vantagem 4 -->
+        <div class="advantage-card">
+          <div class="adv-icon">📦</div>
+          <h3 class="adv-title">Margem Líquida Real para Dropshipping</h3>
+          <p class="adv-desc">
+            Desconta automaticamente a comissão de 14% da Shopee, o frete grátis extra (6%) e a taxa fixa de transação de R$ 4 por item. Saiba se o produto aguenta tráfego pago antes de gastar R$ 1 em anúncios.
+          </p>
+          <div class="adv-highlight">🛡️ Proteção contra prejuízo no tráfego</div>
+        </div>
+
+        <!-- Vantagem 5 -->
+        <div class="advantage-card">
+          <div class="adv-icon">📍</div>
+          <h3 class="adv-title">Radar de Fornecedor Nacional & Estoque</h3>
+          <p class="adv-desc">
+            Identifique se o fornecedor posta de São Paulo, Santa Catarina ou direto da China. Monitore o estoque disponível em tempo real para não escalar campanhas de produtos à beira da ruptura.
+          </p>
+          <div class="adv-highlight">🚚 Dropshipping Nacional sem atrasos</div>
+        </div>
+
+        <!-- Vantagem 6 -->
+        <div class="advantage-card">
+          <div class="adv-icon">👑</div>
+          <h3 class="adv-title">Licença Vitalícia Founder (Zero Mensalidades)</h3>
+          <p class="adv-desc">
+            Ferramentas concorrentes de espionagem cobram R$ 150 a R$ 250 por mês. No ShopeeSpy Pro você paga uma taxa única promocional de fundador e o software é seu para sempre, com atualizações inclusas.
+          </p>
+          <div class="adv-highlight">⚡ Economia de até R$ 2.400 por ano</div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Seção de Preços & Oferta Especial de Lançamento -->
+  <section id="precos" class="section pricing-section">
+    <div class="container">
+      <div class="section-tag" style="background: rgba(238, 77, 45, 0.15); color: #ff7043; border-color: rgba(238, 77, 45, 0.3);">
+        LOTE DE FUNDADOR
+      </div>
+      <h2 class="section-title">Escolha o seu plano de acesso</h2>
+      <p class="section-subtitle">
+        Sem mensalidades ocultas, sem planos de renovação forçada. Escolha a sua licença e ative no Google Chrome hoje mesmo:
+      </p>
+
+      <div class="pricing-grid">
+        
+        <!-- CARD 1: SHOPEESPY PRO INDIVIDUAL -->
+        <div class="pricing-card" style="border-color: rgba(238, 77, 45, 0.4);">
+          <div class="plan-header">
+            <span class="badge" style="background: rgba(238, 77, 45, 0.15); color: #ff7043;">LOTE PROMOCIONAL 1</span>
+            <h3>ShopeeSpy Pro Vitalício</h3>
+            <p>O arsenal completo para quem foca em Shopee, Afiliados e Dropshipping.</p>
+          </div>
+          <div class="price-box">
+            <span class="old-price">De R$ 247</span>
+            <div class="price-val" style="color: #ff7043;">R$ 119</div>
+            <span class="price-period">taxa única • vitalício</span>
+            <div style="font-size: 13px; color: #4ade80; font-weight: 700; margin-top: 4px;">Ou R$ 105 no Pix à vista</div>
+          </div>
+          <ul class="features-list">
+            <li>✅ Vendas dos últimos 30 dias em qualquer anúncio</li>
+            <li>✅ Downloader de Fotos 4K e Vídeos UGC em 1 clique</li>
+            <li>✅ Calculadora Dupla (Modo Afiliado + Modo Dropshipper)</li>
+            <li>✅ Radar de Fornecedor Nacional & Estoque Real</li>
+            <li>✅ Extrator de palavras-chave mais buscadas</li>
+            <li>✅ Atualizações vitalícias inclusas</li>
+            <li>✅ Suporte prioritário via WhatsApp</li>
+          </ul>
+          <a href="https://pay.kirvano.com/e5c26b80-0a70-4355-888e-1bb5c9fa496f" target="_blank" rel="noopener noreferrer" class="btn btn-shopee btn-plan" data-track="buy_shopeespy_individual">
+            Garantir ShopeeSpy Vitalício
+          </a>
+        </div>
+
+        <!-- CARD 2: COMBO MINERADOR PRO (O MAIS VANTAJOSO) -->
+        <div class="pricing-card featured" style="border-color: #8b5cf6;">
+          <div class="featured-badge" style="background: linear-gradient(90deg, #8b5cf6 0%, #ec4899 100%);">
+            👑 O MAIS ESCOLHIDO • COMBO MINERADOR COMPLETO
+          </div>
+          <div class="plan-header">
+            <span class="badge" style="background: rgba(139, 92, 246, 0.2); color: #c084fc;">DOIS SOFTWARES VITALÍCIOS</span>
+            <h3>Combo Minerador Pro</h3>
+            <p>MeliSpy Pro (Mercado Livre) + ShopeeSpy Pro (Shopee) em uma única licença unificada.</p>
+          </div>
+          <div class="price-box">
+            <span class="old-price">De R$ 494</span>
+            <div class="price-val" style="color: #a78bfa;">R$ 167</div>
+            <span class="price-period">taxa única • 2 extensões vitalícias</span>
+            <div style="font-size: 13px; color: #4ade80; font-weight: 700; margin-top: 4px;">Apenas R$ 83,50 por ferramenta vitalícia!</div>
+          </div>
+          <ul class="features-list">
+            <li>🔥 <strong>ShopeeSpy Pro Completo Vitalício</strong> (Shopee)</li>
+            <li>🔥 <strong>MeliSpy Pro Completo Vitalício</strong> (Mercado Livre)</li>
+            <li>✅ Mineração nos 2 maiores marketplaces da América Latina</li>
+            <li>✅ Download de vídeos UGC e fotos 4K em ambas as plataformas</li>
+            <li>✅ Calculadoras de comissões, taxas ML e taxas Shopee</li>
+            <li>✅ Chave de licença VIP Master para 2 computadores</li>
+            <li>✅ Acesso imediato no Chrome sem mensalidades</li>
+            <li>✅ Suporte VIP direto com os desenvolvedores</li>
+          </ul>
+          <a href="https://pay.kirvano.com/e5c26b80-0a70-4355-888e-1bb5c9fa496f" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-plan" style="background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%);" data-track="buy_combo_minerador">
+            Garantir Combo Duplo Vitalício (R$ 167)
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Garantia -->
+      <div style="max-width: 600px; margin: 40px auto 0; text-align: center; background: #0f172a; border: 1px solid #1e293b; border-radius: 16px; padding: 20px;">
+        <div style="font-size: 32px; margin-bottom: 8px;">🛡️</div>
+        <h4 style="font-size: 16px; font-weight: 800; color: #fff;">Garantia Incondicional de 7 Dias</h4>
+        <p style="font-size: 13px; color: #94a3b8; margin-top: 4px;">
+          Teste o ShopeeSpy Pro nas suas minerações. Se você não achar produtos vencedores ou achar que a ferramenta não valeu cada centavo, devolvemos 100% do seu dinheiro sem perguntas.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-col brand-col">
+        <div class="brand">
+          <span class="brand-badge" style="background: #ee4d2d; color: #fff;">FW</span>
+          Ferramentas<span class="brand-accent" style="color: #ff7043;">Web</span>
+        </div>
+        <p>Studio brasileiro de micro-ferramentas para alta performance em marketplaces e vendas digitais.</p>
+        <div style="margin-top: 14px; font-size: 13px; color: #94a3b8;">
+          Suporte Oficial WhatsApp: <a href="https://wa.me/5548996192775" style="color: #4ade80; text-decoration: none; font-weight: 700;">+55 48 99619-2775</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Ecossistema</h4>
+        <ul>
+          <li><a href="index.html">MeliSpy Pro (Mercado Livre)</a></li>
+          <li><a href="shopeespy.html" style="color: #ff7043;">ShopeeSpy Pro (Shopee)</a></li>
+          <li><a href="bio.html">Links Oficiais na Bio</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#">Termos de Uso</a></li>
+          <li><a href="#">Privacidade</a></li>
+          <li><a href="https://wa.me/5548996192775">Falar com Suporte</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; 2026 FerramentasWeb. Todos os direitos reservados. Não possui afiliação oficial direta com a Shopee Pte Ltd.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="analytics.js"></script>
+  <script>
+    // Alternador do Mockup no Hero (Afiliado vs Dropshipper)
+    function switchMockMode(mode) {
+      const tabAfiliado = document.getElementById('tab-afiliado-mock');
+      const tabDrop = document.getElementById('tab-drop-mock');
+      const contentAfiliado = document.getElementById('mock-afiliado-content');
+      const contentDrop = document.getElementById('mock-drop-content');
+
+      if (mode === 'afiliado') {
+        tabAfiliado.classList.add('active');
+        tabDrop.classList.remove('active');
+        contentAfiliado.style.display = 'block';
+        contentDrop.style.display = 'none';
+      } else {
+        tabDrop.classList.add('active');
+        tabAfiliado.classList.remove('active');
+        contentAfiliado.style.display = 'none';
+        contentDrop.style.display = 'block';
+      }
+    }
+
+    // Dados e Execução do Simulador da Shopee
+    function fillShopeeDemo(title, price, cost, salesMonth, comissaoPct, state, ugcVideos) {
+      document.getElementById('shopee-demo-input').value = 'https://shopee.com.br/produto-exemplo-viral-' + title.toLowerCase().replace(/\s+/g, '-');
+      
+      const resTitle = document.getElementById('shopee-res-title');
+      const resPrice = document.getElementById('shopee-res-price');
+      const resSales = document.getElementById('shopee-res-sales');
+      const resRev = document.getElementById('shopee-res-revenue');
+      
+      const mathComissao = document.getElementById('shopee-math-comissao');
+      const mathCost = document.getElementById('shopee-math-cost');
+      const mathFee = document.getElementById('shopee-math-fee');
+      const mathUgc = document.getElementById('shopee-math-ugc');
+      const mathProfit = document.getElementById('shopee-math-profit');
+      const mathMargin = document.getElementById('shopee-math-margin');
+
+      const revenue = price * salesMonth;
+      const comissaoReais = (price * (comissaoPct / 100));
+      // Taxas Shopee: 14% comissão padrão + R$ 4 taxa fixa
+      const shopeeFees = (price * 0.14) + 4.00;
+      const profit = price - cost - shopeeFees;
+      const marginPct = ((profit / price) * 100).toFixed(1);
+
+      resTitle.textContent = title;
+      resPrice.textContent = 'R$ ' + price.toFixed(2).replace('.', ',');
+      resSales.textContent = salesMonth.toLocaleString('pt-BR') + ' un';
+      resRev.textContent = 'R$ ' + revenue.toLocaleString('pt-BR', { minimumFractionDigits: 2 });
+
+      mathComissao.textContent = 'R$ ' + comissaoReais.toFixed(2).replace('.', ',') + ' / venda (' + comissaoPct + '%)';
+      mathCost.textContent = 'R$ ' + cost.toFixed(2).replace('.', ',') + ' (' + state + ')';
+      mathFee.textContent = '- R$ ' + shopeeFees.toFixed(2).replace('.', ',');
+      mathUgc.textContent = ugcVideos + ' Vídeos Reais de UGC';
+      mathProfit.textContent = 'R$ ' + profit.toFixed(2).replace('.', ',');
+      mathMargin.textContent = '(' + marginPct + '% margem líquida)';
+
+      // Dispara evento GA4
+      if (typeof trackEvent === 'function') {
+        trackEvent('shopee_simulador_testado', { product: title, price: price });
+      }
+    }
+
+    function runShopeeSimulator() {
+      const input = document.getElementById('shopee-demo-input').value.trim();
+      const loading = document.getElementById('shopee-loading');
+      const result = document.getElementById('shopee-result');
+
+      loading.style.display = 'block';
+      result.style.opacity = '0.3';
+
+      setTimeout(() => {
+        loading.style.display = 'none';
+        result.style.opacity = '1';
+        if (!input) {
+          fillShopeeDemo('Escova Secadora 3 em 1 1200W', 49.90, 21.00, 2140, 10, 'SP', 42);
+        }
+      }, 700);
+    }
+  </script>
+
+</body>
+</html>

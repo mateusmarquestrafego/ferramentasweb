@@ -1,406 +1,437 @@
 # 🎬 ROTEIROS DE VÍDEOS CURTOS • REELS, SHORTS, TIKTOK & FACEBOOK
-> **Formato Unificado (9:16 Vertical):** Serve exatamente da mesma forma para **Instagram Reels**, **YouTube Shorts**, **TikTok** e **Facebook Reels / Posts em Vídeo**.
-> **Duração Ideal:** 30 a 55 segundos cada (máxima retenção e engajamento algorítmico).
-> **Tom de Voz:** Direto ao ponto, sem enrolação, prático, demonstrando a tela do computador.
+> **Público-Alvo Estratégico:** Mineradores de Produtos, Dropshipping Nacional, Afiliados de Marketplaces & Redes Sociais, e Novos Empreendedores buscando produtos validados com alta demanda.
+> **Formato Unificado (9:16 Vertical):** Serve exatamente da mesma forma para **Instagram Reels**, **YouTube Shorts**, **TikTok** e **Facebook Reels / Vídeos Curtos**.
+> **Duração Ideal:** 30 a 50 segundos cada (máxima retenção e viralização orgânica).
+> **Tom de Voz:** Dinâmico, estilo "hack revelado", tela do computador com dados reais, focado em facilidade, lucro limpo e fim de mensalidades caras.
 
 ---
 
-## 📌 ÍNDICE DE ROTEIROS
+## 📌 ÍNDICE DOS ROTEIROS DE ALTA CONVERSÃO
 
-1. [Roteiro #01: O Choque do Prejuízo Oculto (A ilusão de faturar e não lucrar)](#roteiro-01-o-choque-do-prejuízo-oculto)
-2. [Roteiro #02: Como Espionar o Faturamento do Concorrente em 3s](#roteiro-02-como-espionar-o-faturamento-do-concorrente-em-3s)
-3. [Roteiro #03: O Erro Fatal da Taxa de R$ 6 Abaixo de R$ 79](#roteiro-03-o-erro-fatal-da-taxa-de-r-6-abaixo-de-r-79)
-4. [Roteiro #04: O Segredo de Baixar Fotos em Ultra HD do Mercado Livre Full](#roteiro-04-o-segredo-de-baixar-fotos-em-ultra-hd-do-mercado-livre-full)
-5. [Roteiro #05: Como Descobrir o Estoque Real do Concorrente sem Comprar Nada](#roteiro-05-como-descobrir-o-estoque-real-do-concorrente-sem-comprar-nada)
-6. [Roteiro #06: Adeus Planilhas Chatas: Calculadora Reversa no Navegador](#roteiro-06-adeus-planilhas-chatas-calculadora-reversa-no-navegador)
-7. [Roteiro #07: Chega de Pagar R$ 150/mês em Softwares Caros](#roteiro-07-chega-de-pagar-r-150mês-em-softwares-caros)
-8. [Roteiro #08: Da Instalação ao Primeiro Lucro (Tutorial Express 40s)](#roteiro-08-da-instalação-ao-primeiro-lucro-tutorial-express-40s)
+1. [Roteiro #01: O Segredo da Mineração de Produtos Vencedores no Mercado Livre](#roteiro-01-o-segredo-da-mineração-de-produtos-vencedores)
+2. [Roteiro #02: Como Espionar o Faturamento Real de Qualquer Produto em 3 Segundos](#roteiro-02-como-espionar-o-faturamento-real-de-qualquer-produto-em-3s)
+3. [Roteiro #03: O Hack de Baixar Todas as Fotos em Ultra HD 4K para Anúncios e Lojas](#roteiro-03-o-hack-de-baixar-todas-as-fotos-em-ultra-hd-4k)
+4. [Roteiro #04: Calculadora de Lucro Limpo: O Produto Aguenta Tráfego Pago?](#roteiro-04-calculadora-de-lucro-limpo-o-produto-aguenta-tráfego-pago)
+5. [Roteiro #05: Como Checar o Estoque Real do Fornecedor Antes de Escalar Vendas](#roteiro-05-como-checar-o-estoque-real-do-fornecedor-antes-de-escalar)
+6. [Roteiro #06: O Erro Fatal da Taxa de R$ 6 que Quebra Quem Vende Produto Barato](#roteiro-06-o-erro-fatal-da-taxa-de-r-6-abaixo-de-r-79)
+7. [Roteiro #07: Chega de Pagar R$ 150/mês em Ferramentas de Mineração Caras](#roteiro-07-chega-de-pagar-r-150mês-em-ferramentas-de-mineração)
+8. [Roteiro #08: Do Zero ao Primeiro Produto Validado em 40 Segundos (Guia Rápido)](#roteiro-08-do-zero-ao-primeiro-produto-validado-em-40-segundos)
 
 ---
 
-## 🎬 ROTEIRO #01: O Choque do Prejuízo Oculto
-* **Ângulo:** Quebra de padrão / Dor profunda de quem vende muito e não vê a cor do dinheiro.
+## 🎬 ROTEIRO #01: O Segredo da Mineração de Produtos Vencedores
+* **Ângulo:** Mineração de *Winning Products* / Como encontrar produtos que faturam alto para vender no Dropshipping ou como Afiliado.
+* **Público:** Dropshippers, Afiliados, Criadores de Lojas e Novos Sellers.
 * **Duração:** ~40 segundos.
 
 ### 🎥 Estrutura do Vídeo:
-* **00s - 03s | GANCHO (Hook Retenção):**
-  * *Visual:* Celular mostrando notificações de vendas apitando sem parar no Mercado Pago ou mão empacotando caixas rápido, com texto chamativo.
-  * *Áudio/Voz:* "Você faturou 20 mil reais no Mercado Livre esse mês e sobrou menos de 800 reais na sua conta? Deixa eu te mostrar onde seu dinheiro sumiu."
-  * *Texto na Tela:* **Faturou R$ 20k e sobrou R$ 800? 📉**
+* **00s - 03s | GANCHO (Hook Viral):**
+  * *Visual:* Cursor navegando na categoria de mais vendidos do Mercado Livre, com um zoom rápido num mini processador ou smartwatch.
+  * *Áudio/Voz:* "Como os maiores mineradores de Dropshipping e Afiliados descobrem produtos que faturam mais de 50 mil reais por mês no Mercado Livre sem gastar nada com ferramentas gringas?"
+  * *Texto na Tela:* **Como minerar produtos de R$ 50k/mês 🕵️‍♂️🔥**
 
-* **03s - 15s | O PROBLEMA (Demonstração):**
-  * *Visual:* Gravação de tela de um produto no Mercado Livre vendido a R$ 39,90. O mouse passa em cima das taxas.
-  * *Áudio/Voz:* "A maioria dos vendedores só calcula o preço que pagou no fornecedor e esquece que o Mercado Livre morde 17% de comissão Premium, mais 6 reais de taxa fixa obrigatória em tudo abaixo de 79 reais, fora imposto e frete."
-  * *Texto na Tela:* **Comissão 17% + R$ 6 FIXO + Imposto**
+* **03s - 15s | O PROBLEMA (Garimpar no escuro):**
+  * *Visual:* Alguém rolando a página normal do Mercado Livre, onde não dá para ver faturamento nem histórico real de vendas por dia.
+  * *Áudio/Voz:* "A maioria das pessoas tenta minerar produto olhando só a quantidade total de vendas ou a foto bonita, gasta dinheiro testando anúncio no tráfego e depois descobre que o produto parou de vender há 3 meses."
+  * *Texto na Tela:* **Testar no escuro = Dinheiro jogado fora 💸**
 
-* **15s - 30s | A SOLUÇÃO (MeliSpy Pro em ação):**
-  * *Visual:* Abre o anúncio com o **MeliSpy Pro** ativado na lateral. O painel verde calcula na hora: *Lucro Líquido: R$ 3,80 (Margem: 9%)*.
-  * *Áudio/Voz:* "Olha o que acontece quando eu abro esse mesmo anúncio com a extensão MeliSpy Pro: ela já desconta cada centavo de comissão e taxa fixa automaticamente e te cospe na cara o lucro limpo no bolso."
-  * *Texto na Tela:* **Lucro Real no Bolso: R$ 3,80 ⚠️**
+* **15s - 30s | A REVELAÇÃO (MeliSpy Pro em ação):**
+  * *Visual:* Abre o mesmo anúncio com a extensão **MeliSpy Pro** ativada. A barra lateral salta com as métricas: *24.810 vendas | R$ 568.149,00 faturados | Lucro limpo calculado*.
+  * *Áudio/Voz:* "Com o MeliSpy Pro instalado no seu Chrome, você abre qualquer anúncio e ele puxa os dados ocultos: faturamento real acumulado, ritmo de vendas diárias e até a margem limpa descontando todas as taxas."
+  * *Texto na Tela:* **Faturamento real + Vendas por dia reveladas! 💰**
 
 * **30s - 40s | CTA (Chamada de Ação):**
-  * *Visual:* Câmera no rosto ou tela mostrando a página inicial da FerramentasWeb com o botão vitalício.
-  * *Áudio/Voz:* "Para de trabalhar de graça pro marketplace. O MeliSpy Pro tá com licença vitalícia liberada por taxa única sem mensalidade. O link oficial tá na bio ou no primeiro comentário fixado."
-  * *Texto na Tela:* **Link na Bio / Sem Mensalidades 🚀**
+  * *Visual:* Mostra o site FerramentasWeb e o botão com licença vitalícia sem mensalidade.
+  * *Áudio/Voz:* "Pare de chutar o que vende. Minere produtos 100% validados com licença vitalícia por taxa única. O link oficial com lote de fundador tá na minha bio!"
+  * *Texto na Tela:* **Link na Bio • Acesso Vitalício Founder 🚀**
 
 ---
 
-### 📝 LEGENDA / COPY (Pronta para Facebook, Instagram, TikTok e Shorts):
+### 📝 LEGENDA / COPY (Pronta para Reels, TikTok, Shorts e Facebook):
 ```text
-Faturou R$ 20.000 no Mercado Livre e sobrou R$ 800 no final do mês? 📉💸
+Como minerar PRODUTOS VENCEDORES que faturam mais de R$ 50 mil/mês no Mercado Livre! 🕵️‍♂️🚀
 
-Se você embala caixa o dia inteiro, vê notificação de venda apitando, mas no dia de fechar o caixa não sobra quase nada... você provavelmente caiu na armadilha das taxas ocultas.
+Se você faz Dropshipping Nacional, trabalha como Afiliado ou quer começar a vender online, o maior erro é testar produtos no achismo.
 
-Entre comissão de até 17%, taxa fixa de R$ 6,00 abaixo de R$ 79,00, imposto e frete, copiar o preço do concorrente sem calcular o seu lucro real é a rota mais rápida para a falência.
+Gastar dinheiro com anúncios ou criar páginas para produtos que ninguém quer comprar é a forma mais rápida de queimar seu orçamento.
 
-Com a extensão MeliSpy Pro, você não precisa de planilhas complexas: ela calcula o seu lucro líquido exato direto dentro da tela de qualquer anúncio do Mercado Livre.
+Com a extensão MeliSpy Pro no seu Google Chrome, você minera com inteligência:
+✅ Descobre o faturamento real oculto de qualquer anúncio
+✅ Vê o volume de vendas diárias confirmadas
+✅ Calcula o lucro líquido no bolso antes de gastar 1 real com anúncios ou estoque
 
-👉 Garanta sua licença vitalícia no link da bio (com lote promocional de fundador e zero mensalidades).
+Chega de pagar ferramentas gringas de R$ 150 por mês. Garanta sua licença vitalícia de fundador por taxa única!
 
-#mercadolivre #mercadolivrebrasil #vendasmercadolivre #ecommercebrasil #precificacao #dropshippingnacional #mercadopago #lucroreal #empreendedorismo #ferramentasweb
+👉 Link direto liberado na nossa bio.
+
+#dropshipping #dropshippingnacional #mineracaodeprodutos #afiliados #afiliadosmercadolivre #mercadolivre #ecommercebrasil #produtosvencedores #marketingdigital #ferramentasweb
 ```
 
 ---
 
-## 🎬 ROTEIRO #02: Como Espionar o Faturamento do Concorrente em 3s
-* **Ângulo:** Curiosidade / Inteligência competitiva / Validação de produtos campeões.
+## 🎬 ROTEIRO #02: Como Espionar o Faturamento Real de Qualquer Produto em 3s
+* **Ângulo:** Curiosidade hacker / Inteligência de espionagem para validar nichos lucrativos.
+* **Público:** Afiliados, Dropshippers e Iniciantes procurando o que vender.
 * **Duração:** ~35 segundos.
 
 ### 🎥 Estrutura do Vídeo:
 * **00s - 03s | GANCHO (Hook):**
-  * *Visual:* Dedo apontando para a tela do computador onde aparece um produto de cozinha ou eletrônico famoso no ML.
-  * *Áudio/Voz:* "Como saber se esse anúncio aqui vende 2 unidades por semana ou 50 unidades por dia antes de você comprar estoque?"
-  * *Texto na Tela:* **Esse anúncio vende 2 ou 50 por dia? 🕵️‍♂️**
+  * *Visual:* Dedo apontando para a tela do computador onde aparece um anúncio de suporte articulado de TV ou smartwatch no Mercado Livre.
+  * *Áudio/Voz:* "Antes de escolher qualquer produto para vender na sua loja ou rodar anúncio, faz esse teste de 3 segundos aqui no seu navegador..."
+  * *Texto na Tela:* **Faça isso ANTES de escolher um produto! ⏱️👀**
 
 * **03s - 18s | DEMONSTRAÇÃO (A Mágica da Extensão):**
-  * *Visual:* Abre o anúncio no navegador. Em 1 segundo, a barra lateral do MeliSpy Pro carrega mostrando: *24.810 vendas confirmadas | Faturamento: R$ 568.149,00*.
-  * *Áudio/Voz:* "Basta instalar a extensão MeliSpy Pro no seu Chrome. Quando você abre o anúncio, ela puxa os dados ocultos da API do Mercado Livre e te mostra na hora o faturamento acumulado, o volume diário e o histórico real."
-  * *Texto na Tela:* **Faturamento Oculto Revelado 💰**
+  * *Visual:* Abre o anúncio no navegador. Em 1 segundo, o MeliSpy Pro carrega na lateral direita: *52.100 unidades | Faturamento: R$ 3.068.690,00*.
+  * *Áudio/Voz:* "Basta ter a extensão MeliSpy Pro ativa. No momento que a página abre, ela extrai os dados reais da API e te entrega na bandeja quanto esse anúncio já faturou de verdade e o estoque disponível."
+  * *Texto na Tela:* **R$ 3 Milhões faturados nesse único anúncio 😱**
 
 * **18s - 28s | O VALOR DO INSIGHT:**
-  * *Visual:* O cursor clica na calculadora de margem mostrando o lucro estimado daquele vendedor.
-  * *Áudio/Voz:* "Assim você não gasta um único real comprando estoque parado do fornecedor sem ter certeza de que o produto realmente gira no marketplace."
-  * *Texto na Tela:* **Valide ANTES de gastar com estoque 📦**
+  * *Visual:* O cursor clica na calculadora de lucro líquido e mostra a margem limpa de 22% por unidade.
+  * *Áudio/Voz:* "Você descobre na hora se a categoria tá aquecida, se o produto tem demanda real e se vale a pena você minerar para a sua operação."
+  * *Texto na Tela:* **Validação 100% à prova de falhas 🎯**
 
 * **28s - 35s | CTA:**
-  * *Visual:* Tela do site FerramentasWeb com o logo e o botão de compra.
-  * *Áudio/Voz:* "Quer ter esse raio-x no seu navegador? Clica no link da bio e pega sua licença vitalícia antes que o lote promocional encerre!"
-  * *Texto na Tela:* **Link na Bio • Acesso Imediato ⚡**
+  * *Visual:* Tela da FerramentasWeb com o botão promocional de R$ 105 no Pix.
+  * *Áudio/Voz:* "Espione seus concorrentes com um clique. Clica no link da bio e garanta o MeliSpy Pro vitalício sem mensalidades!"
+  * *Texto na Tela:* **Link na Bio • Sem Mensalidade ⚡**
 
 ---
 
 ### 📝 LEGENDA / COPY:
 ```text
-Como saber se um produto vende 2 unidades por semana ou 50 por dia no Mercado Livre? 🕵️‍♂️📊
+Como espionar o faturamento REAL de qualquer produto no Mercado Livre em 3 segundos! 🕵️‍♂️📊
 
-Antes de investir R$ 1.000 ou R$ 5.000 em estoque com fornecedor, você precisa validar a demanda real do mercado.
+Você sabia que dá para saber exatamente quanto qualquer anúncio já faturou acumulado e quantas vendas ele faz por dia?
 
-Com a extensão MeliSpy Pro no seu navegador, você descobre em segundos:
-✅ Volume de vendas reais confirmadas
-✅ Faturamento total acumulado do anúncio
-✅ Estoque e ritmo de vendas diárias
-✅ Lucro líquido limpo por unidade
+Antes de subir produto na sua loja de dropshipping, criar criativo para rodar tráfego ou promover como afiliado, você precisa saber se o produto tem demanda validada pelo mercado.
 
-Chega de adivinhar o que vende. Espione a inteligência dos maiores concorrentes!
+Com a extensão MeliSpy Pro:
+1️⃣ Você entra no anúncio de qualquer categoria;
+2️⃣ A barra lateral abre automaticamente com faturamento, vendas e estoque;
+3️⃣ Você toma decisões baseadas em números reais, não em intuição!
 
-👉 Link na bio com condição especial de Fundador Vitalício (sem mensalidades).
+🔥 Lote de Fundador com pagamento ÚNICO vitalício liberado por tempo limitado.
 
-#mercadolivre #mercadolivrebrasil #vendedormercadolivre #ecommerce #fornecedores #mineracaodeprodutos #dropshipping #mercadopago #ferramentasweb
+👉 Toque no link da bio e ative no seu navegador hoje mesmo!
+
+#mineracaodeprodutos #dropshipping #dropshippingbr #afiliadosiniciantes #afiliadosbrasil #mercadolivre #mercadolivrebrasil #vendasonline #ferramentasweb
 ```
 
 ---
 
-## 🎬 ROTEIRO #03: O Erro Fatal da Taxa de R$ 6 Abaixo de R$ 79
-* **Ângulo:** Alerta urgente / Erro técnico que quebra 90% dos iniciantes.
+## 🎬 ROTEIRO #03: O Hack de Baixar Todas as Fotos em Ultra HD 4K
+* **Ângulo:** Hack prático / Criação de criativos, anúncios e páginas de loja em alta conversão.
+* **Público:** Dropshippers (Shopify, Yampi, Cartpanda), Afiliados (TikTok/Instagram) e Criadores de Conteúdo.
+* **Duração:** ~35 segundos.
+
+### 🎥 Estrutura do Vídeo:
+* **00s - 03s | GANCHO (Hook):**
+  * *Visual:* Pessoa tentando salvar foto no botão direito do mouse no Mercado Livre e vindo aquele arquivo `.webp` bloqueado ou imagem minúscula embaçada.
+  * *Áudio/Voz:* "Você ainda fica tirando print feio da tela do Mercado Livre para pegar fotos para sua loja de dropshipping ou para os seus anúncios? Para de passar essa vergonha agora!"
+  * *Texto na Tela:* **Chega de tirar print embaçado da tela! 📸🚫**
+
+* **03s - 18s | DEMONSTRAÇÃO DO HACK:**
+  * *Visual:* Clica no botão **"📥 Baixar Todas as Fotos HD"** no MeliSpy Pro. Instantaneamente baixa todas as imagens no formato original de alta definição (servidor original CDN do ML sem compressão).
+  * *Áudio/Voz:* "Com a extensão MeliSpy Pro aberta no Chrome, basta clicar nesse botão verde. Ela puxa todas as imagens direto do servidor original do Mercado Livre em resolução máxima Ultra HD, com fundo limpo e sem marca d'água."
+  * *Texto na Tela:* **1 Clique = Todas as Fotos em 4K no seu PC ⚡**
+
+* **18s - 28s | O BENEFÍCIO REAL:**
+  * *Visual:* Abre as fotos no computador prontas para subir no Canva, Photoshop, anúncio do Facebook Ads ou página da loja.
+  * *Áudio/Voz:* "Você monta suas páginas de vendas, criativos para Reels e anúncios no TikTok em 5 minutos, com qualidade de loja profissional de 7 dígitos."
+  * *Texto na Tela:* **Criativos profissionais em minutos 💎**
+
+* **28s - 35s | CTA:**
+  * *Visual:* Tela da FerramentasWeb com a garantia incondicional e botão de compra.
+  * *Áudio/Voz:* "Economize horas de trabalho chato. Clica no link da bio e garanta o MeliSpy Pro vitalício hoje mesmo!"
+  * *Texto na Tela:* **Link na Bio • Acesso Vitalício Imediato 👑**
+
+---
+
+### 📝 LEGENDA / COPY:
+```text
+O hack definitivo para baixar TODAS as fotos em Ultra HD de qualquer produto do Mercado Livre! 📸⚡
+
+Se você cria anúncios para tráfego pago, monta páginas de produto no Shopify/Cartpanda ou faz posts como afiliado, você sabe como é frustrante:
+❌ O Mercado Livre bloqueia o botão direito;
+❌ Tirar print deixa a imagem borrada e sem qualidade;
+❌ Salvar manualmente foto por foto consome um tempão.
+
+Com a extensão MeliSpy Pro:
+✅ 1 único clique no botão 'Baixar Todas as Fotos HD'
+✅ Download automático de todas as fotos na resolução máxima original (4K)
+✅ Imagens limpas prontas para Canva, Photoshop ou sua loja virtual!
+
+Tudo isso direto no seu Google Chrome, sem mensalidades.
+
+👉 Link oficial com valor de fundador vitalício na nossa bio!
+
+#dropshipping #dropshippingnacional #criativosquecorrem #shopifybrasil #canvabrasil #afiliados #marketingdigital #mercadolivre #ferramentasweb
+```
+
+---
+
+## 🎬 ROTEIRO #04: Calculadora de Lucro Limpo: O Produto Aguenta Tráfego Pago?
+* **Ângulo:** Gestão financeira de campanha / Como não queimar verba de anúncios com margem ilusória.
+* **Público:** Gestores de Tráfego para e-commerce, Dropshippers e Vendedores de Marketplace.
 * **Duração:** ~45 segundos.
 
 ### 🎥 Estrutura do Vídeo:
 * **00s - 03s | GANCHO (Hook):**
-  * *Visual:* Tela com fundo vermelho ou emoji de alerta. Imagem de um produto vendido a R$ 25,00.
-  * *Áudio/Voz:* "Se você vende qualquer produto abaixo de 79 reais no Mercado Livre, tem uma taxa silenciosa que pode estar comendo 100% do seu lucro."
-  * *Texto na Tela:* **O erro que quebra sellers abaixo de R$ 79 ⚠️**
+  * *Visual:* Dashboard de anúncios do Meta Ads com custo por compra de R$ 18 e gráfico de lucro vermelho.
+  * *Áudio/Voz:* "Você achou um produto lindo para minerar, subiu campanha no tráfego pago, fez várias vendas e no final do dia tomou prejuízo? Deixa eu te mostrar o que deu errado."
+  * *Texto na Tela:* **Vendeu no anúncio e tomou prejuízo? 📉💸**
 
-* **03s - 18s | A EXPLICAÇÃO MATEMÁTICA:**
-  * *Visual:* Animação ou tela mostrando os cálculos: Produto de R$ 22,90.
-  * *Áudio/Voz:* "O Mercado Livre cobra uma taxa fixa obrigatória de 6 reais por unidade em todo anúncio abaixo de 79. Se você vende um item de 20 reais, só essa taxa já come 30% do seu dinheiro, fora a comissão de 12 a 17%!"
-  * *Texto na Tela:* **R$ 6,00 Fixo = 30% do faturamento! 💸**
+* **03s - 18s | O ERRO (Não calcular as taxas reais):**
+  * *Visual:* Demonstração de um produto de R$ 39,90.
+  * *Áudio/Voz:* "O erro clássico de quem minera produto é olhar só o custo do fornecedor e o preço de venda. Se você vender no Mercado Livre, tem comissão de até 17%, taxa fixa de 6 reais abaixo de 79 reais, imposto e frete. O que sobra não paga nem o clique do anúncio!"
+  * *Texto na Tela:* **Comissão + Taxa Fixa R$ 6 + Imposto comem tudo! ⚠️**
 
-* **18s - 32s | COMO SE PROTEGER:**
-  * *Visual:* Tela do MeliSpy Pro calculando e ajustando o markup ideal.
-  * *Áudio/Voz:* "É por isso que muito vendedor acha que está faturando mas está pagando para trabalhar. O MeliSpy Pro avisa na hora se o seu anúncio está na zona de perigo da taxa fixa e calcula exatamente quanto você precisa cobrar para sobrar lucro no bolso."
-  * *Texto na Tela:* **Zona de Perigo identificada na hora! 🛡️**
+* **18s - 32s | A SOLUÇÃO NO MELISPY:**
+  * *Visual:* Mostra a **Calculadora de Lucro Limpo** do MeliSpy Pro recalculando tudo em tempo real.
+  * *Áudio/Voz:* "O MeliSpy Pro já desconta cada centavo na hora dentro da página do produto. Ele te mostra a margem líquida real para você saber de antemão: 'esse produto aguenta meu CPA do Facebook Ads ou não?'"
+  * *Texto na Tela:* **Margem Líquida Real antes de subir campanha 🛡️**
 
 * **32s - 45s | CTA:**
-  * *Visual:* Mostrar a extensão rodando e o link na bio.
-  * *Áudio/Voz:* "Não seja pego de surpresa pelo fechamento da fatura. Instale o MeliSpy Pro agora e blinde sua operação. Link liberado na bio!"
-  * *Texto na Tela:* **Garanta seu MeliSpy Pro na Bio 🔗**
+  * *Visual:* Tela do site FerramentasWeb e link na bio.
+  * *Áudio/Voz:* "Nunca mais queime dinheiro testando produto sem margem. Garanta o MeliSpy Pro com licença vitalícia no link da bio!"
+  * *Texto na Tela:* **Link na Bio • Proteja seu Tráfego 🚀**
 
 ---
 
 ### 📝 LEGENDA / COPY:
 ```text
-Você vende produtos abaixo de R$ 79,00 no Mercado Livre? Cuidado com essa taxa oculta! ⚠️🚨
+O produto que você minerou realmente aguenta tráfego pago? 💸🎯
 
-Pouca gente fala sobre isso, mas todo produto vendido abaixo de R$ 79,00 sofre o desconto de uma TAXA FIXA de R$ 6,00 por item vendido, ALÉM da comissão tradicional (12% Clássico ou 17% Premium).
+O maior assassino de lucro no dropshipping e nas vendas online não é o algoritmo do Facebook ou TikTok: é a falta de margem líquida real.
 
-Se você vende um fone ou acessório a R$ 22,00:
-❌ R$ 6,00 vão direto pro ML na taxa fixa
-❌ ~R$ 3,74 vão na comissão
-❌ Sobram apenas R$ 12,26 para pagar o custo do produto, imposto e embalagem!
+Quando você minera um produto, precisa descontar:
+❌ Custo real no fornecedor nacional
+❌ Comissão do canal de venda (ex: até 17% no ML)
+❌ Taxa fixa obrigatória de R$ 6,00 (produtos abaixo de R$ 79)
+❌ Imposto Simples Nacional + Embalagem
 
-Se você errar a conta em 1 real, você está operando no prejuízo sem perceber.
+Se você não souber a sua margem limpa no bolso, você não sabe quanto pode pagar pelo custo por compra (CPA) nos seus anúncios!
 
-O MeliSpy Pro calcula automaticamente o impacto da taxa fixa e te mostra a margem limpa antes de você publicar.
+A extensão MeliSpy Pro calcula tudo isso na hora, em tempo real, enquanto você navega pelos produtos.
 
-👉 Acesse o link da bio e garanta sua licença vitalícia com desconto exclusivo!
+👉 Garanta sua licença vitalícia no link da bio (taxa única de fundador, sem mensalidade).
 
-#mercadolivre #mercadolivrebrasil #taxasmercadolivre #precificacaocerta #ecommerce #ecommercebrasil #negociosonline #ferramentasweb
+#trafegopago #facebookadsbrasil #dropshippingnacional #dropshipping #ecommercebrasil #gestaodetrafego #mineracaodeprodutos #ferramentasweb
 ```
 
 ---
 
-## 🎬 ROTEIRO #04: O Segredo de Baixar Fotos em Ultra HD do Mercado Livre Full
-* **Ângulo:** Hacks práticos / Economia de tempo / Criação de anúncios profissionais.
-* **Duração:** ~35 segundos.
-
-### 🎥 Estrutura do Vídeo:
-* **00s - 03s | GANCHO (Hook):**
-  * *Visual:* Pessoa tentando salvar imagem no Mercado Livre com o botão direito e vindo aquele arquivo minúsculo `.webp` ou bloqueado.
-  * *Áudio/Voz:* "Você ainda fica tirando print feio da tela do Mercado Livre para pegar foto de fornecedor ou concorrente? Para com isso agora!"
-  * *Texto na Tela:* **Chega de tirar print embaçado! 📸🚫**
-
-* **03s - 18s | DEMONSTRAÇÃO DO HACK:**
-  * *Visual:* Clica no botão **"📥 Baixar Todas as Fotos HD"** no painel do MeliSpy Pro. Imediatamente faz o download do arquivo `.zip` com todas as fotos na resolução original máxima (servidor -O do ML).
-  * *Áudio/Voz:* "Com o MeliSpy Pro aberto no Chrome, basta clicar nesse botão verde. Ele extrai todas as fotos do anúncio direto do servidor original do Mercado Livre em resolução Ultra HD 4K, com fundo limpo e sem perda de qualidade."
-  * *Texto na Tela:* **1 Clique = Todas as Fotos em 4K ⚡**
-
-* **18s - 28s | BENEFÍCIO:**
-  * *Visual:* Abre as fotos baixadas na tela do Windows: imagens nítidas prontas para o Photoshop ou Canva.
-  * *Áudio/Voz:* "Prontas para você montar seus criativos, cadastrar no seu ERP ou testar no seu catálogo em menos de 10 segundos."
-  * *Texto na Tela:* **Economize horas de trabalho ⏱️**
-
-* **28s - 35s | CTA:**
-  * *Visual:* Tela do checkout com oferta promocional de fundador.
-  * *Áudio/Voz:* "Essa e mais 10 funções em uma única extensão vitalícia. Clica no link da bio e garanta o seu hoje mesmo!"
-  * *Texto na Tela:* **Link na Bio • Licença Vitalícia 👑**
-
----
-
-### 📝 LEGENDA / COPY:
-```text
-Como baixar as fotos ORIGINAIS em Ultra HD de qualquer anúncio do Mercado Livre em 1 clique! 📸⚡
-
-Chega de tirar print torto ou embaçado da tela para tentar usar nas suas artes ou catálogo.
-
-Com a extensão MeliSpy Pro:
-1️⃣ Você entra em qualquer anúncio do Mercado Livre;
-2️⃣ Clica no botão "Baixar Todas as Fotos em HD";
-3️⃣ A extensão acessa o servidor CDN original e baixa todas as imagens com resolução máxima permitida e fundo limpo.
-
-Ganhe velocidade, crie anúncios muito mais profissionais e economize horas de trabalho.
-
-👉 Link na bio com licença vitalícia por pagamento único (zero mensalidades).
-
-#mercadolivre #mercadolivrebrasil #mercadolivresellers #fotosdeproduto #ecommercebrasil #canva #designparaecommerce #ferramentasweb
-```
-
----
-
-## 🎬 ROTEIRO #05: Como Descobrir o Estoque Real do Concorrente sem Comprar Nada
-* **Ângulo:** Estratégia de guerrilha / Saber quando entrar na Buy Box / Ruptura de estoque.
+## 🎬 ROTEIRO #05: Como Checar o Estoque Real do Fornecedor Antes de Escalar
+* **Ângulo:** Segurança operacional no Dropshipping Nacional / Evitar cancelamentos e reclamações.
+* **Público:** Dropshippers Nacionais, Revendedores e Lojistas.
 * **Duração:** ~40 segundos.
 
 ### 🎥 Estrutura do Vídeo:
 * **00s - 03s | GANCHO (Hook):**
-  * *Visual:* Mostra a tela do Mercado Livre no anúncio do concorrente líder da categoria.
-  * *Áudio/Voz:* "Você quer saber exatamente quantas unidades o seu maior concorrente ainda tem no estoque sem precisar comprar nada?"
-  * *Texto na Tela:* **Quantas peças o concorrente tem no estoque? 📦👀**
+  * *Visual:* Notificações de reclamação ou pedido cancelado no marketplace.
+  * *Áudio/Voz:* "O pior pesadelo de quem faz Dropshipping Nacional é acertar um produto vencedor, escalar as vendas no tráfego e descobrir que o fornecedor só tinha 8 peças no estoque!"
+  * *Texto na Tela:* **O maior pesadelo do Dropshipping Nacional 📦😱**
 
-* **03s - 18s | O PORQUÊ DISSO SER PODEROSO:**
-  * *Visual:* Imagem de alerta de estoque baixo no MeliSpy Pro.
-  * *Áudio/Voz:* "Saber o estoque do concorrente é a arma mais poderosa para ganhar a Buy Box. Quando o estoque dele está acabando, você pode subir o seu preço ou ativar seus anúncios para pegar todo o tráfego que ele vai perder."
-  * *Texto na Tela:* **Ele vai ficar sem estoque? Aproveite! 📈**
+* **03s - 18s | COMO EVITAR ESSE PROBLEMA:**
+  * *Visual:* Mostra o anúncio do fornecedor no Mercado Livre.
+  * *Áudio/Voz:* "Antes de começar a rodar tráfego pesado para um produto, você precisa saber se o fornecedor tem lastro de estoque real para aguentar o volume de entrega sem atrasar pedido e quebrar sua operação."
+  * *Texto na Tela:* **Valide o estoque antes de escalar! 🔍**
 
-* **18s - 30s | MOSTRANDO NA EXTENSÃO:**
-  * *Visual:* Painel do MeliSpy Pro destacando a quantidade de unidades disponíveis no Full e no armazém.
-  * *Áudio/Voz:* "O MeliSpy Pro inspeciona o anúncio em tempo real e te mostra o estoque exato disponível. Acabou o mistério de quem está vendendo o quê."
-  * *Texto na Tela:* **Estoque Real Revelado em Tempo Real 🔍**
+* **18s - 30s | A EXTENSÃO MOSTRANDO O ESTOQUE:**
+  * *Visual:* Painel do MeliSpy Pro abrindo a aba de estoque: *Estoque disponível: 1.450 unidades no Full*.
+  * *Áudio/Voz:* "O MeliSpy Pro inspeciona o anúncio do fornecedor e te entrega a quantidade real de unidades disponíveis no armazém e no Full. Você escala suas campanhas com total segurança."
+  * *Texto na Tela:* **Estoque Real do Fornecedor Revelado 🛡️**
 
 * **30s - 40s | CTA:**
-  * *Visual:* Link na bio / Site oficial FerramentasWeb.
-  * *Áudio/Voz:* "Transforme o seu navegador em uma central de inteligência de vendas. Link na bio com preço especial de lançamento!"
-  * *Texto na Tela:* **Link na Bio • MeliSpy Pro 🚀**
+  * *Visual:* Mostra a página da FerramentasWeb e o botão com desconto Pix.
+  * *Áudio/Voz:* "Proteja a reputação da sua loja. Instale o MeliSpy Pro vitalício hoje mesmo pelo link na bio!"
+  * *Texto na Tela:* **Link na Bio • Sem Mensalidade 🚀**
 
 ---
 
 ### 📝 LEGENDA / COPY:
 ```text
-Como descobrir o estoque real do seu concorrente no Mercado Livre sem comprar nada! 📦🕵️‍♂️
+Como descobrir o estoque REAL do seu fornecedor antes de escalar vendas! 📦🔍
 
-Se você vende no Mercado Livre e não acompanha o estoque dos seus concorrentes, você está deixando dinheiro na mesa.
+Quem faz Dropshipping Nacional ou revende produtos sabe a dor de cabeça que é:
+Você gasta tempo criando página, acerta o criativo, as vendas começam a bombar... e de repente o fornecedor pausa o anúncio porque zerou o estoque!
 
-Por que isso importa tanto?
-🔥 Quando o líder da categoria está perto de zerar o estoque (ruptura), é o momento exato para você posicionar o seu anúncio, ajustar o preço e abocanhar as vendas orgânicas dele!
+Resultado: clientes reclamando, pedidos cancelados e dinheiro de anúncio jogado fora.
 
-A extensão MeliSpy Pro faz essa varredura em 1 segundo direto na página do produto.
+Com o MeliSpy Pro no seu Chrome:
+✅ Veja quantas unidades restam no armazém do fornecedor
+✅ Saiba se o estoque é Full ou envio padrão
+✅ Escale com a certeza de que ele tem volume para te atender!
 
-👉 Toque no link da bio e garanta sua licença vitalícia de fundador antes que o lote acabe!
+Pare de operar às cegas. Inteligência de mercado por pagamento único vitalício.
 
-#mercadolivre #mercadolivrebrasil #vendasmercadolivre #buybox #inteligenciacompetitiva #gestaodeestoque #ecommerce #ferramentasweb
+👉 Link de acesso direto na bio.
+
+#dropshippingnacional #dropshippingbrasil #fornecedores #fornecedoresdropshipping #ecommerce #vendasnainternet #negociosdigitais #ferramentasweb
 ```
 
 ---
 
-## 🎬 ROTEIRO #06: Adeus Planilhas Chatas: Calculadora Reversa no Navegador
-* **Ângulo:** Produtividade / Eliminar atrito / Praticidade extrema.
-* **Duração:** ~35 segundos.
+## 🎬 ROTEIRO #06: O Erro Fatal da Taxa de R$ 6 que Quebra Quem Vende Produto Barato
+* **Ângulo:** Choque matemático / Erro que quebra afiliados e mineradores de ticket baixo.
+* **Público:** Vendedores de ticket baixo, iniciantes e quem vende acessórios/gadgets.
+* **Duração:** ~45 segundos.
 
 ### 🎥 Estrutura do Vídeo:
 * **00s - 03s | GANCHO (Hook):**
-  * *Visual:* Pessoa frustrada com 15 abas do Excel abertas cheias de fórmulas complicadas.
-  * *Áudio/Voz:* "Se você ainda perde horas abrindo planilha do Excel toda vez que vai cadastrar um anúncio no Mercado Livre, você está vivendo no passado."
-  * *Texto na Tela:* **Chega de perder tempo no Excel! 📊❌**
+  * *Visual:* Fundo escuro com alerta em vermelho. Mostra um anúncio de produto vendido a R$ 22,90.
+  * *Áudio/Voz:* "Se você minera ou vende produtos baratos abaixo de 79 reais, tem uma taxa oculta que pode estar comendo até metade de todo o seu lucro."
+  * *Texto na Tela:* **A armadilha dos produtos abaixo de R$ 79! ⚠️🚨**
 
-* **03s - 18s | DEMONSTRAÇÃO:**
-  * *Visual:* Na tela do Mercado Livre, abre a aba de calculadora do MeliSpy Pro. Digita o custo: R$ 15,00. O software já mostra na mesma hora o preço exato de venda para lucrar 25% limpo.
-  * *Áudio/Voz:* "Olha como é muito mais simples: você coloca o custo do seu produto direto aqui na extensão. Ela já aplica a comissão do Mercado Livre, a taxa fixa, seu imposto e calcula o preço de venda perfeito em 2 segundos."
-  * *Texto na Tela:* **Preço ideal calculado em 2 segundos! ⚡**
+* **03s - 18s | A CONTA QUE NINGUÉM FAZ:**
+  * *Visual:* Gráfico na tela demonstrando a composição: Preço R$ 22,90.
+  * *Áudio/Voz:* "O Mercado Livre cobra uma taxa fixa obrigatória de 6 reais por unidade vendida em tudo abaixo de 79. Se o item custa 20 reais, só essa taxa já come 30% do seu faturamento, fora a comissão de 12 a 17% e o imposto!"
+  * *Texto na Tela:* **Taxa fixa de R$ 6,00 = 30% do faturamento! 💸**
 
-* **18s - 28s | O GANHO DE TEMPO:**
-  * *Visual:* Mudando os valores de frete e tipo de anúncio (Clássico / Premium) com 1 clique e vendo o resultado atualizar em tempo real.
-  * *Áudio/Voz:* "Você sabe exatamente quanto vai sobrar no seu bolso antes de dar o primeiro clique para publicar."
-  * *Texto na Tela:* **Margem Líquida no Bolso Garantida 🎯**
+* **18s - 32s | COMO O MELISPY SALVA O SEU LUCRO:**
+  * *Visual:* MeliSpy Pro ativado na tela destacando a etiqueta vermelha da taxa fixa e sugerindo o preço ideal para kit ou combo.
+  * *Áudio/Voz:* "O MeliSpy Pro calcula automaticamente o peso dessa taxa e te mostra se vale a pena vender a unidade avulsa ou se você deve criar um kit de 2 ou 3 unidades para fugir da taxa fixa e multiplicar sua margem."
+  * *Texto na Tela:* **Dica de ouro: crie kits e fuja da taxa fixa! 💡**
 
-* **28s - 35s | CTA:**
+* **32s - 45s | CTA:**
   * *Visual:* Link na bio / Logo FerramentasWeb.
-  * *Áudio/Voz:* "Ganhe velocidade e pare de errar contas. Acesse o link da bio e ative o MeliSpy Pro agora mesmo!"
-  * *Texto na Tela:* **Link na Bio • Acesso Vitalício 👑**
+  * *Áudio/Voz:* "Pare de vender barato para enriquecer o marketplace. Baixe o MeliSpy Pro com desconto vitalício no link da bio!"
+  * *Texto na Tela:* **Link na Bio • Acesso Imediato 👑**
 
 ---
 
 ### 📝 LEGENDA / COPY:
 ```text
-Você ainda abre planilhas gigantes de Excel para precificar anúncios no Mercado Livre? 📊🥱
+Cuidado com a taxa fixa de R$ 6,00 se você vende produtos abaixo de R$ 79! ⚠️💸
 
-Precificar rápido e com precisão é a diferença entre lucrar alto ou tomar prejuízo no marketplace.
+Muita gente começa no e-commerce minerando produtos baratinhos de R$ 20 a R$ 35 achando que por vender muito vai lucrar alto.
 
-Com a Calculadora Reversa do MeliSpy Pro:
-1️⃣ Você digita o custo que pagou no fornecedor;
-2️⃣ Escolhe a margem líquida que quer colocar no bolso;
-3️⃣ A extensão calcula o preço exato de venda, já deduzindo comissões, taxa fixa de R$ 6 e impostos!
+Aí chega o fechamento e a surpresa: cadê o dinheiro?
 
-Tudo dentro do navegador Google Chrome, em tempo real, sem sair da página.
+O que muitos esquecem:
+1️⃣ O Mercado Livre cobra uma taxa fixa de R$ 6,00 por item vendido abaixo de R$ 79,00;
+2️⃣ Além disso, cobra a comissão de 12% a 17%;
+3️⃣ Se o produto custa R$ 20, mais de 45% do valor vai só em taxas do marketplace!
 
-👉 Link na bio com licença vitalícia e zero mensalidades.
+Com a extensão MeliSpy Pro, você enxerga a realidade na hora e aprende a montar kits lucrativos que superam essa barreira.
 
-#mercadolivre #mercadolivrebrasil #precificacao #financasparaempresas #ecommercebrasil #vendasonline #produtividade #ferramentasweb
+👉 Acesse o link na nossa bio e garanta sua licença vitalícia sem mensalidades!
+
+#mercadolivre #precificacao #financasparaempresas #dropshippingbrasil #afiliados #vendasonline #lojavirtual #ferramentasweb
 ```
 
 ---
 
-## 🎬 ROTEIRO #07: Chega de Pagar R$ 150/mês em Softwares Caros
-* **Ângulo:** Comparativo de custo-benefício / Economia financeira direta.
+## 🎬 ROTEIRO #07: Chega de Pagar R$ 150/mês em Ferramentas de Mineração Caras
+* **Ângulo:** Racionalidade financeira / Economia de caixa brutal no início da operação.
+* **Público:** Quem está cansado de assinaturas SaaS que pesam no orçamento mensal.
 * **Duração:** ~40 segundos.
 
 ### 🎥 Estrutura do Vídeo:
 * **00s - 03s | GANCHO (Hook):**
-  * *Visual:* Fatura de cartão de crédito com cobrança de SaaS gringo ou mensalidade recorrente de R$ 149/mês.
-  * *Áudio/Voz:* "Por que você ainda paga 150 reais TODO mês em softwares de concorrência se você pode ter uma extensão vitalícia por taxa única?"
-  * *Texto na Tela:* **R$ 150 TODO MÊS em software? Pare agora! 💸🛑**
+  * *Visual:* Print de fatura com débito recorrente de ferramenta de mineração: "Cobrança mensal R$ 149,00".
+  * *Áudio/Voz:* "Por que você continua pagando 150 reais TODO mês em ferramentas de mineração se você pode ter uma extensão vitalícia pagando uma única vez?"
+  * *Texto na Tela:* **R$ 150 TODO MÊS em ferramentas? Pare agora! 🛑💸**
 
-* **03s - 18s | A CONTA ANUAL:**
-  * *Visual:* Gráfico rápido: R$ 150 x 12 meses = **R$ 1.800,00 por ano** jogados fora em mensalidades.
-  * *Áudio/Voz:* "Faça as contas: em 1 ano, você gasta quase 2 mil reais só mantendo assinatura ativa de ferramentas. É dinheiro que deveria estar no seu bolso ou investido em mercadoria para vender mais."
-  * *Texto na Tela:* **R$ 1.800/ano em assinaturas... 😱**
+* **03s - 18s | A CONTA DO PREJUÍZO ANUAL:**
+  * *Visual:* Animação de dinheiro saindo da conta: R$ 150 x 12 = **R$ 1.800,00 por ano** em mensalidades.
+  * *Áudio/Voz:* "Coloca na ponta do lápis: em 12 meses você queima quase 2 mil reais só em assinaturas de software. É uma grana pesada que deveria estar rodando em tráfego pago ou comprando mercadoria."
+  * *Texto na Tela:* **R$ 1.800/ano jogados fora em mensalidades... 😱**
 
-* **18s - 30s | A PROPOSTA MELISPY PRO:**
-  * *Visual:* Tela da FerramentasWeb com o plano **Vitalício Founder**.
-  * *Áudio/Voz:* "A FerramentasWeb lançou o MeliSpy Pro no modelo Founder: você paga uma única vez a partir de R$ 105 no Pix e tem acesso vitalício ilimitado para sempre, com todas as atualizações inclusas."
-  * *Texto na Tela:* **Pague 1 vez • Use Para Sempre 👑**
+* **18s - 30s | A OPORTUNIDADE VITALÍCIA:**
+  * *Visual:* Tela do plano **Vitalício Founder** da FerramentasWeb com selo de pagamento único.
+  * *Áudio/Voz:* "O MeliSpy Pro foi lançado no modelo Founder: você paga uma taxa única promocional a partir de R$ 105 no Pix e a ferramenta é sua para sempre, com atualizações inclusas e zero mensalidade."
+  * *Texto na Tela:* **Pague 1 vez • É seu para sempre 👑**
 
 * **30s - 40s | CTA:**
-  * *Visual:* Contador de licenças correndo na tela do site.
-  * *Áudio/Voz:* "As vagas do lote de fundadores são limitadas. Clica no link da bio e garanta o seu acesso antes da virada de lote!"
-  * *Texto na Tela:* **Link na Bio • Oferta de Fundador ⚡**
+  * *Visual:* Contador dinâmico de vagas do lote promocional.
+  * *Áudio/Voz:* "O lote promocional de fundador é limitado. Clica no link da bio e garanta sua licença vitalícia antes que vire para assinatura!"
+  * *Texto na Tela:* **Link na Bio • Lote de Fundador Liberado ⚡**
 
 ---
 
 ### 📝 LEGENDA / COPY:
 ```text
-R$ 150/mês em assinaturas de software vs PAGAMENTO ÚNICO vitalício? 💡🤔
+R$ 150/mês em assinaturas vs PAGAMENTO ÚNICO vitalício? 💡🤔
 
-Se você vende no e-commerce, já percebeu como as ferramentas cobram mensalidades caras que pesam no custo fixo do seu negócio:
-❌ R$ 120 a R$ 180 por mês...
-❌ R$ 1.440 a R$ 2.160 por ano!
+Quem trabalha com e-commerce, dropshipping ou afiliados sabe como o custo fixo de softwares vai sangrando o caixa:
+❌ Ferramenta de mineração: R$ 140/mês
+❌ Espião de anúncios: R$ 120/mês
+❌ No ano: mais de R$ 1.800 a R$ 2.500 jogados no ralo!
 
-Na FerramentasWeb, nosso modelo é diferente:
-✅ Licença Vitalícia Founder do MeliSpy Pro por taxa única promocional
+Na FerramentasWeb, nosso modelo é pensado para quem quer crescer de verdade:
+✅ Licença Vitalícia Founder do MeliSpy Pro por taxa única
 ✅ Zero mensalidades recorrentes
-✅ Acesso para sempre e atualizações automáticas
-✅ Blindado na sua máquina e com suporte direto via WhatsApp
+✅ Raio-X de faturamento, estoque real e download de fotos em 4K
+✅ Atualizações constantes e suporte via WhatsApp
 
-Pare de pagar aluguel de software. Seja dono da sua ferramenta!
+Pare de pagar aluguel de ferramentas. Seja dono do seu software!
 
-👉 Link na bio para garantir a condição de fundador hoje mesmo.
+👉 Link na bio para garantir a condição de fundador hoje.
 
-#mercadolivre #mercadolivrebrasil #economiacorporativa #custofixo #ecommercebrasil #negociosdigitais #vendasmercadolivre #ferramentasweb
+#mineracaodeprodutos #dropshipping #afiliados #economiainteligente #custofixo #ecommercebrasil #negociosdigitais #ferramentasweb
 ```
 
 ---
 
-## 🎬 ROTEIRO #08: Da Instalação ao Primeiro Lucro (Tutorial Express 40s)
-* **Ângulo:** Quebra de objeção técnica / Como é fácil instalar e usar em 1 minuto.
+## 🎬 ROTEIRO #08: Do Zero ao Primeiro Produto Validado em 40 Segundos
+* **Ângulo:** Tutorial rápido / Passo a passo prático para quem está começando hoje.
+* **Público:** Iniciantes querendo o primeiro resultado rápido e sem complicação.
 * **Duração:** ~40 segundos.
 
 ### 🎥 Estrutura do Vídeo:
 * **00s - 03s | GANCHO (Hook):**
-  * *Visual:* Cronômetro na tela correndo enquanto o mouse arrasta a pastinha para as extensões do Chrome.
-  * *Áudio/Voz:* "Vou te provar em 30 segundos como é fácil instalar o MeliSpy Pro no seu computador, mesmo que você não entenda nada de tecnologia."
-  * *Texto na Tela:* **Instalando em menos de 30 segundos! ⏱️💻**
+  * *Visual:* Tela dividida: relógio correndo e tela do navegador Chrome abrindo.
+  * *Áudio/Voz:* "Se você está começando no Dropshipping ou como Afiliado agora, aqui tá como minerar seu primeiro produto validado em menos de 40 segundos."
+  * *Texto na Tela:* **Minerando produto validado em 40 segundos! ⏱️🚀**
 
-* **03s - 15s | PASSO 1 E 2 (Instalação):**
-  * *Visual:* Abre `chrome://extensions`, ativa o botão "Modo do desenvolvedor" e clica em carregar pasta.
-  * *Áudio/Voz:* "Você baixa o arquivo, abre a página de extensões do Chrome, ativa o modo desenvolvedor e carrega a pasta. Pronto, já está funcionando."
-  * *Texto na Tela:* **Passo 1: Modo Desenvolvedor ➡️ Passo 2: Carregar pasta**
+* **03s - 15s | PASSO 1 E 2 (Ativação e Busca):**
+  * *Visual:* Mostra a extensão MeliSpy Pro no Chrome e abre a aba de Mais Vendidos do Mercado Livre.
+  * *Áudio/Voz:* "Passo 1: Instala o MeliSpy Pro no seu Chrome em 30 segundos. Passo 2: Entra na categoria mais vendida do nicho que você quer atuar."
+  * *Texto na Tela:* **Passo 1: Ativar extensão ➡️ Passo 2: Mais Vendidos**
 
-* **15s - 30s | PASSO 3 (O Efeito Uau):**
-  * *Visual:* Abre o Mercado Livre em qualquer anúncio. O MeliSpy surge flutuando instantaneamente com as métricas douradas e verdes.
-  * *Áudio/Voz:* "Agora entra em qualquer anúncio do Mercado Livre. O MeliSpy Pro carrega sozinho ao lado do produto, mostrando vendas, faturamento e lucro líquido na mesma hora."
-  * *Texto na Tela:* **Pronto! Inteligência ativa no seu navegador 🚀**
+* **15s - 30s | PASSO 3 (O Filtro de Ouro):**
+  * *Visual:* Passa o mouse nos produtos. O MeliSpy Pro mostra faturamento alto, ritmo de mais de 20 vendas por dia e botão verde de download de fotos HD.
+  * *Áudio/Voz:* "Passo 3: A extensão filtra os produtos com faturamento comprovado acima de 30 mil reais, te mostra o ritmo de vendas por dia e você baixa todas as fotos em Ultra HD com um clique."
+  * *Texto na Tela:* **Produto validado com demanda real na sua mão! 💎**
 
 * **30s - 40s | CTA:**
-  * *Visual:* Mostra o WhatsApp de suporte oficial e o link da bio.
-  * *Áudio/Voz:* "Leve, seguro e sem mensalidades. Toque no link da bio e comece a usar ainda hoje!"
-  * *Texto na Tela:* **Link na Bio • Suporte WhatsApp Incluso 📲**
+  * *Visual:* Mostra a página oficial FerramentasWeb e o botão com garantia incondicional de 7 dias.
+  * *Áudio/Voz:* "Pronto! Produto minerado e pronto para vender. Clica no link da bio e ative o MeliSpy Pro no seu computador hoje mesmo!"
+  * *Texto na Tela:* **Link na Bio • Comece Hoje Mesmo 📲**
 
 ---
 
 ### 📝 LEGENDA / COPY:
 ```text
-Como instalar o MeliSpy Pro no seu navegador em menos de 1 minuto! ⏱️💻
+Como minerar seu primeiro produto 100% validado em menos de 40 segundos! ⏱️🎯
 
-Você não precisa ser nenhum gênio da informática para ter inteligência de mercado rodando no seu computador:
-1️⃣ Baixe o arquivo oficial da extensão;
-2️⃣ Acesse a aba de extensões do Google Chrome ou Edge;
-3️⃣ Ative o Modo do Desenvolvedor e carregue a pasta;
-4️⃣ Abra o Mercado Livre e veja a mágica acontecer!
+Se você quer começar a vender na internet mas fica travado sem saber qual produto escolher, siga esse roteiro:
 
-Simples, rápido, sem pesar a sua máquina e com suporte direto via WhatsApp se você precisar de ajuda.
+1️⃣ Instale a extensão MeliSpy Pro no seu navegador;
+2️⃣ Acesse a seção de Mais Vendidos da sua categoria preferida;
+3️⃣ Deixe a extensão revelar o faturamento oculto e o volume diário de vendas;
+4️⃣ Baixe todas as fotos em Ultra HD com 1 clique para montar seus criativos!
 
-👉 Link oficial na nossa bio com valor promocional vitalício liberado!
+Sem planilhas chatas, sem ferramentas gringas caras e sem mensalidade.
 
-#mercadolivre #mercadolivrebrasil #tutorialrapido #produtividade #extensaomeli #vendedormercadolivre #ecommercebrasil #ferramentasweb
+👉 Toque no link da nossa bio e aproveite o lote especial de fundador vitalício!
+
+#dropshipping #dropshippinginiciante #afiliados #afiliadosiniciantes #primeiravenda #comocomecaravender #ecommercebrasil #ferramentasweb
 ```
 
 ---
 
-## 💡 DICAS DE OURO PARA GRAVAÇÃO & POSTAGEM:
+## 💡 GUIA DE EXECUÇÃO & TRÁFEGO PARA OS VÍDEOS:
 
-1. **Gravação de Tela:** Use o atalho `Windows + Alt + R` (Gravador nativo do Windows) ou o software gratuito **OBS Studio** na resolução vertical `1080x1920`.
-2. **Voz / Narração:** Você pode gravar a sua própria voz no microfone do celular ou usar vozes neurais realistas no **CapCut** (ex: voz "Júlia", "Lucas" ou "Narrador").
-3. **Música de Fundo:** Use faixas em alta de estilo *lo-fi hip-hop* ou batidas eletrônicas sutis (volume em 10% para não abafar a voz).
-4. **Horários Recomendados para Postar:**
-   * 🕒 **Manhã:** 11h30 às 13h00 (horário de almoço dos sellers)
-   * 🕒 **Noite:** 18h30 às 20h30 (quando os vendedores terminam de despachar pedidos e vão estudar/navegar)
-5. **Comentário Fixado em Todos:** No TikTok, Shorts, Reels e Facebook, sempre deixe um **comentário fixado** dizendo:
-   > *"⚡ Link oficial do MeliSpy Pro com lote promocional de fundador: link no perfil!"*
+1. **Gravação de Tela Vertical (9:16):**
+   * Grave a tela do seu PC com o **OBS Studio** ou com a ferramenta de captura do Windows configurada em proporção vertical `1080x1920`.
+   * Foque o zoom nos números do MeliSpy Pro (o painel verde/dourado e o botão de baixar fotos HD causam impacto visual imediato).
+2. **Edição Rápida no Celular / CapCut:**
+   * Aplique legendas automáticas animadas (estilo Mr. Beast / Hormozi, com palavras destacadas em amarelo e verde).
+   * Adicione cortes secos a cada 2-3 segundos para manter a retenção máxima do TikTok/Reels acima de 70%.
+3. **Comentário Fixado Obrigatório em Todas as Plataformas:**
+   Sempre que postar no TikTok, Reels, Shorts ou Facebook, fixe imediatamente o comentário:
+   > *"🔥 Link oficial do MeliSpy Pro (com lote promocional de fundador vitalício): no link do perfil!"*
+4. **Hashtags de Alta Relevância:**
+   Utilize sempre o mix de hashtags direcionadas: `#dropshipping #dropshippingnacional #mineracaodeprodutos #afiliados #afiliadosbrasil #mercadolivre #mercadolivrebrasil #vendasonline #lojavirtual #ferramentasweb`.
