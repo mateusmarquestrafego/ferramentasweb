@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estúdio de Cortes & B-Rolls • Reels, Shorts & TikTok</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@700;800&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #060911;
+      color: #f8fafc;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      padding: 40px 20px 80px 20px;
+    }
+    .header-panel {
+      max-width: 1200px;
+      margin: 0 auto 40px auto;
+      text-align: center;
+    }
+    .header-panel h1 {
+      font-size: 34px;
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 10px;
+      background: linear-gradient(135deg, #fff 40%, #38bdf8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .header-panel p {
+      font-size: 15px;
+      color: #94a3b8;
+      max-width: 700px;
+      margin: 0 auto 20px auto;
+      line-height: 1.6;
+    }
+    .badge-pill {
+      display: inline-block;
+      background: rgba(56, 189, 248, 0.15);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      color: #38bdf8;
+      padding: 6px 16px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+      margin-bottom: 14px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .gallery-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 40px;
+      justify-content: center;
+    }
+
+    .asset-wrapper {
+      background: #0f172a;
+      border: 1px solid #1e293b;
+      border-radius: 20px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    .asset-header {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .asset-title {
+      font-size: 16px;
+      font-weight: 800;
+      color: #fff;
+    }
+    .asset-badge {
+      font-size: 11px;
+      font-weight: 800;
+      background: rgba(16, 185, 129, 0.15);
+      color: #34d399;
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+
+    /* O CONTAINER 9:16 (Preview em escala 360x640 que renderiza a 1080x1920) */
+    .screen-canvas {
+      width: 360px;
+      height: 640px;
+      border-radius: 28px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .btn-download {
+      width: 100%;
+      background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+      color: #fff;
+      font-weight: 800;
+      font-size: 14px;
+      padding: 14px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 14px rgba(14, 165, 233, 0.4);
+    }
+    .btn-download:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(14, 165, 233, 0.6);
+    }
+
+    /* ========================================================
+       VISUAL 1: SMARTPHONE COM NOTIFICAÇÕES MERCADO PAGO / ML
+       ======================================================== */
+    .bg-phone {
+      background: linear-gradient(180deg, #090d16 0%, #111827 50%, #030712 100%);
+      padding: 24px 20px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+    .phone-status-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 24px;
+    }
+    .phone-clock {
+      font-size: 42px;
+      font-weight: 800;
+      text-align: center;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .phone-date {
+      font-size: 13px;
+      color: #94a3b8;
+      text-align: center;
+      margin-bottom: 28px;
+    }
+    .notifications-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .notif-card {
+      background: rgba(30, 41, 59, 0.85);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 18px;
+      padding: 12px 14px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+      animation: popIn 0.3s ease;
+    }
+    .notif-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 6px;
+    }
+    .notif-app {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      color: #009ee3; /* Mercado Pago Blue */
+    }
+    .notif-app.ml {
+      color: #ffe600; /* ML Yellow */
+    }
+    .notif-app-icon {
+      width: 18px;
+      height: 18px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      background: #009ee3;
+      color: #fff;
+    }
+    .notif-app-icon.ml {
+      background: #ffe600;
+      color: #2d3277;
+    }
+    .notif-time {
+      font-size: 10px;
+      color: #64748b;
+    }
+    .notif-title {
+      font-size: 13px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 2px;
+    }
+    .notif-body {
+      font-size: 11px;
+      color: #cbd5e1;
+      line-height: 1.3;
+    }
+    .badge-highlight-pix {
+      background: rgba(34, 197, 94, 0.2);
+      color: #4ade80;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: 800;
+    }
+    .phone-bottom-tip {
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      border-radius: 14px;
+      padding: 12px;
+      text-align: center;
+    }
+    .phone-bottom-tip span {
+      font-size: 11px;
+      color: #fbbf24;
+      font-weight: 700;
+    }
+
+    /* ========================================================
+       VISUAL 2: A ILUSÃO DO FATURAMENTO (R$ 20k vs R$ 800)
+       ======================================================== */
+    .bg-comparison {
+      background: radial-gradient(circle at 50% 20%, #1e1b4b 0%, #090d16 80%);
+      padding: 26px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .comp-pill {
+      align-self: center;
+      background: rgba(239, 68, 68, 0.15);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      color: #f87171;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 4px 12px;
+      border-radius: 99px;
+      text-transform: uppercase;
+    }
+    .comp-title {
+      font-size: 24px;
+      font-weight: 900;
+      text-align: center;
+      color: #fff;
+      line-height: 1.2;
+      margin: 10px 0;
+    }
+    .comp-box {
+      border-radius: 16px;
+      padding: 16px;
+      margin-bottom: 12px;
+    }
+    .comp-box.fake {
+      background: rgba(239, 68, 68, 0.08);
+      border: 1px solid rgba(239, 68, 68, 0.25);
+    }
+    .comp-box.real {
+      background: rgba(16, 185, 129, 0.08);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+    }
+    .comp-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .comp-val {
+      font-size: 32px;
+      font-weight: 900;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .text-red { color: #f87171; }
+    .text-green { color: #34d399; }
+    .text-yellow { color: #facc15; }
+
+    /* ========================================================
+       VISUAL 3: ANÁLISE DE CONCORRENTE (MELISPY PRO)
+       ======================================================== */
+    .bg-spy {
+      background: #090d16;
+      padding: 24px 20px;
+      border-left: 3px solid #38bdf8;
+    }
+    .spy-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #0284c7;
+      color: #fff;
+      font-size: 10px;
+      font-weight: 900;
+      padding: 3px 8px;
+      border-radius: 4px;
+    }
+    .spy-prod-title {
+      font-size: 15px;
+      font-weight: 800;
+      color: #fff;
+      margin: 10px 0 16px 0;
+      line-height: 1.3;
+    }
+    .spy-stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .spy-stat-card {
+      background: #131b2e;
+      border: 1px solid #1e293b;
+      border-radius: 12px;
+      padding: 12px;
+    }
+    .spy-stat-lbl {
+      font-size: 10px;
+      color: #94a3b8;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .spy-stat-val {
+      font-size: 18px;
+      font-weight: 900;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .spy-calc-panel {
+      background: rgba(16, 185, 129, 0.08);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      border-radius: 14px;
+      padding: 14px;
+    }
+    .calc-line {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      color: #94a3b8;
+      margin-bottom: 6px;
+    }
+    .calc-total-box {
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px dashed rgba(16, 185, 129, 0.3);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .calc-total-lbl {
+      font-size: 12px;
+      font-weight: 800;
+      color: #fff;
+    }
+    .calc-total-num {
+      font-size: 20px;
+      font-weight: 900;
+      color: #34d399;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* ========================================================
+       VISUAL 4: ALERTA DE PERIGO (TAXA FIXA DE R$ 6,00)
+       ======================================================== */
+    .bg-danger {
+      background: radial-gradient(circle at 50% 30%, #450a0a 0%, #030712 90%);
+      padding: 24px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-align: center;
+    }
+    .danger-icon {
+      font-size: 48px;
+      margin-bottom: 8px;
+    }
+    .danger-title {
+      font-size: 22px;
+      font-weight: 900;
+      color: #ef4444;
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+    .danger-subtitle {
+      font-size: 13px;
+      color: #fca5a5;
+      line-height: 1.4;
+    }
+    .danger-breakdown {
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(239, 68, 68, 0.4);
+      border-radius: 16px;
+      padding: 16px;
+      text-align: left;
+    }
+    .danger-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      margin-bottom: 8px;
+      color: #cbd5e1;
+    }
+    .danger-highlight {
+      background: rgba(239, 68, 68, 0.2);
+      border: 1px dashed #ef4444;
+      border-radius: 8px;
+      padding: 8px;
+      font-size: 12px;
+      font-weight: 800;
+      color: #fff;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    /* ========================================================
+       VISUAL 5: ESTOQUE DO CONCORRENTE (RUPTURA DE ESTOQUE)
+       ======================================================== */
+    .bg-stock {
+      background: linear-gradient(180deg, #0f172a 0%, #070a12 100%);
+      padding: 24px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .stock-badge {
+      display: inline-block;
+      align-self: center;
+      background: rgba(245, 158, 11, 0.15);
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      color: #f59e0b;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 4px 12px;
+      border-radius: 99px;
+    }
+    .stock-big-num {
+      font-size: 58px;
+      font-weight: 900;
+      color: #ef4444;
+      text-align: center;
+      font-family: 'JetBrains Mono', monospace;
+      margin: 10px 0;
+    }
+    .stock-big-sub {
+      font-size: 14px;
+      text-align: center;
+      color: #94a3b8;
+      font-weight: 600;
+    }
+    .stock-opportunity-card {
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      border-radius: 14px;
+      padding: 14px;
+      text-align: center;
+    }
+    .stock-opportunity-card h5 {
+      color: #34d399;
+      font-size: 14px;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+    .stock-opportunity-card p {
+      font-size: 11px;
+      color: #cbd5e1;
+      line-height: 1.4;
+    }
+
+    /* ========================================================
+       VISUAL 6: COMPARATIVO SAAS CARO vs MELISPY VITALÍCIO
+       ======================================================== */
+    .bg-offer {
+      background: radial-gradient(circle at 50% 20%, #1e293b 0%, #020617 100%);
+      padding: 24px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .offer-title {
+      font-size: 22px;
+      font-weight: 900;
+      text-align: center;
+      color: #fff;
+    }
+    .offer-versus {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin: 16px 0;
+    }
+    .offer-col {
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid #1e293b;
+      border-radius: 14px;
+      padding: 12px 14px;
+    }
+    .offer-col.bad {
+      border-color: rgba(239, 68, 68, 0.4);
+    }
+    .offer-col.good {
+      border-color: rgba(250, 204, 21, 0.5);
+      background: rgba(250, 204, 21, 0.05);
+    }
+    .offer-col-title {
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .offer-col-price {
+      font-size: 22px;
+      font-weight: 900;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .offer-col-desc {
+      font-size: 11px;
+      color: #94a3b8;
+      margin-top: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header-panel">
+    <div class="badge-pill">Central de Recursos Visuais • 9:16 Vertical</div>
+    <h1>Imagens de Corte & B-Roll para Vídeos</h1>
+    <p>
+      Gere e baixe em 1 clique as telas exatas para usar nos seus **Reels, TikToks, Shorts e Facebook**.
+      Cada cartão foi calibrado para gerar retenção visual máxima nos primeiros segundos dos vídeos.
+    </p>
+  </div>
+
+  <div class="gallery-grid">
+
+    <!-- ASSET 1: SMARTPHONE NOTIFICAÇÕES MERCADO PAGO -->
+    <div class="asset-wrapper">
+      <div class="asset-header">
+        <div class="asset-title">📱 1. Vendas Apitando no Mercado Pago</div>
+        <div class="asset-badge">Vídeo #01 & #02</div>
+      </div>
+      <div class="screen-canvas bg-phone" id="canvas-asset-1">
+        <div>
+          <div class="phone-status-bar">
+            <span>09:41</span>
+            <span>⚡ 5G 100%</span>
+          </div>
+          <div class="phone-clock">09:41</div>
+          <div class="phone-date">Segunda-feira, 5 de Outubro</div>
+
+          <div class="notifications-stack">
+            <!-- Notif 1 -->
+            <div class="notif-card">
+              <div class="notif-top">
+                <div class="notif-app">
+                  <div class="notif-app-icon">MP</div>
+                  <span>Mercado Pago</span>
+                </div>
+                <div class="notif-time">agora</div>
+              </div>
+              <div class="notif-title">🎉 Você recebeu R$ 59,90 no Pix!</div>
+              <div class="notif-body">Transferência de Carlos M. recebida via Mercado Envios.</div>
+            </div>
+
+            <!-- Notif 2 -->
+            <div class="notif-card">
+              <div class="notif-top">
+                <div class="notif-app ml">
+                  <div class="notif-app-icon ml">ML</div>
+                  <span>Mercado Livre</span>
+                </div>
+                <div class="notif-time">há 2 min</div>
+              </div>
+              <div class="notif-title">📦 Nova venda confirmada!</div>
+              <div class="notif-body">Mini Processador Manual • Imprima a etiqueta para envio imediato.</div>
+            </div>
+
+            <!-- Notif 3 -->
+            <div class="notif-card">
+              <div class="notif-top">
+                <div class="notif-app">
+                  <div class="notif-app-icon">MP</div>
+                  <span>Mercado Pago</span>
+                </div>
+                <div class="notif-time">há 5 min</div>
+              </div>
+              <div class="notif-title">💰 Você recebeu R$ 89,90 no Pix!</div>
+              <div class="notif-body">Seu saldo disponível foi atualizado.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="phone-bottom-tip">
+          <span>⚠️ Mas quanto desse dinheiro realmente sobra no seu bolso?</span>
+        </div>
+      </div>
+      <button class="btn-download" onclick="downloadCanvas('canvas-asset-1', 'broll_notificacoes_mercadopago.png')">
+        📥 Baixar Imagem em PNG (1080x1920)
+      </button>
+    </div>
+
+    <!-- ASSET 2: A ILUSÃO DO FATURAMENTO (R$ 20k vs R$ 800) -->
+    <div class="asset-wrapper">
+      <div class="asset-header">
+        <div class="asset-title">📉 2. A Ilusão: Faturamento vs Lucro</div>
+        <div class="asset-badge">Vídeo #01 & #07</div>
+      </div>
+      <div class="screen-canvas bg-comparison" id="canvas-asset-2">
+        <div class="comp-pill">A Realidade Oculta do Seller</div>
+        <div class="comp-title">ONDE FOI PARAR O SEU DINHEIRO?</div>
+
+        <div>
+          <div class="comp-box fake">
+            <div class="comp-label text-yellow">O que você comemorou na tela:</div>
+            <div class="comp-val text-yellow">R$ 20.000</div>
+            <div style="font-size: 11px; color: #94a3b8; margin-top: 4px;">Faturamento Bruto no Mercado Pago</div>
+          </div>
+
+          <div style="text-align: center; font-size: 18px; margin: 6px 0; color: #64748b;">⬇️ MENOS TAXAS, IMPOSTO & FRETE ⬇️</div>
+
+          <div class="comp-box real">
+            <div class="comp-label text-green">O que realmente sobrou na conta:</div>
+            <div class="comp-val text-green">R$ 840,00</div>
+            <div style="font-size: 11px; color: #34d399; margin-top: 4px;">Lucro Líquido Real (Míseros 4,2%)</div>
+          </div>
+        </div>
+
+        <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid #1e293b; border-radius: 12px; padding: 10px; text-align: center;">
+          <span style="font-size: 11px; color: #38bdf8; font-weight: 700;">💡 Use o MeliSpy Pro e descubra seu lucro antes de precificar!</span>
+        </div>
+      </div>
+      <button class="btn-download" onclick="downloadCanvas('canvas-asset-2', 'broll_ilusao_faturamento_lucro.png')">
+        📥 Baixar Imagem em PNG (1080x1920)
+      </button>
+    </div>
+
+    <!-- ASSET 3: RAIO-X DO CONCORRENTE (MELISPY PRO) -->
+    <div class="asset-wrapper">
+      <div class="asset-header">
+        <div class="asset-title">🕵️‍♂️ 3. Raio-X do Concorrente Líder</div>
+        <div class="asset-badge">Vídeo #02 & #08</div>
+      </div>
+      <div class="screen-canvas bg-spy" id="canvas-asset-3">
+        <div>
+          <div class="spy-badge">👑 MELISPY PRO • RAIO-X AO VIVO</div>
+          <div class="spy-prod-title">Mini Processador Triturador Manual 3 Lâminas Inox 500ml</div>
+
+          <div class="spy-stats-grid">
+            <div class="spy-stat-card">
+              <div class="spy-stat-lbl">Vendas Confirmadas</div>
+              <div class="spy-stat-val text-green">24.810 un</div>
+            </div>
+            <div class="spy-stat-card">
+              <div class="spy-stat-lbl">Faturamento Total</div>
+              <div class="spy-stat-val text-yellow">R$ 568.149</div>
+            </div>
+          </div>
+
+          <div class="spy-calc-panel">
+            <div style="font-size: 11px; font-weight: 800; color: #fff; margin-bottom: 8px;">CALCULADORA DE MARGEM LÍQUIDA:</div>
+            <div class="calc-line"><span>Preço de Venda:</span> <strong>R$ 22,90</strong></div>
+            <div class="calc-line"><span>Custo Atacado:</span> <strong>R$ 7,50</strong></div>
+            <div class="calc-line"><span>Taxa Fixa ML (&lt; R$ 79):</span> <strong class="text-red">R$ 6,00</strong></div>
+            <div class="calc-line"><span>Comissão ML (12%):</span> <strong class="text-red">R$ 2,75</strong></div>
+            <div class="calc-line"><span>Imposto + Embalagem:</span> <strong>R$ 1,72</strong></div>
+
+            <div class="calc-total-box">
+              <div class="calc-total-lbl">Lucro Real no Bolso:</div>
+              <div class="calc-total-num">R$ 4,93 (21%)</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="background: #111827; border: 1px solid #1e293b; border-radius: 12px; padding: 10px; text-align: center;">
+          <span style="font-size: 11px; color: #4ade80; font-weight: 800;">⚡ Análise gerada em 1 segundo no Google Chrome</span>
+        </div>
+      </div>
+      <button class="btn-download" onclick="downloadCanvas('canvas-asset-3', 'broll_raiox_concorrente_melispy.png')">
+        📥 Baixar Imagem em PNG (1080x1920)
+      </button>
+    </div>
+
+    <!-- ASSET 4: ZONA DE PERIGO (TAXA FIXA DE R$ 6,00) -->
+    <div class="asset-wrapper">
+      <div class="asset-header">
+        <div class="asset-title">⚠️ 4. Alerta: Taxa Fatal de R$ 6,00</div>
+        <div class="asset-badge">Vídeo #03</div>
+      </div>
+      <div class="screen-canvas bg-danger" id="canvas-asset-4">
+        <div>
+          <div class="danger-icon">🚨</div>
+          <div class="danger-title">ZONA DE PERIGO: ABAIXO DE R$ 79,00</div>
+          <div class="danger-subtitle">A taxa silenciosa do Mercado Livre que destrói o lucro dos sellers iniciantes</div>
+        </div>
+
+        <div class="danger-breakdown">
+          <div style="font-size: 11px; font-weight: 800; color: #f87171; margin-bottom: 8px;">EXEMPLO DE UM PRODUTO DE R$ 22,00:</div>
+          <div class="danger-row"><span>Preço de Venda:</span> <strong>R$ 22,00</strong></div>
+          <div class="danger-row"><span>Taxa Fixa Obrigatória:</span> <strong style="color: #ef4444;">-R$ 6,00 (27%)</strong></div>
+          <div class="danger-row"><span>Comissão Premium (17%):</span> <strong style="color: #ef4444;">-R$ 3,74 (17%)</strong></div>
+          <div class="danger-row"><span>Custo + Imposto + Embalagem:</span> <strong>-R$ 11,50</strong></div>
+
+          <div class="danger-highlight">
+            💀 RESULTADO: LUCRO DE R$ 0,76 POR PACOTE!
+          </div>
+        </div>
+
+        <div style="background: rgba(0,0,0,0.4); border-radius: 10px; padding: 8px;">
+          <span style="font-size: 11px; color: #cbd5e1;">O MeliSpy Pro te avisa na hora se o seu preço é seguro!</span>
+        </div>
+      </div>
+      <button class="btn-download" onclick="downloadCanvas('canvas-asset-4', 'broll_alerta_taxa_6reais.png')">
+        📥 Baixar Imagem em PNG (1080x1920)
+      </button>
+    </div>
+
+    <!-- ASSET 5: ESTOQUE DO CONCORRENTE ACABANDO -->
+    <div class="asset-wrapper">
+      <div class="asset-header">
+        <div class="asset-title">📦 5. Monitor de Ruptura de Estoque</div>
+        <div class="asset-badge">Vídeo #05</div>
+      </div>
+      <div class="screen-canvas bg-stock" id="canvas-asset-5">
+        <div>
+          <div class="stock-badge">🔍 MeliSpy Pro • Sensor de Estoque Full</div>
+          <div style="font-size: 18px; font-weight: 800; text-align: center; color: #fff; margin-top: 14px;">ESTOQUE DO CONCORRENTE:</div>
+          <div class="stock-big-num">14 un</div>
+          <div class="stock-big-sub">⚠️ RUPTURA IMINENTE NAS PRÓXIMAS 48H</div>
+        </div>
+
+        <div class="stock-opportunity-card">
+          <h5>🎯 HORA DE GANHAR A BUY BOX!</h5>
+          <p>
+            Quando o estoque do concorrente principal zerar, o algoritmo do Mercado Livre redireciona todo o tráfego orgânico para os anúncios concorrentes mais próximos.
+          </p>
+        </div>
+
+        <div style="background: #0f172a; border: 1px solid #1e293b; border-radius: 12px; padding: 10px; text-align: center;">
+          <span style="font-size: 11px; color: #38bdf8; font-weight: 700;">Descubra o estoque de qualquer vendedor sem comprar nada!</span>
+        </div>
+      </div>
+      <button class="btn-download" onclick="downloadCanvas('canvas-asset-5', 'broll_monitor_estoque_concorrente.png')">
+        📥 Baixar Imagem em PNG (1080x1920)
+      </button>
+    </div>
+
+    <!-- ASSET 6: COMPARATIVO MENSALIDADE vs VITALÍCIO -->
+    <div class="asset-wrapper">
+      <div class="asset-header">
+        <div class="asset-title">💰 6. Mensalidade Cara vs Vitalício</div>
+        <div class="asset-badge">Vídeo #07</div>
+      </div>
+      <div class="screen-canvas bg-offer" id="canvas-asset-6">
+        <div class="offer-title">QUAL ESCOLHA FAZ MAIS SENTIDO?</div>
+
+        <div class="offer-versus">
+          <div class="offer-col bad">
+            <div class="offer-col-title text-red">❌ SOFTWARES TRADICIONAIS</div>
+            <div class="offer-col-price text-red">R$ 150 / mês</div>
+            <div class="offer-col-desc">= R$ 1.800,00 jogados fora todo ano em mensalidades recorrentes</div>
+          </div>
+
+          <div style="text-align: center; font-weight: 900; color: #64748b;">VS</div>
+
+          <div class="offer-col good">
+            <div class="offer-col-title text-yellow">👑 MELISPY PRO FOUNDER</div>
+            <div class="offer-col-price text-green">R$ 105 no Pix</div>
+            <div class="offer-col-desc" style="color: #facc15; font-weight: 700;">PAGAMENTO ÚNICO • ACESSO VITALÍCIO PARA SEMPRE</div>
+          </div>
+        </div>
+
+        <div style="background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(16, 185, 129, 0.4); border-radius: 12px; padding: 10px; text-align: center;">
+          <span style="font-size: 11px; color: #34d399; font-weight: 800;">🚀 Lote Especial Liberado no Link da Bio</span>
+        </div>
+      </div>
+      <button class="btn-download" onclick="downloadCanvas('canvas-asset-6', 'broll_comparativo_mensalidade_vitalicio.png')">
+        📥 Baixar Imagem em PNG (1080x1920)
+      </button>
+    </div>
+
+  </div>
+
+  <script>
+    // Função para renderizar e baixar o canvas em alta resolução (3x scale = 1080x1920)
+    function downloadCanvas(elementId, filename) {
+      const element = document.getElementById(elementId);
+      if (!element) return;
+
+      const btn = event.currentTarget;
+      const originalText = btn.innerHTML;
+      btn.innerHTML = '⏳ Gerando imagem em HD...';
+      btn.disabled = true;
+
+      html2canvas(element, {
+        scale: 3, // Multiplica 360x640 por 3 para gerar exatamente 1080x1920 Full HD
+        useCORS: true,
+        backgroundColor: null
+      }).then(canvas => {
+        const link = document.createElement('a');
+        link.download = filename;
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+        btn.innerHTML = '✅ Download Concluído!';
+        setTimeout(() => {
+          btn.innerHTML = originalText;
+          btn.disabled = false;
+        }, 2000);
+      }).catch(err => {
+        console.error(err);
+        alert('Erro ao gerar imagem. Tente novamente.');
+        btn.innerHTML = originalText;
+        btn.disabled = false;
+      });
+    }
+  </script>
+
+</body>
+</html>
