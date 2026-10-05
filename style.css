@@ -1602,3 +1602,94 @@ body {
   }
 }
 
+/* ========================================================
+   RODAPÉ MULTI-COLUNA & SHOPEE PRICING COMPATIBILIDADE GLOBAL
+   ======================================================== */
+.footer-container {
+  display: grid !important;
+  grid-template-columns: 2fr 1fr 1fr !important;
+  gap: 40px !important;
+  padding-bottom: 40px !important;
+  border-bottom: 1px solid #1e293b !important;
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    grid-template-columns: 1fr !important;
+    gap: 30px !important;
+  }
+}
+
+.footer-col h4 {
+  font-size: 14px !important;
+  font-weight: 800 !important;
+  color: #fff !important;
+  margin-bottom: 16px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+}
+
+.footer-col ul {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 10px !important;
+}
+
+.footer-col ul li {
+  list-style-type: none !important;
+}
+
+.footer-col ul li a {
+  color: #94a3b8 !important;
+  text-decoration: none !important;
+  font-size: 13px !important;
+  transition: color 0.2s !important;
+}
+
+.footer-col ul li a:hover {
+  color: #ff7043 !important;
+}
+
+.footer-bottom {
+  padding-top: 24px !important;
+  text-align: center !important;
+  font-size: 12px !important;
+  color: #64748b !important;
+}
+
+/* Shopee Pricing Grid Global */
+.shopee-pricing-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 480px)) !important;
+  gap: 32px !important;
+  justify-content: center !important;
+  margin-top: 40px !important;
+}
+
+.shopee-price-card {
+  background: #0f172a !important;
+  border: 1px solid #1e293b !important;
+  border-radius: 20px !important;
+  padding: 36px 30px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  position: relative !important;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5) !important;
+  transition: all 0.3s ease !important;
+}
+
+.shopee-price-card:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7) !important;
+}
+
+.shopee-price-card.featured {
+  background: radial-gradient(circle at 50% 0%, #1e1b4b 0%, #0b1120 100%) !important;
+  border: 2px solid #8b5cf6 !important;
+  box-shadow: 0 15px 45px rgba(139, 92, 246, 0.3) !important;
+}
+
+

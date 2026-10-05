@@ -344,6 +344,179 @@
         text-align: center;
       }
     }
+
+    /* ===================================================
+       TABELA DE PREÇOS DEDICADA SHOPEESPY PRO
+       =================================================== */
+    .shopee-pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 480px));
+      gap: 32px;
+      justify-content: center;
+      margin-top: 40px;
+    }
+
+    .shopee-price-card {
+      background: #0f172a;
+      border: 1px solid #1e293b;
+      border-radius: 20px;
+      padding: 36px 30px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
+      transition: all 0.3s ease;
+    }
+    .shopee-price-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+    }
+    .shopee-price-card.featured {
+      background: radial-gradient(circle at 50% 0%, #1e1b4b 0%, #0b1120 100%);
+      border: 2px solid #8b5cf6;
+      box-shadow: 0 15px 45px rgba(139, 92, 246, 0.3);
+    }
+
+    .plan-header {
+      margin-bottom: 20px;
+    }
+    .plan-header .badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 4px 12px;
+      border-radius: 6px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .plan-header h3 {
+      font-size: 22px;
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+    .plan-header p {
+      font-size: 13px;
+      color: #94a3b8;
+      line-height: 1.5;
+    }
+
+    .price-box {
+      margin: 20px 0;
+      padding: 16px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .price-box .old-price {
+      font-size: 14px;
+      text-decoration: line-through;
+      color: #64748b;
+      display: block;
+      margin-bottom: 2px;
+    }
+    .price-box .price-val {
+      font-size: 46px;
+      font-weight: 900;
+      font-family: 'JetBrains Mono', monospace;
+      line-height: 1;
+    }
+    .price-box .price-period {
+      font-size: 12px;
+      color: #94a3b8;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-weight: 700;
+    }
+
+    .features-list {
+      list-style: none !important;
+      padding: 0 !important;
+      margin: 0 0 32px 0 !important;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      flex: 1;
+    }
+    .features-list li {
+      font-size: 13px;
+      color: #cbd5e1;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      line-height: 1.4;
+      list-style-type: none !important;
+    }
+
+    .btn-plan {
+      width: 100%;
+      padding: 16px;
+      font-size: 15px;
+      font-weight: 800;
+      border-radius: 12px;
+      text-decoration: none;
+      text-align: center;
+      box-sizing: border-box;
+      transition: all 0.25s ease;
+      cursor: pointer;
+    }
+
+    /* ===================================================
+       RODAPÉ MULTI-COLUNA MODERNO
+       =================================================== */
+    .footer {
+      border-top: 1px solid #1e293b;
+      padding: 60px 0 30px;
+      margin-top: 80px;
+      background: #060911;
+    }
+    .footer-container {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid #1e293b;
+    }
+    @media (max-width: 768px) {
+      .footer-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+    }
+    .footer-col h4 {
+      font-size: 14px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .footer-col ul {
+      list-style: none !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .footer-col ul li {
+      list-style-type: none !important;
+    }
+    .footer-col ul li a {
+      color: #94a3b8 !important;
+      text-decoration: none !important;
+      font-size: 13px;
+      transition: color 0.2s;
+    }
+    .footer-col ul li a:hover {
+      color: #ff7043 !important;
+    }
+    .footer-bottom {
+      padding-top: 24px;
+      text-align: center;
+      font-size: 12px;
+      color: #64748b;
+    }
   </style>
 </head>
 <body>
@@ -700,10 +873,10 @@
         Sem mensalidades ocultas, sem planos de renovação forçada. Escolha a sua licença e ative no Google Chrome hoje mesmo:
       </p>
 
-      <div class="pricing-grid">
+      <div class="shopee-pricing-grid">
         
         <!-- CARD 1: SHOPEESPY PRO INDIVIDUAL -->
-        <div class="pricing-card" style="border-color: rgba(238, 77, 45, 0.4);">
+        <div class="shopee-price-card" style="border-color: rgba(238, 77, 45, 0.4);">
           <div class="plan-header">
             <span class="badge" style="background: rgba(238, 77, 45, 0.15); color: #ff7043;">LOTE PROMOCIONAL 1</span>
             <h3>ShopeeSpy Pro Vitalício</h3>
@@ -730,11 +903,11 @@
         </div>
 
         <!-- CARD 2: COMBO MINERADOR PRO (O MAIS VANTAJOSO) -->
-        <div class="pricing-card featured" style="border-color: #8b5cf6;">
-          <div class="featured-badge" style="background: linear-gradient(90deg, #8b5cf6 0%, #ec4899 100%);">
+        <div class="shopee-price-card featured" style="border-color: #8b5cf6;">
+          <div class="shopee-featured-tag">
             👑 O MAIS ESCOLHIDO • COMBO MINERADOR COMPLETO
           </div>
-          <div class="plan-header">
+          <div class="plan-header" style="margin-top: 10px;">
             <span class="badge" style="background: rgba(139, 92, 246, 0.2); color: #c084fc;">DOIS SOFTWARES VITALÍCIOS</span>
             <h3>Combo Minerador Pro</h3>
             <p>MeliSpy Pro (Mercado Livre) + ShopeeSpy Pro (Shopee) em uma única licença unificada.</p>
