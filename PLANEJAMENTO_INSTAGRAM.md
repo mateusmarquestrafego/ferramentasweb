@@ -119,9 +119,11 @@ Sobram apenas 18,5% no bolso. Se você aplicar um cupom de 10% de desconto achan
 * **CTA:** Comente a palavra **TAXAS** para receber o link exclusivo
 
 #### 🖼️ Roteiro dos Slides:
-* **Slide 1 (Capa):**
-  * *Texto:* 3 Mitos sobre vender no Mercado Livre que estão te fazendo perder dinheiro ❌
-  * *Alerta:* O 2º é a razão pela qual 60% dos sellers quebram no primeiro ano.
+* **Slide 1 (Capa Agressiva de Alto Impacto):**
+  * *Headline:* **VOCÊ ESTÁ PAGANDO PARA TRABALHAR NO MERCADO LIVRE.** 🚨
+  * *Subheadline:* E achando que está lucrando só porque o aplicativo apita todo dia...
+  * *Caixa de Alerta:* 💀 O dinheiro entra de manhã e some na virada do mês: 3 armadilhas que estão drenando sua conta bancária.
+  * *Gancho:* Deslize antes de cadastrar seu próximo anúncio ➔
 * **Slide 2:**
   * *Mito 1:* "Eu preciso ter o menor preço para vender muito."
   * *A Realidade:* O menor preço apenas te garante muito trabalho e margem zero. O algoritmo prioriza reputação, prazo de entrega (Full/Flex) e qualidade do anúncio, não só o valor mais baixo.
@@ -195,9 +197,11 @@ O MeliSpy Pro calcula o Run-Rate (velocidade de giro estimada) em segundos, dire
 * **CTA:** Comente a palavra **ESPIAO**
 
 #### 🖼️ Roteiro dos Slides:
-* **Slide 1 (Capa):**
-  * *Texto:* Como espionar o estoque e o faturamento do seu concorrente no Mercado Livre em 30 segundos 🕵️‍♂️
-  * *Sub:* O passo a passo que os grandes sellers não contam.
+* **Slide 1 (Capa Agressiva de Alto Impacto):**
+  * *Headline:* **SEU CONCORRENTE SABE EXATAMENTE QUANTO VOCÊ FATURA.** 🕵️‍♂️
+  * *Subheadline:* Ele espia seu estoque, suas vendas e sua margem... enquanto você tenta adivinhar.
+  * *Caixa de Alerta:* 👁️ Enquanto você chuta o preço, os líderes auditam cada centavo seu em 30 segundos usando ferramentas de bastidores.
+  * *Gancho:* Veja o raio-x que eles usam ➔
 * **Slide 2:**
   * *Passo 1: Identifique os produtos Curva A*
   * *Texto:* Vá até a categoria do seu nicho no Mercado Livre e filtre pelos produtos com o selo 'Mais Vendido' e entrega 'Full'.
@@ -279,9 +283,11 @@ O MeliSpy Pro é a inteligência comercial mais rápida do Brasil para sellers d
 * **CTA:** Link na Bio sutil no final
 
 #### 🖼️ Roteiro dos Slides:
-* **Slide 1 (Capa):**
-  * *Texto:* Você sabe o que é a Curva ABC de anúncios no Mercado Livre? 📊
-  * *Sub:* O conceito que define 80% do faturamento da sua conta.
+* **Slide 1 (Capa Agressiva de Alto Impacto):**
+  * *Headline:* **80% DO SEU DINHEIRO ESTÁ PRESO EM PRODUTO MORTO.** 💀
+  * *Subheadline:* A ilusão de ter a prateleira cheia enquanto o caixa da sua empresa não tem dinheiro nem para pagar um boleto.
+  * *Caixa de Alerta:* 💸 Estoque parado não é patrimônio. É dinheiro derretendo em custo fixo: o teste da Curva ABC para salvar seu capital.
+  * *Gancho:* Descubra seus produtos zumbis ➔
 * **Slide 2:**
   * *O Princípio de Pareto no Mercado Livre:*
   * *Texto:* Na maioria das contas de sucesso, 20% dos anúncios são responsáveis por 80% de todo o dinheiro que entra. Esses são os seus produtos **Curva A**.
@@ -353,8 +359,11 @@ Todas essas 5 métricas você consegue checar em menos de 1 minuto usando a exte
 * **CTA:** Comente a palavra **TITULO**
 
 #### 🖼️ Roteiro dos Slides:
-* **Slide 1 (Capa):**
-  * *Texto:* As palavras proibidas que estão matando as visualizações dos seus anúncios no Mercado Livre 🚫
+* **Slide 1 (Capa Agressiva de Alto Impacto):**
+  * *Headline:* **O MERCADO LIVRE DERRUBOU SEU ANÚNCIO E NÃO TE AVISOU.** ⛔
+  * *Subheadline:* Uma única palavra no seu título jogou o seu produto da 1ª página direto para o limbo.
+  * *Caixa de Alerta:* 🚫 Se você usou uma dessas 5 palavras proibidas, o algoritmo já classificou seu anúncio como spam e cortou suas impressões na surdina.
+  * *Gancho:* Veja a lista negra de palavras ➔
 * **Slide 2:**
   * *O Algoritmo de Busca do Mercado Livre mudou!*
   * *Texto:* Antigamente, colocar 'Promoção', 'Melhor Preço' ou 'Garantia' no título ajudava a chamar atenção. Hoje, o algoritmo penaliza anúncios que usam termos proibidos, jogando seu anúncio para a 5ª página!
@@ -424,8 +433,11 @@ O MeliSpy Pro tem um extrator inteligente de galeria que localiza o arquivo mast
 * **CTA:** Link na Bio
 
 #### 🖼️ Roteiro dos Slides:
-* **Slide 1 (Capa):**
-  * *Texto:* A Calculadora Reversa: Como saber exatamente quanto cobrar para sobrar 25% limpo no seu bolso 💰
+* **Slide 1 (Capa Agressiva de Alto Impacto):**
+  * *Headline:* **VOCÊ ESTÁ DEIXANDO DINHEIRO NA MESA EM CADA PACOTE.** 📉
+  * *Subheadline:* Copiar o preço do vizinho é a maneira mais rápida de falir achando que estava arrasando.
+  * *Caixa de Alerta:* 💸 A conta inversa que ninguém faz: errou 1 real no custo, você opera no prejuízo sem notar. A fórmula para travar 25% limpos no bolso.
+  * *Gancho:* A fórmula dos 25% limpos no bolso ➔
 * **Slide 2:**
   * *O problema da precificação tradicional:*
   * *Texto:* A maioria dos vendedores pega o custo do produto e multiplica por 2 (markup 2.0). Depois que entram as taxas do ML, os 100% de margem viram 8% de lucro real!
@@ -490,8 +502,11 @@ Em qual dos dois lados você está jogando? Deixe sua opinião aqui embaixo! �
 * **CTA:** Link na Bio
 
 #### 🖼️ Roteiro dos Slides:
-* **Slide 1 (Capa):**
-  * *Texto:* R$ 150 todo mês em softwares complexos vs R$ 119 único no Vitalício do MeliSpy Pro ⚔️
+* **Slide 1 (Capa Agressiva de Alto Impacto):**
+  * *Headline:* **POR QUE VOCÊ CONTINUA PAGANDO ALUGUEL DE SOFTWARE?** 🛑
+  * *Subheadline:* R$ 1.800,00 jogados no lixo todo ano só para ter acesso a ferramentas básicas.
+  * *Caixa de Alerta:* ⚔️ R$ 150 todo mês é o lucro limpo de 50 produtos vendidos indo embora em assinatura. A alternativa de taxa única vitalícia.
+  * *Gancho:* O fim das mensalidades abusivas ➔
 * **Slide 2:**
   * *A armadilha das assinaturas recorrentes:*
   * *Texto:* Se você paga R$ 150/mês em plataformas cheias de gráficos que você nunca usa, em 1 ano você gastou **R$ 1.800,00**. Isso é o lucro de dezenas de vendas indo embora!
@@ -555,8 +570,11 @@ Sem precisar abrir planilhas pesadas ou logar em sites lentos. Tudo acontece na 
 * **CTA:** Link na Bio
 
 #### 🖼️ Roteiro dos Slides:
-* **Slide 1 (Capa):**
-  * *Texto:* Dúvidas frequentes sobre o MeliSpy Pro: Respondemos tudo aqui! ❓
+* **Slide 1 (Capa Agressiva de Alto Impacto):**
+  * *Headline:* **"ESSA FERRAMENTA É SEGURA OU VAI BLOQUEAR MINHA CONTA?"** 🛡️
+  * *Subheadline:* A resposta definitiva para as 4 perguntas que os vendedores têm medo de fazer.
+  * *Caixa de Alerta:* ⚡ Mitos e fatos sobre segurança da conta, termos do Mercado Livre e por que o MeliSpy Pro opera 100% no cliente sem risco de banimento.
+  * *Gancho:* Não instale nada antes de ler isso ➔
 * **Slide 2:**
   * *Dúvida 1:* "A ferramenta tem acesso à minha conta ou senhas do Mercado Livre?"
   * *Resposta:* **NÃO!** O MeliSpy Pro não pede login, senha ou acesso à sua conta. Ela apenas analisa os dados públicos disponíveis no anúncio de forma 100% segura.
