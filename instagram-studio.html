@@ -169,12 +169,15 @@
       overflow: hidden;
       position: relative;
       box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .artboard-inner {
       width: 100%;
       height: 100%;
-      padding: 42px 36px 38px 36px;
+      padding: 56px 54px 50px 54px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -190,13 +193,13 @@
       justify-content: space-between;
       align-items: center;
       width: 100%;
-      padding: 0 4px;
+      padding: 0 2px;
     }
     .ab-brand {
       display: flex;
       align-items: center;
-      gap: 8px;
-      font-size: 13px;
+      gap: 6px;
+      font-size: 12px;
       font-weight: 900;
       color: #fff;
       letter-spacing: 0.5px;
@@ -205,10 +208,10 @@
       color: #facc15;
     }
     .ab-tag {
-      font-size: 10px;
+      font-size: 9px;
       font-weight: 800;
       text-transform: uppercase;
-      padding: 4px 8px;
+      padding: 3px 7px;
       border-radius: 4px;
       letter-spacing: 0.5px;
     }
@@ -223,16 +226,17 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      gap: 12px;
-      margin: 10px 0;
-      padding: 0 6px;
+      gap: 10px;
+      margin: 6px 0;
+      padding: 0 2px;
     }
     .ab-headline {
-      font-size: 20px;
+      font-size: 18px;
       font-weight: 900;
-      line-height: 1.3;
+      line-height: 1.35;
       color: #fff;
-      word-break: break-word;
+      word-break: normal;
+      overflow-wrap: break-word;
     }
     .ab-headline span.highlight-yellow { color: #facc15; }
     .ab-headline span.highlight-cyan { color: #38bdf8; }
@@ -240,9 +244,9 @@
     .ab-headline span.highlight-green { color: #4ade80; }
 
     .ab-sub {
-      font-size: 12px;
+      font-size: 11.5px;
       color: #94a3b8;
-      line-height: 1.45;
+      line-height: 1.4;
     }
 
     .ab-box-glass {
@@ -250,10 +254,10 @@
       backdrop-filter: blur(8px);
       border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: 10px;
-      padding: 12px 14px;
+      padding: 10px 12px;
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 6px;
     }
 
     .ab-footer {
@@ -262,8 +266,8 @@
       align-items: center;
       width: 100%;
       border-top: 1px solid rgba(255,255,255,0.08);
-      padding: 10px 4px 0 4px;
-      font-size: 11px;
+      padding: 8px 2px 0 2px;
+      font-size: 10px;
       color: #64748b;
       font-weight: 700;
     }
