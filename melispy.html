@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FerramentasWeb • Studio de Extensões & Ferramentas Inteligentes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TEGVK3RZTJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-TEGVK3RZTJ');
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="announcement-bar">
+    <span>🔥 <strong id="top-promo-title">OFERTA PROMOCIONAL DO LOTE 1 COM 50% OFF:</strong> Esta condição especial encerra em <span id="top-countdown" class="countdown-badge">04:59</span> • <span id="top-remaining-text">Restam apenas 4 licenças!</span></span>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="brand" style="text-decoration:none;">
+        <img src="logo-profile.svg" alt="Logo FerramentasWeb" style="width:30px; height:30px; border-radius:7px; vertical-align:middle; margin-right:8px;">
+        <span class="brand-name">Ferramentas<span class="brand-accent">Web</span></span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html" style="color:#38bdf8; font-weight:700;">🏠 Início (Portal)</a>
+        <a href="#melispy" style="color:#facc15; font-weight:800;">MeliSpy Pro</a>
+        <a href="shopeespy.html" style="color:#ff7043; font-weight:800;">🛍️ ShopeeSpy Pro</a>
+        <a href="#recursos">Como Funciona</a>
+        <a href="#precos">Planos</a>
+        <a href="https://wa.me/5548996192775?text=Olá%20Mateus,%20gostaria%20de%20falar%20com%20o%20suporte%20do%20MeliSpy" target="_blank" style="color:#25d366; font-weight:700;">💬 Suporte WhatsApp</a>
+        <a href="#faq">Dúvidas</a>
+      </div>
+      <div class="nav-actions">
+        <a href="#simulador" class="btn btn-primary-sm">Testar Simulador</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="container hero-content">
+      <div class="badge-pill">
+        <span class="pulse-dot"></span>
+        Studio Oficial de Extensões & Automações Comerciais
+      </div>
+      <h1 class="hero-title">
+        Ferramentas inteligentes que geram <span class="gradient-text">lucro real</span> na tela do seu navegador.
+      </h1>
+      <p class="hero-subtitle">
+        A <strong>FerramentasWeb</strong> desenvolve extensões e softwares enxutos para resolver gargalos críticos de vendedores e PMEs. Sem mensalidades abusivas, sem complexidade: instale em 1 minuto e veja o resultado.
+      </p>
+      <div class="hero-buttons">
+        <a href="#melispy" class="btn btn-primary btn-large" data-track="hero_conhecer_melispy">
+          <span>Conhecer o MeliSpy Pro</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#precos" class="btn btn-outline btn-large" data-track="hero_ver_planos">Ver Tabela de Planos</a>
+      </div>
+      <div class="social-proof-strip">
+        <div class="proof-item">⚡ 100% Seguro no Navegador</div>
+        <div class="proof-item">🔒 Sem acesso às suas senhas</div>
+        <div class="proof-item">💰 Zero Mensalidade no Vitalício</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Product Spotlight: MeliSpy -->
+  <section id="melispy" class="section spotlight-section">
+    <div class="container">
+      <div class="section-tag">PRODUTO #1 EM DESTAQUE</div>
+      <h2 class="section-title">
+        MeliSpy Pro: O Espião de Concorrência & Margem Real para Mercado Livre
+      </h2>
+      <p class="section-subtitle">
+        Chega de ter prejuízo no final do mês calculando frete e taxas no achismo. Saiba exatamente quanto seu concorrente fatura e quanto vai sobrar limpo no seu bolso antes de precificar.
+      </p>
+
+      <!-- Mockup Visual -->
+      <div class="mockup-container">
+        <div class="browser-bar">
+          <div class="dots">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+          </div>
+          <div class="url-input">mercadolivre.com.br/produto/anuncio-exemplo-MLB999888...</div>
+        </div>
+        <div class="mockup-content">
+          <div class="meli-page-fake">
+            <div class="fake-product-box">
+              <div class="fake-badge">MAIS VENDIDO EM COZINHA</div>
+              <div class="fake-title">Mini Processador Triturador De Alimentos Manual 3 Lâminas Inox 500ml</div>
+              <div class="fake-price">R$ 22,90</div>
+              <div class="fake-seller">Vendido por MercadoLíder Platinum • 24.810 unidades vendidas</div>
+              <div style="margin-top: 16px; font-size: 12px; color: #94a3b8; line-height: 1.5;">
+                ⚡ Anúncio Clássico • Envio imediato pelo Mercado Envios Coleta
+              </div>
+            </div>
+            <!-- Injected Sidebar Floating -->
+            <div class="fake-sidebar">
+              <div class="sidebar-header">
+                <span class="pro-tag">PRO</span>
+                <strong>MeliSpy Pro</strong>
+              </div>
+              <div class="sidebar-stat-card">
+                <div class="stat-label">Vendas Reais Confirmadas</div>
+                <div class="stat-val highlight-green">24.810 unidades</div>
+              </div>
+              <div class="sidebar-stat-card">
+                <div class="stat-label">Faturamento Total do Anúncio</div>
+                <div class="stat-val highlight-yellow">R$ 568.149,00</div>
+              </div>
+              <div class="sidebar-calc-preview">
+                <div class="calc-row"><span>Custo Atacado / Importação:</span> <strong>R$ 7,50</strong></div>
+                <div class="calc-row"><span>Taxa Fixa ML (Abaixo R$ 79):</span> <strong style="color: #f87171;">R$ 6,00</strong></div>
+                <div class="calc-row"><span>Comissão ML (Clássico 12%):</span> <strong>R$ 2,75</strong></div>
+                <div class="calc-row"><span>Imposto Simples (4%) + Embalagem:</span> <strong>R$ 1,72</strong></div>
+                <div class="calc-total">
+                  <span>Lucro Real no Bolso:</span>
+                  <span class="profit-green">R$ 4,93 (21.5%)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive Live Web Simulator -->
+      <div class="web-demo-container" id="simulador">
+        <div class="demo-box">
+          <div class="demo-header">
+            <span class="demo-badge">TESTE AO VIVO NO SEU NAVEGADOR</span>
+            <h3>Experimente o poder do MeliSpy agora mesmo</h3>
+            <p>Cole o link de qualquer anúncio do Mercado Livre ou escolha um dos produtos mais vendidos para testar:</p>
+          </div>
+
+          <div class="demo-quick-pills">
+            <span>Exemplos reais:</span>
+            <button type="button" class="pill-btn" onclick="fillDemoExample('https://produto.mercadolivre.com.br/MLB-248100123-mini-processador-alimentos-manual', 'Mini Processador Triturador Manual 3 Lâminas', 22.90, 7.50, 24810)">Mini Processador (R$ 22,90)</button>
+            <button type="button" class="pill-btn" onclick="fillDemoExample('https://produto.mercadolivre.com.br/MLB-192837465-suporte-tv-articulado-universal-14-55', 'Suporte TV Articulado Universal 14 a 55', 58.90, 22.00, 52100)">Suporte TV (R$ 58,90)</button>
+            <button type="button" class="pill-btn" onclick="fillDemoExample('https://produto.mercadolivre.com.br/MLB-356192837-tenis-esportivo-masculino-caminhada', 'Tênis Esportivo Masculino Caminhada Confort', 89.90, 34.00, 8420)">Tênis Esportivo (R$ 89,90)</button>
+            <button type="button" class="pill-btn" onclick="fillDemoExample('https://produto.mercadolivre.com.br/MLB-210491823-smartwatch-relogio-inteligente-d20', 'Smartwatch Relógio Inteligente D20 Bluetooth', 39.90, 14.50, 19300)">Smartwatch D20 (R$ 39,90)</button>
+          </div>
+
+          <div class="demo-input-bar">
+            <input type="text" id="demo-mlb-input" placeholder="Cole o link de qualquer anúncio do Mercado Livre...">
+            <button class="btn btn-primary" id="demo-run-btn" onclick="runLiveSimulator()">🔍 Analisar Anúncio</button>
+          </div>
+          <div id="demo-loading" class="demo-loading" style="display: none;">Identificando produto e calculando taxas do Mercado Livre...</div>
+          
+          <div id="demo-result" class="demo-result" style="display: none;">
+            <div class="demo-result-grid">
+              <div class="demo-res-card">
+                <span class="demo-res-label">Produto Identificado</span>
+                <span class="demo-res-val" id="demo-res-title">-</span>
+              </div>
+              <div class="demo-res-card">
+                <span class="demo-res-label">Preço de Venda</span>
+                <span class="demo-res-val highlight-cyan" id="demo-res-price">R$ 0,00</span>
+              </div>
+              <div class="demo-res-card">
+                <span class="demo-res-label">Vendas Estimadas</span>
+                <span class="demo-res-val highlight-green" id="demo-res-sold">0 un.</span>
+              </div>
+              <div class="demo-res-card">
+                <span class="demo-res-label">Faturamento Total Estimado</span>
+                <span class="demo-res-val highlight-yellow" id="demo-res-rev">R$ 0,00</span>
+              </div>
+            </div>
+
+            <!-- Live Margin Breakdown Table -->
+            <div class="demo-math-breakdown">
+              <div class="math-col">
+                <span class="math-label">Custo do Produto:</span>
+                <strong id="demo-math-cost">R$ 0,00</strong>
+              </div>
+              <div class="math-col">
+                <span class="math-label">Comissão ML (Clássico ~12%):</span>
+                <strong id="demo-math-fee" style="color: #f87171;">- R$ 0,00</strong>
+              </div>
+              <div class="math-col">
+                <span class="math-label">Taxa Fixa ML (&lt; R$ 79):</span>
+                <strong id="demo-math-fixed" style="color: #f87171;">- R$ 6,00</strong>
+              </div>
+              <div class="math-col">
+                <span class="math-label">Imposto Simples (4%):</span>
+                <strong id="demo-math-tax" style="color: #f87171;">- R$ 0,00</strong>
+              </div>
+              <div class="math-col highlight-box">
+                <span class="math-label">Lucro Limpo no Bolso:</span>
+                <strong id="demo-math-profit" style="color: #34d399; font-size: 18px;">R$ 0,00</strong>
+                <span id="demo-math-margin" style="font-size: 11px; color: #6ee7b7;">(0% margem real)</span>
+              </div>
+            </div>
+
+            <div class="demo-cta-box" style="margin-top: 24px;">
+              <span>🚀 No site você simula com links. <strong>Na Extensão MeliSpy Pro</strong> esses dados aparecem automaticamente em tempo real enquanto você navega no Mercado Livre!</span>
+              <a href="#precos" class="btn btn-hero-full" style="max-width: 320px;">Garantir MeliSpy Pro Vitalício</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature Grid -->
+      <div class="features-grid" id="recursos">
+        <div class="feature-card">
+          <div class="feature-icon">🔍</div>
+          <h3>Raio-X de Faturamento</h3>
+          <p>Descubra em segundos quantas unidades qualquer anúncio concorrente já vendeu e o faturamento total acumulado.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">💰</div>
+          <h3>Calculadora de Lucro Limpo</h3>
+          <p>Desconta automaticamente a comissão do ML (Clássico ou Premium), a taxa fixa de R$ 6 abaixo de R$ 79 e o imposto Simples Nacional.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📦</div>
+          <h3>Estoque do Concorrente</h3>
+          <p>Veja quantas unidades restam no estoque do concorrente e se ele envia via Mercado Envios Full ou coleta padrão.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🛡️</div>
+          <h3>Licença Exclusiva & Blindada</h3>
+          <p>Software restrito com chave de ativação vinculada à sua máquina física. Sem pirataria, sem mensalidades ocultas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section with Anchoring (100% Paid, No Free Leaks) -->
+  <section id="precos" class="section pricing-section">
+    <div class="container">
+      <div class="section-tag">INVESTIMENTO</div>
+      <h2 class="section-title">Escolha a sua licença de uso</h2>
+      <p class="section-subtitle">
+        Software de inteligência comercial restrito a vendedores sérios. Sem testes falsos: ou você lucra mais na primeira semana, ou devolvemos seu dinheiro.
+      </p>
+
+      <div class="guarantee-badge-container">
+        <div class="guarantee-badge">
+          🛡️ <strong>Garantia Incondicional de 7 Dias:</strong> Se o software não encontrar margem líquida real na sua loja, solicite seu Pix de volta integralmente.
+        </div>
+      </div>
+
+      <!-- Urgency Countdown Banner -->
+      <div class="pricing-timer-card">
+        <div class="timer-flex">
+          <div class="timer-info">
+            <span class="timer-tag" id="batch-tag">⚡ OFERTA PROMOCIONAL DO LOTE 1</span>
+            <h3 class="timer-heading" id="batch-heading">Condição especial com até 51% de desconto encerra em:</h3>
+          </div>
+          <div class="timer-clock">
+            <div class="timer-unit"><span id="cd-hours">00</span><label>Horas</label></div>
+            <div class="timer-colon">:</div>
+            <div class="timer-unit"><span id="cd-minutes">04</span><label>Min</label></div>
+            <div class="timer-colon">:</div>
+            <div class="timer-unit"><span id="cd-seconds">59</span><label>Seg</label></div>
+          </div>
+        </div>
+        <div class="stock-progress-wrap">
+          <div class="stock-progress-bar">
+            <div class="stock-progress-fill" id="batch-progress-fill" style="width: 84%;"></div>
+          </div>
+          <span class="stock-label" id="batch-stock-label">🚨 <strong>21 de 25 licenças</strong> deste lote já foram resgatadas hoje (Apenas 4 restantes neste valor)</span>
+        </div>
+      </div>
+
+      <div class="pricing-grid paid-only-grid">
+        
+        <!-- Plano Starter -->
+        <div class="price-card">
+          <div class="price-header">
+            <h3>Starter</h3>
+            <p>Para vendedores iniciantes</p>
+          </div>
+          <div class="price-anchoring">
+            <span class="price-original">De R$ 67,00</span>
+            <span class="price-discount-tag">-48% OFF</span>
+          </div>
+          <div class="price-amount">
+            <span class="curr">R$</span>
+            <span class="val">35</span>
+            <span class="period">/mês</span>
+          </div>
+          <div class="price-credits">40 Análises / mês</div>
+          <ul class="price-perks">
+            <li>✓ Radiografia (Vendas & Faturamento)</li>
+            <li>✓ Calculadora de Margem Real & Taxas</li>
+            <li>✓ Chave blindada para 1 computador</li>
+            <li class="disabled">✗ Giro diário e velocidade de vendas</li>
+            <li class="disabled">✗ Simulador de potencial de lucro</li>
+            <li class="disabled">✗ Download de fotos HD & WhatsApp</li>
+          </ul>
+          <button class="btn btn-outline-full" onclick="openPlanModal('Starter', '35')">Assinar Starter</button>
+        </div>
+
+        <!-- Plano Pro -->
+        <div class="price-card">
+          <div class="price-header">
+            <h3>Pro</h3>
+            <p>Para vendedores em crescimento</p>
+          </div>
+          <div class="price-anchoring">
+            <span class="price-original">De R$ 97,00</span>
+            <span class="price-discount-tag">-43% OFF</span>
+          </div>
+          <div class="price-amount">
+            <span class="curr">R$</span>
+            <span class="val">55</span>
+            <span class="period">/mês</span>
+          </div>
+          <div class="price-credits">75 Análises / mês</div>
+          <ul class="price-perks">
+            <li>✓ Todas as funções do Starter</li>
+            <li>✓ Velocidade de Vendas (Giro diário/mês)</li>
+            <li>✓ Simulador de Potencial (5%, 15%, 30%)</li>
+            <li>✓ Termômetro Estratégico de Concorrência</li>
+            <li>✓ Calculadora Reversa de Preço & SEO</li>
+            <li class="disabled">✗ Download de fotos HD & WhatsApp</li>
+          </ul>
+          <button class="btn btn-outline-full" onclick="openPlanModal('Pro', '55')">Assinar Pro</button>
+        </div>
+
+        <!-- Plano Scale -->
+        <div class="price-card">
+          <div class="price-header">
+            <h3>Scale</h3>
+            <p>Para lojas de alto volume</p>
+          </div>
+          <div class="price-anchoring">
+            <span class="price-original">De R$ 147,00</span>
+            <span class="price-discount-tag">-40% OFF</span>
+          </div>
+          <div class="price-amount">
+            <span class="curr">R$</span>
+            <span class="val">89</span>
+            <span class="period">/mês</span>
+          </div>
+          <div class="price-credits">150 Análises / mês</div>
+          <ul class="price-perks">
+            <li>✓ 100% de todas as ferramentas liberadas</li>
+            <li>✓ Download de Todas as Fotos do Anúncio (HD)</li>
+            <li>✓ Resumo Executivo para WhatsApp</li>
+            <li>✓ Calculadora Reversa de Preço Ideal</li>
+            <li>✓ Suporte prioritário via WhatsApp</li>
+          </ul>
+          <button class="btn btn-outline-full" onclick="openPlanModal('Scale', '89')">Assinar Scale</button>
+        </div>
+
+        <!-- Plano Vitalício (Hero / Decoy Target) -->
+        <div class="price-card hero-card">
+          <div class="hero-ribbon">👑 ESCOLHA DOS FUNDADORES (93% ESCOLHEM)</div>
+          <div class="price-header">
+            <h3>Vitalício Founder</h3>
+            <p>Acesso permanente para sempre (Zero mensalidade)</p>
+          </div>
+          <div class="price-anchoring">
+            <span class="price-original hero-orig">De R$ 238,00</span>
+            <span class="price-discount-tag hero-tag">🔥 ECONOMIZE 50% • PAGAMENTO ÚNICO</span>
+          </div>
+          <div class="price-amount">
+            <span class="curr">R$</span>
+            <span class="val">119</span>
+            <span class="period">único</span>
+          </div>
+          <div class="price-credits highlight-credits">🔥 ANÁLISES ILIMITADAS PARA SEMPRE (VITALÍCIO)</div>
+          <ul class="price-perks">
+            <li>✓ <strong>100% Liberado</strong>: Todas funções Scale inclusas</li>
+            <li>✓ <strong>Zero Mensalidade</strong>: Pague 1 vez e use para sempre</li>
+            <li>✓ Download de Fotos em HD + WhatsApp Briefing</li>
+            <li>✓ Chave Blindada para sua máquina física</li>
+            <li>✓ <strong>Garantia Total de 7 Dias</strong> no Pix</li>
+            <li>✓ Suporte VIP direto com o desenvolvedor</li>
+          </ul>
+          <button class="btn btn-hero-full pulse-btn" onclick="openPlanModal('Vitalício Founder', '119')">
+            Garantir Vitalício por R$ 119 (Único)
+          </button>
+          <div class="card-urgency" id="lifetime-card-urgency">⚡ Restam apenas 4 licenças com preço de fundador!</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Company Roadmap / Upcoming Products -->
+  <section id="roadmap" class="section roadmap-section">
+    <div class="container">
+      <div class="section-tag">ECOSSISTEMA FERRAMENTASWEB</div>
+      <h2 class="section-title">O que estamos construindo no Studio</h2>
+      <p class="section-subtitle">
+        A FerramentasWeb está expandindo seu portfólio de micro-ferramentas para diferentes segmentos de mercado.
+      </p>
+
+      <div class="roadmap-grid">
+        <div class="roadmap-card active-prod">
+          <div class="status-badge live">● DISPONÍVEL AGORA</div>
+          <h4>MeliSpy Pro</h4>
+          <p>Extensão de inteligência de concorrência e cálculo de margem líquida para vendedores do Mercado Livre.</p>
+        </div>
+
+        <div class="roadmap-card">
+          <div class="status-badge upcoming">EM DESENVOLVIMENTO</div>
+          <h4>FiscalSpy • Conciliação NFe & OFX</h4>
+          <p>Leitor automatizado de XML de Notas Fiscais e extratos bancários para pequenas empresas e contabilidade.</p>
+        </div>
+
+        <div class="roadmap-card active-prod" style="border-color: rgba(238, 77, 45, 0.4); background: linear-gradient(135deg, rgba(238, 77, 45, 0.08) 0%, rgba(15, 23, 42, 0.9) 100%);">
+          <div class="status-badge live" style="background: rgba(238, 77, 45, 0.2); color: #ff7043;">● NOVO LANÇAMENTO</div>
+          <h4 style="color: #fff;">ShopeeSpy Pro</h4>
+          <p>Espião de vendas dos últimos 30 dias, central de vídeos UGC de avaliações e calculadora de comissões para Afiliados e Dropshipping na Shopee.</p>
+          <a href="shopeespy.html" style="color: #ff7043; font-weight: 800; font-size: 13px; text-decoration: none; margin-top: 10px; display: inline-flex; align-items: center; gap: 4px;">Acessar ShopeeSpy Pro ➔</a>
+        </div>
+      </div>
+
+      <!-- Combo Minerador Pro Banner -->
+      <div style="margin-top: 36px; background: radial-gradient(circle at 50% 0%, #1e1b4b 0%, #090d16 100%); border: 2px solid #8b5cf6; border-radius: 16px; padding: 28px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px;">
+        <div>
+          <span style="background: rgba(139, 92, 246, 0.2); color: #c084fc; font-size: 11px; font-weight: 800; padding: 4px 10px; border-radius: 99px; text-transform: uppercase;">🔥 Super Combo Especial</span>
+          <h3 style="color: #fff; font-size: 20px; font-weight: 900; margin-top: 8px;">Combo Minerador Pro: MeliSpy + ShopeeSpy</h3>
+          <p style="color: #94a3b8; font-size: 13px; max-width: 600px; margin-top: 4px;">Leve as duas ferramentas vitais para Mercado Livre e Shopee em pagamento único vitalício de R$ 167 (Economize mais de R$ 300 comparado ao valor individual).</p>
+        </div>
+        <a href="shopeespy.html#precos" class="btn btn-primary" style="background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%); white-space: nowrap;">Garantir Combo por R$ 167</a>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq" class="section faq-section">
+    <div class="container faq-container">
+      <div class="section-tag">PERGUNTAS FREQUENTES</div>
+      <h2 class="section-title">Tire suas dúvidas</h2>
+
+      <div class="accordion">
+        <div class="faq-item">
+          <button class="faq-question">Como funciona a instalação no meu computador?</button>
+          <div class="faq-answer">
+            <p>Após garantir sua licença, você recebe um arquivo leve da extensão. Basta abrir o Google Chrome ou Edge, acessar a aba de extensões, ativar o "Modo do Desenvolvedor" e carregar a pasta. Leva menos de 1 minuto e acompanha um tutorial passo a passo.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">Como recebo minha chave de ativação?</button>
+          <div class="faq-answer">
+            <p>Assim que o Pix for confirmado, sua chave exclusiva (Ex: MELI-PRO-XXXX) é liberada imediatamente. Você cola a chave dentro da própria extensão e ela desbloqueia todas as funções na hora.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">O plano Vitalício tem alguma cobrança mensal oculta?</button>
+          <div class="faq-answer">
+            <p>Não! O plano Vitalício Founder é um pagamento único de R$ 119. Você nunca mais pagará nenhuma mensalidade para usar as análises ilimitadas do MeliSpy.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">A FerramentasWeb tem acesso à minha conta do Mercado Livre?</button>
+          <div class="faq-answer">
+            <p>Não! A extensão não pede seu login, senha ou acesso à sua conta. Ela apenas analisa dados públicos da página do anúncio diretamente no seu navegador, com total segurança e sigilo.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <span class="brand-badge">⚡</span>
+        <span class="brand-name">Ferramentas<span class="brand-accent">Web</span></span>
+        <p>Soluções inteligentes e extensões focadas em retorno financeiro.</p>
+      </div>
+      <div class="footer-copy">
+        © 2026 FerramentasWeb. Todos os direitos reservados.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal Checkout / Mercado Pago -->
+  <div id="checkout-modal" class="modal-overlay">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closePlanModal()">&times;</button>
+      <div class="modal-header">
+        <span class="modal-badge" id="modal-badge-plan">Plano Selecionado</span>
+        <h3 id="modal-title">Ativação do MeliSpy Pro</h3>
+        <p id="modal-desc">Pagamento 100% seguro processado pelo Mercado Pago (Pix Imediato ou Cartão).</p>
+      </div>
+
+      <div class="modal-price-box">
+        <span class="modal-price-label">Valor a pagar:</span>
+        <span class="modal-price-value" id="modal-price-val">R$ 35,00</span>
+      </div>
+
+      <!-- ETAPA 1: Identificação Obrigatória Antes de Pagar -->
+      <div id="modal-step-lead">
+        <div style="font-size: 12px; font-weight: 700; color: #38bdf8; margin-bottom: 10px;">
+          📋 Preencha seus dados para vincular sua garantia e licença:
+        </div>
+        <div class="modal-lead-form" style="margin-bottom: 12px;">
+          <div style="margin-bottom: 8px;">
+            <label style="font-size: 11px; color: #94a3b8; display: block; margin-bottom: 3px;">Seu Nome Completo: <span style="color:#ef4444">*</span></label>
+            <input type="text" id="modal-lead-name" placeholder="Ex: Mateus Silva" style="width: 100%; box-sizing: border-box; background: #0b1120; border: 1px solid #334155; color: #fff; padding: 10px 12px; border-radius: 6px; font-size: 13px;">
+          </div>
+          <div style="margin-bottom: 8px;">
+            <label style="font-size: 11px; color: #94a3b8; display: block; margin-bottom: 3px;">Seu WhatsApp com DDD: <span style="color:#ef4444">*</span></label>
+            <input type="tel" id="modal-lead-phone" placeholder="(48) 99619-2775" maxlength="15" style="width: 100%; box-sizing: border-box; background: #0b1120; border: 1px solid #334155; color: #fff; padding: 10px 12px; border-radius: 6px; font-size: 13px;">
+          </div>
+          <div>
+            <label style="font-size: 11px; color: #94a3b8; display: block; margin-bottom: 3px;">Seu Melhor E-mail: <span style="color:#ef4444">*</span></label>
+            <input type="email" id="modal-lead-email" placeholder="seuemail@exemplo.com" style="width: 100%; box-sizing: border-box; background: #0b1120; border: 1px solid #334155; color: #fff; padding: 10px 12px; border-radius: 6px; font-size: 13px;">
+          </div>
+        </div>
+
+        <div id="modal-lead-error" style="display: none; background: rgba(239, 68, 68, 0.15); border: 1px solid #ef4444; color: #fca5a5; font-size: 12px; padding: 8px 12px; border-radius: 6px; margin-bottom: 12px; text-align: left;"></div>
+
+        <div class="modal-mp-area" style="margin-bottom: 10px;">
+          <button id="modal-mp-btn" type="button" class="btn btn-primary btn-large" style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 15px; padding: 14px; box-sizing: border-box; cursor: pointer;">
+            <span>💳 Pagar no Mercado Pago</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- ETAPA 2: Validação Pós-Pagamento (só exibida após o cliente avançar para o Mercado Pago) -->
+      <div id="modal-step-confirm" style="display: none;">
+        <div style="background: rgba(16, 185, 129, 0.12); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 8px; padding: 12px; margin-bottom: 14px; text-align: left;">
+          <div style="font-size: 13px; font-weight: 700; color: #34d399; margin-bottom: 4px;">
+            ✅ Guia do Mercado Pago aberta em nova aba!
+          </div>
+          <div style="font-size: 12px; color: #94a3b8; line-height: 1.4;">
+            Conclua o Pix ou Cartão no Mercado Pago. Em seguida, informe abaixo o <strong>Código da Operação / ID do Comprovante</strong> para validar e desbloquear seu download imediato:
+          </div>
+        </div>
+
+        <div style="margin-bottom: 12px; text-align: left;">
+          <label style="font-size: 11px; color: #94a3b8; display: block; margin-bottom: 3px;">Código da Operação / ID do Comprovante: <span style="color:#ef4444">*</span></label>
+          <input type="text" id="modal-proof-id" placeholder="Ex: 9283748291 ou ID do Pix" style="width: 100%; box-sizing: border-box; background: #0b1120; border: 1px solid #334155; color: #fff; padding: 10px 12px; border-radius: 6px; font-size: 13px;">
+          <span style="font-size: 10px; color: #64748b;">(Encontrado no comprovante do Pix ou no recibo do Mercado Pago)</span>
+        </div>
+
+        <div id="modal-proof-error" style="display: none; background: rgba(239, 68, 68, 0.15); border: 1px solid #ef4444; color: #fca5a5; font-size: 12px; padding: 8px 12px; border-radius: 6px; margin-bottom: 12px; text-align: left;"></div>
+
+        <button id="modal-unlock-btn" type="button" class="btn" style="background: #10b981; color: #fff; width: 100%; padding: 13px; font-weight: 800; font-size: 14px; display: block; box-sizing: border-box; border-radius: 6px; cursor: pointer; border: none;">
+          🚀 Validar Pagamento & Liberar Download →
+        </button>
+
+        <div style="margin-top: 10px; text-align: center;">
+          <a href="#" id="modal-back-btn" style="font-size: 11px; color: #94a3b8; text-decoration: underline;">← Voltar / Alterar meus dados</a>
+        </div>
+      </div>
+
+      <div style="margin-top: 14px; text-align: center; font-size: 11px; color: #64748b;">
+        Precisa de ajuda com seu pedido? <a id="modal-wa-link" href="#" target="_blank" style="color: #38bdf8; text-decoration: none; font-weight: 600;">Falar com Suporte</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Exit Intent Retention Modal (5% Desconto Extra) -->
+  <div id="exit-modal" class="exit-modal-overlay">
+    <div class="exit-modal-box">
+      <button class="exit-modal-close" onclick="closeExitModal()">&times;</button>
+      <div class="exit-badge">⚠️ ESPERE! NÃO PERCA ESSA CHANCE</div>
+      <h3 class="exit-title">Você ganhou +5% de Desconto Extra no Pix!</h3>
+      <p class="exit-desc">
+        Antes de sair, liberamos uma condição secreta para você começar a espionar concorrentes hoje mesmo pelo menor valor da história:
+      </p>
+
+      <div class="exit-coupon-box">
+        <div style="font-size: 11px; color: #94a3b8; margin-bottom: 4px;">PLANO VITALÍCIO COM DESCONTO EXCLUSIVO:</div>
+        <div class="exit-discount-val">De R$ 119 por apenas R$ 105,00</div>
+        <div class="exit-discount-sub">⚡ Acesso Vitalício Ilimitado Para Sempre • Pagamento Único</div>
+        <div class="exit-timer-wrap" style="margin-top: 10px; padding-top: 10px; border-top: 1px dashed rgba(245, 158, 11, 0.4); display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 12px; color: #facc15; font-weight: 800;">
+          <span>⏳ Esta condição expira em:</span>
+          <span id="exit-countdown" style="background: rgba(239, 68, 68, 0.25); border: 1px solid #ef4444; color: #fff; padding: 2px 8px; border-radius: 4px; font-family: monospace; font-size: 14px;">05:00</span>
+        </div>
+      </div>
+
+      <button class="exit-btn-claim pulse-btn" onclick="claimExitDiscount()">
+        🎁 QUERO MEU VITALÍCIO POR R$ 105 AGORA
+      </button>
+
+      <div>
+        <span class="exit-btn-skip" onclick="closeExitModal()">Não, prefiro pagar o preço cheio mais tarde</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Social Proof Dynamic Ticker Toast -->
+  <div id="sales-ticker" class="sales-ticker-toast">
+    <div class="ticker-icon">⚡</div>
+    <div>
+      <div class="ticker-content" id="ticker-text"><strong>Rodrigo M. (São Paulo/SP)</strong> acabou de ativar a licença <strong>Vitalício Founder</strong>!</div>
+      <div class="ticker-time" id="ticker-time">há 3 minutos • Compra verificada</div>
+    </div>
+  </div>
+
+  <!-- Floating WhatsApp Support Button -->
+  <a href="https://wa.me/5548996192775?text=Olá%20Mateus,%20gostaria%20de%20tirar%20uma%20dúvida%20sobre%20o%20MeliSpy%20Pro" target="_blank" class="floating-wa-btn" id="floating-wa-btn" title="Atendimento via WhatsApp (48) 99619-2775">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="#fff"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+    <span>Suporte WhatsApp</span>
+  </a>
+
+  <!-- Analytics & UTM Tracking -->
+  <script src="analytics.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

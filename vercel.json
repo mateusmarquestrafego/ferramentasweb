@@ -6,6 +6,8 @@
     { "source": "/bio", "destination": "/bio.html" },
     { "source": "/links", "destination": "/bio.html" },
     { "source": "/link", "destination": "/bio.html" },
+    { "source": "/melispy", "destination": "/melispy.html" },
+    { "source": "/shopeespy", "destination": "/shopeespy.html" },
     { "source": "/brand", "destination": "/brand.html" }
   ]
 }
