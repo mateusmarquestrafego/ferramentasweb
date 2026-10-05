@@ -171,8 +171,7 @@ function lockSimulatorControls() {
     btn.textContent = "🔒 Teste Esgotado";
     btn.classList.add('btn-locked');
     btn.onclick = () => {
-      alert("Você já utilizou sua análise de teste gratuita neste computador.\n\nPara desbloquear o MeliSpy Pro ilimitado, escolha seu plano abaixo!");
-      document.getElementById('precos').scrollIntoView({ behavior: 'smooth' });
+      openPlanModal('Vitalício Founder (Promocional)', '105');
     };
   }
 
@@ -188,8 +187,8 @@ function lockSimulatorControls() {
     notice.id = 'demo-locked-notice';
     notice.className = 'demo-locked-banner';
     notice.innerHTML = `
-      <span>🔒 <strong>Seu teste gratuito foi finalizado.</strong> Gostou dos dados? Para continuar analisando anúncios ilimitados direto na tela do Mercado Livre, adquira sua licença oficial abaixo:</span>
-      <a href="#precos" class="btn btn-hero-full" style="max-width: 280px; padding: 10px 16px; font-size: 13px;">Garantir Vitalício por R$ 119</a>
+      <span>🔒 <strong>Seu teste gratuito foi finalizado.</strong> Gostou dos dados? Para continuar analisando anúncios ilimitados direto na tela do Mercado Livre, aproveite a condição promocional:</span>
+      <a href="javascript:void(0)" onclick="openPlanModal('Vitalício Founder (Promocional)', '105')" class="btn btn-hero-full pulse-btn" style="max-width: 330px; width: 100%; padding: 10px 16px; font-size: 13px; text-align: center; text-decoration: none; display: inline-flex; align-items: center; justify-content: center;">Garantir Vitalício: De R$ 119 por R$ 105</a>
     `;
     const demoBox = document.querySelector('.demo-box');
     if (demoBox) {
