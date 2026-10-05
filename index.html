@@ -15,7 +15,7 @@
 
   <!-- Top Announcement Bar -->
   <div class="announcement-bar">
-    <span>🔥 <strong>LOTE VITALÍCIO FOUNDER COM 50% OFF:</strong> Esta oferta relâmpago encerra em <span id="top-countdown" class="countdown-badge">14:59</span> • Restam apenas 4 licenças!</span>
+    <span>🔥 <strong id="top-promo-title">OFERTA PROMOCIONAL DO LOTE 1 COM 50% OFF:</strong> Esta condição especial encerra em <span id="top-countdown" class="countdown-badge">04:59</span> • <span id="top-remaining-text">Restam apenas 4 licenças!</span></span>
   </div>
 
   <!-- Navigation -->
@@ -248,22 +248,22 @@
       <div class="pricing-timer-card">
         <div class="timer-flex">
           <div class="timer-info">
-            <span class="timer-tag">⚡ OFERTA PROMOCIONAL DO LOTE 1</span>
-            <h3 class="timer-heading">Condição especial com até 51% de desconto encerra em:</h3>
+            <span class="timer-tag" id="batch-tag">⚡ OFERTA PROMOCIONAL DO LOTE 1</span>
+            <h3 class="timer-heading" id="batch-heading">Condição especial com até 51% de desconto encerra em:</h3>
           </div>
           <div class="timer-clock">
             <div class="timer-unit"><span id="cd-hours">00</span><label>Horas</label></div>
             <div class="timer-colon">:</div>
-            <div class="timer-unit"><span id="cd-minutes">14</span><label>Min</label></div>
+            <div class="timer-unit"><span id="cd-minutes">04</span><label>Min</label></div>
             <div class="timer-colon">:</div>
             <div class="timer-unit"><span id="cd-seconds">59</span><label>Seg</label></div>
           </div>
         </div>
         <div class="stock-progress-wrap">
           <div class="stock-progress-bar">
-            <div class="stock-progress-fill" style="width: 84%;"></div>
+            <div class="stock-progress-fill" id="batch-progress-fill" style="width: 84%;"></div>
           </div>
-          <span class="stock-label">🚨 <strong>21 de 25 licenças</strong> deste lote já foram resgatadas hoje (Apenas 4 restantes neste valor)</span>
+          <span class="stock-label" id="batch-stock-label">🚨 <strong>21 de 25 licenças</strong> deste lote já foram resgatadas hoje (Apenas 4 restantes neste valor)</span>
         </div>
       </div>
 
@@ -377,7 +377,7 @@
           <button class="btn btn-hero-full pulse-btn" onclick="openPlanModal('Vitalício Founder', '119')">
             Garantir Vitalício por R$ 119 (Único)
           </button>
-          <div class="card-urgency">⚡ Restam apenas 4 licenças com preço de fundador!</div>
+          <div class="card-urgency" id="lifetime-card-urgency">⚡ Restam apenas 4 licenças com preço de fundador!</div>
         </div>
 
       </div>
@@ -560,6 +560,10 @@
         <div style="font-size: 11px; color: #94a3b8; margin-bottom: 4px;">PLANO VITALÍCIO COM DESCONTO EXCLUSIVO:</div>
         <div class="exit-discount-val">De R$ 119 por apenas R$ 105,00</div>
         <div class="exit-discount-sub">⚡ Acesso Vitalício Ilimitado Para Sempre • Pagamento Único</div>
+        <div class="exit-timer-wrap" style="margin-top: 10px; padding-top: 10px; border-top: 1px dashed rgba(245, 158, 11, 0.4); display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 12px; color: #facc15; font-weight: 800;">
+          <span>⏳ Esta condição expira em:</span>
+          <span id="exit-countdown" style="background: rgba(239, 68, 68, 0.25); border: 1px solid #ef4444; color: #fff; padding: 2px 8px; border-radius: 4px; font-family: monospace; font-size: 14px;">05:00</span>
+        </div>
       </div>
 
       <button class="exit-btn-claim pulse-btn" onclick="claimExitDiscount()">

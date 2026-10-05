@@ -449,24 +449,85 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ==========================================
-  // 1. COUNTDOWN TIMER (Gatilho de Urgência)
+  // 1. SISTEMA DINÂMICO DE LOTES & CONTAGEM REGRESSIVA (4 Minutos)
   // ==========================================
-  let targetTime = localStorage.getItem('melispy_promo_end');
-  const durationMs = 15 * 60 * 1000; // 15 minutos
+  const PROMO_DURATION_MS = 4 * 60 * 1000; // 4 minutos por lote
 
-  if (!targetTime || Date.now() > parseInt(targetTime, 10)) {
-    targetTime = Date.now() + durationMs;
-    localStorage.setItem('melispy_promo_end', targetTime.toString());
-  } else {
-    targetTime = parseInt(targetTime, 10);
+  // Configuração dos Lotes Dinâmicos
+  const BATCH_CONFIGS = [
+    { num: 1, total: 25, taken: 21, discount: "51%", name: "Lote 1 (Lançamento Oficial)" },
+    { num: 2, total: 30, taken: 27, discount: "48%", name: "Lote 2 (Alta Demanda)" },
+    { num: 3, total: 20, taken: 17, discount: "45%", name: "Lote 3 (Últimas Vagas Founder)" },
+    { num: 4, total: 35, taken: 32, discount: "42%", name: "Lote 4 (Extraordinário)" }
+  ];
+
+  // Recupera ou inicializa estado do lote no storage
+  let currentBatchIdx = parseInt(localStorage.getItem('melispy_batch_idx') || '0', 10);
+  if (isNaN(currentBatchIdx) || currentBatchIdx < 0) currentBatchIdx = 0;
+
+  let promoEndTime = parseInt(localStorage.getItem('melispy_promo_end') || '0', 10);
+  if (!promoEndTime || Date.now() > promoEndTime) {
+    promoEndTime = Date.now() + PROMO_DURATION_MS;
+    localStorage.setItem('melispy_promo_end', promoEndTime.toString());
   }
 
-  function updateTimers() {
-    let diff = targetTime - Date.now();
+  function advanceToNextBatch() {
+    currentBatchIdx = (currentBatchIdx + 1) % BATCH_CONFIGS.length;
+    localStorage.setItem('melispy_batch_idx', currentBatchIdx.toString());
+
+    promoEndTime = Date.now() + PROMO_DURATION_MS;
+    localStorage.setItem('melispy_promo_end', promoEndTime.toString());
+
+    updateBatchDisplay();
+  }
+
+  function updateBatchDisplay() {
+    const batch = BATCH_CONFIGS[currentBatchIdx];
+    const remaining = Math.max(1, batch.total - batch.taken);
+    const progressPct = Math.round((batch.taken / batch.total) * 100);
+
+    // 1. Barra de anúncio no topo
+    const topPromoTitle = document.getElementById('top-promo-title');
+    if (topPromoTitle) {
+      topPromoTitle.textContent = `OFERTA PROMOCIONAL DO LOTE ${batch.num} COM ${batch.discount} OFF:`;
+    }
+    const topRemaining = document.getElementById('top-remaining-text');
+    if (topRemaining) {
+      topRemaining.textContent = `Restam apenas ${remaining} licenças!`;
+    }
+
+    // 2. Card de urgência na seção de preços
+    const batchTag = document.getElementById('batch-tag');
+    if (batchTag) {
+      batchTag.textContent = `⚡ OFERTA PROMOCIONAL DO LOTE ${batch.num}`;
+    }
+    const batchHeading = document.getElementById('batch-heading');
+    if (batchHeading) {
+      batchHeading.textContent = `Condição especial do Lote ${batch.num} com até ${batch.discount} de desconto encerra em:`;
+    }
+    const progressFill = document.getElementById('batch-progress-fill');
+    if (progressFill) {
+      progressFill.style.width = `${progressPct}%`;
+    }
+    const stockLabel = document.getElementById('batch-stock-label');
+    if (stockLabel) {
+      stockLabel.innerHTML = `🚨 <strong>${batch.taken} de ${batch.total} licenças</strong> deste lote já foram resgatadas hoje (Apenas ${remaining} restantes neste valor)`;
+    }
+
+    // 3. Card do Plano Vitalício Founder
+    const lifetimeUrgency = document.getElementById('lifetime-card-urgency');
+    if (lifetimeUrgency) {
+      lifetimeUrgency.textContent = `⚡ Restam apenas ${remaining} licenças com preço do Lote ${batch.num}!`;
+    }
+  }
+
+  function updateMainCountdown() {
+    let diff = promoEndTime - Date.now();
+
+    // Quando o cronômetro chega a 0 minutos, vira automaticamente para o próximo lote!
     if (diff <= 0) {
-      targetTime = Date.now() + durationMs;
-      localStorage.setItem('melispy_promo_end', targetTime.toString());
-      diff = durationMs;
+      advanceToNextBatch();
+      diff = PROMO_DURATION_MS;
     }
 
     const minutes = Math.floor((diff / (1000 * 60)) % 60);
@@ -475,29 +536,59 @@ document.addEventListener('DOMContentLoaded', () => {
     const mStr = minutes.toString().padStart(2, '0');
     const sStr = seconds.toString().padStart(2, '0');
 
-    // Update Top Announcement Bar Timer
+    // Top Bar Timer
     const topEl = document.getElementById('top-countdown');
     if (topEl) topEl.textContent = `${mStr}:${sStr}`;
 
-    // Update Pricing Card Timer
+    // Pricing Section Clock
     const cdMin = document.getElementById('cd-minutes');
     const cdSec = document.getElementById('cd-seconds');
     if (cdMin) cdMin.textContent = mStr;
     if (cdSec) cdSec.textContent = sStr;
   }
 
-  setInterval(updateTimers, 1000);
-  updateTimers();
+  // Inicializa displays
+  updateBatchDisplay();
+  updateMainCountdown();
+  setInterval(updateMainCountdown, 1000);
 
   // ==========================================
-  // 2. EXIT INTENT POPUP (Pop-up de Retenção R$ 105)
+  // 2. EXIT INTENT POPUP COM RELÓGIO DE 5 MINUTOS & AUTO-RETORNO
   // ==========================================
-  try {
-    sessionStorage.removeItem('melispy_exit_shown');
-  } catch(e) {}
+  const EXIT_DURATION_MS = 5 * 60 * 1000; // 5 minutos
+  let exitEndTime = null;
+  let exitTimerInterval = null;
 
   window.exitModalOpen = false;
   window.exitCooldown = false;
+
+  function startExitCountdown() {
+    exitEndTime = Date.now() + EXIT_DURATION_MS;
+    if (exitTimerInterval) clearInterval(exitTimerInterval);
+
+    function tickExit() {
+      const diff = exitEndTime - Date.now();
+      const exitEl = document.getElementById('exit-countdown');
+
+      if (diff <= 0) {
+        clearInterval(exitTimerInterval);
+        if (exitEl) exitEl.textContent = "00:00";
+        // Se expirar os 5 minutos sem aproveitar, fecha o modal e volta para o topo da home
+        closeExitModal();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        return;
+      }
+
+      const m = Math.floor((diff / (1000 * 60)) % 60);
+      const s = Math.floor((diff / 1000) % 60);
+      if (exitEl) {
+        exitEl.textContent = `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+      }
+    }
+
+    tickExit();
+    exitTimerInterval = setInterval(tickExit, 1000);
+  }
 
   window.openExitModal = function() {
     if (window.exitModalOpen || window.exitCooldown) return;
@@ -508,10 +599,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (modal) {
       window.exitModalOpen = true;
       modal.classList.add('active');
+      startExitCountdown();
     }
   };
 
-  // Disparo 1: Mouse saindo pelo topo da janela (Padrão Ouro Exit-Intent Desktop)
+  // Disparo 1: Mouse saindo pelo topo da janela (Desktop)
   document.addEventListener('mouseout', (e) => {
     if (!e.relatedTarget && (e.clientY <= 35 || e.pageY <= 35)) {
       window.openExitModal();
@@ -562,13 +654,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     setTimeout(() => {
       salesTicker.classList.remove('show');
-    }, 6000); // Exibe por 6 segundos
+    }, 6000);
   }
 
-  // Primeiro alerta aos 6 segundos de navegação
   setTimeout(() => {
     cycleSalesTicker();
-    // Em seguida roda a cada 18 segundos
     setInterval(cycleSalesTicker, 18000);
   }, 6000);
 });
