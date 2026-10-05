@@ -607,8 +607,14 @@
         if (dlLockedMsg) dlLockedMsg.style.display = 'none';
         if (dlUnlockedArea) dlUnlockedArea.style.display = 'block';
         
-        // Scroll suave para a área de download
-        document.getElementById('step-download-box')?.scrollIntoView({ behavior: 'smooth' });
+        // Track purchase in Analytics
+        if (window.FW_TRACKING) {
+          window.FW_TRACKING.trackEvent('purchase', {
+            currency: 'BRL',
+            transaction_id: orderId || generatedKey,
+            value: 119.00
+          });
+        }
       });
 
       btnCopy.addEventListener('click', () => {
@@ -621,5 +627,7 @@
     })();
   </script>
 
+  <!-- Analytics & UTM Tracking -->
+  <script src="analytics.js"></script>
 </body>
 </html>

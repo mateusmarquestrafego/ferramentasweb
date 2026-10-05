@@ -136,6 +136,13 @@ async function runLiveSimulator() {
 
   setTimeout(() => {
     renderSimulatorData(title, price, cost, sold);
+    if (window.FW_TRACKING) {
+      window.FW_TRACKING.trackEvent('simulator_analysis', {
+        product_title: title,
+        product_price: price,
+        product_sold: sold
+      });
+    }
     // Mark as used immediately in both localStorage and cookie
     markSimulatorAsUsed();
     lockSimulatorControls();
@@ -269,7 +276,20 @@ function openPlanModal(planName, price) {
 
   if (waLink) {
     const message = encodeURIComponent(`Olá Mateus! Gostaria de tirar uma dúvida sobre o plano ${planName} do MeliSpy Pro.`);
-    waLink.href = `https://wa.me/${CONFIG.whatsappNumber}?text=${message}`;
+    let waUrl = `https://wa.me/${CONFIG.whatsappNumber}?text=${message}`;
+    if (window.FW_TRACKING) {
+      waUrl = window.FW_TRACKING.enrichWhatsApp(waUrl, `Modal ${planName}`);
+    }
+    waLink.href = waUrl;
+  }
+
+  // Rastrear visualização de plano no Analytics
+  if (window.FW_TRACKING) {
+    window.FW_TRACKING.trackEvent('view_item', {
+      item_name: planName,
+      value: parseFloat(price) || 0,
+      currency: 'BRL'
+    });
   }
 
   modal.classList.add('active');
@@ -341,7 +361,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
       leadErr.style.display = 'none';
 
-      // 2. Salvar Lead no Supabase
+      // 2. Salvar Lead no Supabase com UTMs
+      const utms = (window.FW_TRACKING && window.FW_TRACKING.getUtms()) || {};
       if (window.supabaseClient) {
         window.supabaseClient.from('clientes_melispy').insert([{
           nome: name,
@@ -349,15 +370,27 @@ document.addEventListener('DOMContentLoaded', () => {
           email: email,
           plano: currentPlanData.slug,
           status: 'iniciou_checkout',
-          origem: 'modal_checkout'
+          origem: utms.utm_source ? `${utms.utm_source}_${utms.utm_medium || ''}` : 'modal_checkout'
         }]).then(({ error }) => {
           if (error) console.warn('[Supabase Lead Error]', error);
           else console.log('[Supabase] Lead cadastrado com sucesso!');
         });
       }
 
-      // 3. Abrir Mercado Pago em nova aba
-      window.open(currentPlanData.mpUrl, '_blank');
+      // 3. Rastrear no Analytics
+      let finalMpUrl = currentPlanData.mpUrl;
+      if (window.FW_TRACKING) {
+        finalMpUrl = window.FW_TRACKING.appendUtms(currentPlanData.mpUrl, { utm_medium: 'modal_checkout' });
+        window.FW_TRACKING.trackEvent('begin_checkout', {
+          item_name: currentPlanData.name,
+          value: parseFloat(currentPlanData.price) || 0,
+          currency: 'BRL',
+          checkout_url: finalMpUrl
+        });
+      }
+
+      // 4. Abrir Mercado Pago em nova aba com UTMs
+      window.open(finalMpUrl, '_blank');
 
       // 4. Mudar visual do Modal para o Passo 2 (Confirmação do Comprovante)
       document.getElementById('modal-step-lead').style.display = 'none';
@@ -424,6 +457,12 @@ function copyPixKey() {
   pixField.setSelectionRange(0, 99999); // Mobile
   navigator.clipboard.writeText(pixField.value).then(() => {
     statusMsg.textContent = "✅ Chave Pix copiada com sucesso!";
+    if (window.FW_TRACKING) {
+      window.FW_TRACKING.trackEvent('copy_pix', {
+        plan: (currentPlanData && currentPlanData.name) || 'Vitalício Founder',
+        value: (currentPlanData && currentPlanData.price) || '119'
+      });
+    }
     setTimeout(() => { statusMsg.textContent = ""; }, 3000);
   });
 }
@@ -674,6 +713,13 @@ function closeExitModal() {
 }
 
 function claimExitDiscount() {
+  if (window.FW_TRACKING) {
+    window.FW_TRACKING.trackEvent('claim_discount', {
+      discount_type: '5off_pix',
+      original_price: 119,
+      discount_price: 105
+    });
+  }
   closeExitModal();
   // Abre o checkout com o desconto exclusivo no Vitalício por R$ 105
   openPlanModal('Vitalício Founder (Desconto Exclusivo)', '105');
