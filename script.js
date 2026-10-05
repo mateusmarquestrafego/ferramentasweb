@@ -189,7 +189,7 @@ function lockSimulatorControls() {
     notice.className = 'demo-locked-banner';
     notice.innerHTML = `
       <span>🔒 <strong>Seu teste gratuito foi finalizado.</strong> Gostou dos dados? Para continuar analisando anúncios ilimitados direto na tela do Mercado Livre, adquira sua licença oficial abaixo:</span>
-      <a href="#precos" class="btn btn-hero-full" style="max-width: 260px; padding: 10px 16px; font-size: 13px;">Garantir MeliSpy Pro (R$ 97)</a>
+      <a href="#precos" class="btn btn-hero-full" style="max-width: 280px; padding: 10px 16px; font-size: 13px;">Garantir Vitalício por R$ 119</a>
     `;
     const demoBox = document.querySelector('.demo-box');
     if (demoBox) {
