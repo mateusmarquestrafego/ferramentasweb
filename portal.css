@@ -127,6 +127,11 @@
   color: #ff7043;
   border: 1px solid rgba(238, 77, 45, 0.3);
 }
+.nav-tag-darkcuts {
+  background: rgba(168, 85, 247, 0.15);
+  color: #c084fc;
+  border: 1px solid rgba(168, 85, 247, 0.3);
+}
 
 /* Nav Actions */
 .portal-nav-actions {
@@ -419,6 +424,12 @@
   gap: 32px;
 }
 
+.products-trio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
 .product-showcase-card {
   position: relative;
   background: var(--portal-bg-card);
@@ -453,6 +464,14 @@
   border-color: rgba(238, 77, 45, 0.4);
 }
 
+.card-darkcuts {
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(168, 85, 247, 0.2);
+}
+.card-darkcuts:hover {
+  box-shadow: 0 16px 50px rgba(168, 85, 247, 0.25), inset 0 1px 0 rgba(168, 85, 247, 0.5);
+  border-color: rgba(168, 85, 247, 0.45);
+}
+
 .product-card-badge {
   align-self: flex-start;
   padding: 6px 12px;
@@ -472,6 +491,11 @@
   background: rgba(238, 77, 45, 0.12);
   color: #ff7043;
   border: 1px solid rgba(238, 77, 45, 0.35);
+}
+.badge-darkcuts {
+  background: rgba(168, 85, 247, 0.15);
+  color: #c084fc;
+  border: 1px solid rgba(168, 85, 247, 0.35);
 }
 
 .product-card-header {
@@ -543,6 +567,7 @@
 
 .card-meli .icon-check { color: #facc15; }
 .card-shopee .icon-check { color: #ff7043; }
+.card-darkcuts .icon-check { color: #c084fc; }
 
 .product-card-pricing {
   background: rgba(0, 0, 0, 0.3);
@@ -628,6 +653,16 @@
 .btn-shopee-primary:hover {
   transform: translateY(-2px);
   box-shadow: 0 10px 25px rgba(238, 77, 45, 0.5);
+}
+
+.btn-darkcuts-primary {
+  background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+  color: #fff;
+  box-shadow: 0 6px 20px rgba(168, 85, 247, 0.35);
+}
+.btn-darkcuts-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(168, 85, 247, 0.5);
 }
 
 /* Section: Sobre a FerramentasWeb */
@@ -991,7 +1026,7 @@
 @media (max-width: 960px) {
   .portal-nav-links { display: none; }
   .portal-menu-toggle { display: block; }
-  .products-duo-grid { grid-template-columns: 1fr; }
+  .products-duo-grid, .products-trio-grid { grid-template-columns: 1fr; }
   .about-inner { grid-template-columns: 1fr; }
   .combo-banner-card { grid-template-columns: 1fr; }
   .portal-stats-bar { grid-template-columns: 1fr 1fr; }
